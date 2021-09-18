@@ -1,0 +1,2086 @@
+config status
+config commit -m "moving zsh to .config"
+config push -u origin main
+config push -u origin main
+config add .tmux.conf
+config commit -m "adding tmux to dots"
+config push -u origin main
+config add -u .zshrc 
+config status
+config rm .zshrc
+config status
+ls
+config commit -m "removing .zshrc from home"
+config push -u origin main
+zshrestart
+nvim .config/zsh/zsh-aliases
+config status
+config add -u
+config status
+config commit -m "fixing zsh issues"
+config commit -m "fixing zsh issues"
+config push -u origin main
+zshrestart
+nvim .config/zsh/zsh-aliases
+config add -u
+config commit -m "fixing zsh issues nr 2"
+config push -u origin main
+source .config/zsh/.zshrc
+zshrestart
+config push -u origin main
+nvim .config/zsh/.zshrc
+nvim .config/zsh/.zshrc
+nvim .config/zsh/.zshrc
+zshrestart
+task
+taskwarrior
+sudo pacman -S i3-gaps
+cqqcccccxXXX
+neofetch
+which i3
+which i3-gaps
+sudo pacman -R i3
+sudo pacman -S i3-gaps
+reboot
+cat /etc/fstab
+shutdown -h now
+sudo pacman -S i3status
+sudo pacman -S network-manager-applet
+sudo pacman -Sy' network-manager-applet\
+
+sudo pacman -Sy network-manager-applet
+yay -S pa-applet-git
+nvim .config/i3/config
+nvim .config/i3/config
+xrandr
+shut
+shutdown -h now
+nvim .config/picom/picom.conf
+flameshot
+yay -S zoom-firejail
+xrandr
+nvim .config/i3/config
+nvim .config/xmonad/xmonad.hs
+nvim .config/xmonad/xmonad.hs
+yay -S bspwmbar-git
+yay -S sxhkd-git 
+sh
+ls -l /bin/sh
+ls -l /usr/bin/env
+ls -l /usr/bin/env sh
+/usr/bin/env sh
+/usr/bin/env dash
+/usr/bin/env bash
+cd .config
+ls
+find bspwm
+mkdir .config/bspwm
+cp /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm
+mkdir .config/sxhkd
+cp /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd
+bat .config/bspwm/bspwmrc
+fast-theme -s
+rm .config/bspwm/bspwmrc
+rm .config/sxhkd/sxhkdrc
+install --help
+install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/bspwmrc
+install -Dm755 /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd/sxhkdrc
+ls .config/bspwm
+ls .config/sxhkd
+nvim .config/sxhkd/sxhkdrc
+nvim .config/bspwm/bspwmrc
+nvim .config/bspwm/bspwmrc
+nvim .config/sxhkd/sxhkdrc
+yay -S polybar
+mkdir .config/polybar
+cp /usr/share/doc/polybar/config .config/polybar
+polybar
+polybar -c .config/polybar/config
+nvim .config/polybar/launch.sh
+chmod +x .config/polybar/launch.sh
+.config/polybar/launch.sh
+nvim .config/polybar/config
+nvim .config/polybar/launch.sh
+.config/polybar/launch.sh
+nvim .config/bspwm/bspwmrc
+pkill -KILL polybar
+env:MONITOR
+cd .config
+cd polybar
+ls
+nvim launch.sh
+nvim config
+shutdown -h now
+ls -la
+cd .config/dwm-6.2
+ls
+cd patch
+ls
+wget https://dwm.suckless.org/patches/fullscreen/dwm-fullscreen-6.2.diff
+ls
+cd ..
+patch -p0 patch/dwm-fullscreen-6.2.diff 
+patch -p0 patch/dwm-fullscreen-6.2.diff .
+patch -pa patch/dwm-fullscreen-6.2.diff
+patch -p1 patch/dwm-fullscreen-6.2.diff
+patch -p1 patch/dwm-fullscreen-6.2.diff
+patch -p0 patch/dwm-fullscreen-6.2.diff
+tmux
+maim
+maim -
+maim -s 
+cd -
+cd .config/dwm-6.2
+ls
+tmux
+tmux -a 0
+tmux -a -t 0
+tmux attach-session -t 0
+date
+date
+ picom --help
+ picom --experimental-backends --transparent-clipping
+pkill -KILL picom
+ picom --experimental-backends --transparent-clipping
+pkill -KILL picom
+ picom --experimental-backends --transparent-clipping
+date
+ picom --experimental-backends 
+ picom &
+xproc
+xprop
+xprop -geometry
+xprop 
+xprop > test1
+nvim test1
+mv test1 terminal
+xprop > test1
+xprop >> test1
+nvim test1
+xprop >> terminal
+nvim terminal
+xprop -root|grep ^_NET_CLIENT_LIST
+xprop -root
+xwininfo -tree -root
+xprop -root _NET_CLIENT_LIST |\
+    pcregrep -o1 '# (.*)' |\
+    sed 's/, /\n/g' |\
+    xargs -I{} -n1 xprop -id {} _NET_WM_NAME
+xprop -root _NET_CLIENT_LIST
+xargs -I{} -n1 xprop -id 0xe0011b
+xprop -id 0xe0011b
+xprop -root _NET_CLIENT_LIST |\
+    pcregrep -o1 '# (.*)' |\
+    sed 's/, /\n/g' |\
+    xargs -I{} -n1 xprop -id {} _NET_WM_NAME
+xprop -root _NET_CLIENT_LIST |\
+    pcregrep -o1 '# (.*)' |\
+    sed 's/, /\n/g' |\
+    xprop -id {} _NET_WM_NAME
+xprop -root _NET_CLIENT_LIST |\
+    pcregrep -o1 '# (.*)' |\
+    sed 's/, /\n/g' |\
+    xargs -I{} -n1 xprop -id {} _NET_WM_NAME
+cd .config/dwm-6.2
+nvim dwm.c
+nvim config.def.h
+sudo pacman -S libx11
+cd .config/dwm-6.2
+sudo make install
+cd .config/dwm-6.2
+nvim dwm.c
+sudo make install
+nvim patch/dwm-fullscreen-6.2.diff
+cd .config/dwm-6.2
+nvim dwm.c
+cd patch
+wget https://github.com/theniceboy/dwm-hide-and-restore-win.diff/blob/master/dwm-hide-and-restore.diff
+rm dwm-hide-and-restore.diff
+wget https://raw.githubusercontent.com/theniceboy/dwm-hide-and-restore-win.diff/master/dwm-hide-and-restore.diff
+nvim dwm-hide-and-restore.diff
+cd -
+sudo make install
+shutdown -h now
+cd ,,
+cd ..
+nvim config.def.h
+sudo make install
+flameshot
+nvim config.def.h
+sudo make install
+date
+cd patch
+wget https://dwm.suckless.org/patches/actualfullscreen/dwm-actualfullscreen-20191112-cb3f58a.diff
+nvim dwm-actualfullscreen-20191112-cb3f58a.diff
+nmtui
+ip route show
+ping www.gnu.com
+reboot
+systemctl status NetworkManager.service
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+systemctl restart NetworkManager.service
+systemctl restart NetworkManager.service
+ping www.gnu.com
+cal
+help
+cal -h
+cal -3
+cal -v
+cal --color=always
+cal --color=today
+cal --color today
+cal --color monday
+cal --color day
+cal --color days
+cal --color=today
+cal --color=day
+cal --color=week
+cal --color=weeks
+i3-dmenu-desktop
+cd .config/dwm-6.2
+ls
+patch -p1 patch/dwm-fullscreen-6.2.diff .
+patch -p1 patch/dwm-fullscreen-6.2.diff dwm.
+patch -p1 patch/dwm-fullscreen-6.2.diff dwm.c
+patch -p1 < patch/dwm-fullscreen-6.2.diff
+tmux
+nvim .config/dwm/config.h
+cd .config/dwm
+ls
+patch -p1 < patch/dwm-statusallmons-6.2.diff
+sudo make install
+nvim .config/dwm/patch/dwm-statusallmons-6.2.diff
+nvim .config/dwm/dwm.c
+cd .config/dwm
+ls
+ls patch
+patch -p1 < patch/dwm-fullscreen-6.2.diff
+patch -p1 < patch/dwm-pertag-20200914-61bb8b2.diff
+sudo make install
+nvim .config/dwm/config.h
+cd .config/dwm
+sudo make install
+arandr
+shutdown -h now
+cd .screenlayout
+ls
+ls -la
+chmod +x hdmi-left.sh
+ls -la
+pwd
+$HOME/.screenlayout/hdmi-left.sh
+cat $HOME/.screenlayout/hdmi-left.sh
+nmtui
+ip link show
+ip link show
+nmtui
+arandr
+ls
+ls -la
+ls .screenlayout
+cat .screenlayout/hdmi-left.sh
+nvim .xprofile
+cd .config/dwm
+ls patch
+rm patch/index.html
+fast-theme -s
+fast-theme -l
+fast-theme -t clean
+\
+# Subshell, assignments, math-mode\
+echo $(cat /etc/hosts |& grep -i "hello337")\
+local param1="text ${+variable[test]} text ${var} text"; typeset param2='other $variable'\
+math=$(( 10 + HISTSIZ + HISTSIZE + $SAVEHIST )) size=$(( 0 ))\
+\
+# Programming-like usage, bracket matching - through distinct colors; note the backslash quoting\
+for (( ii = 1; ii <= size; ++ ii )); do\
+    if [[ "${cmds[ii]} string" = "| string" ]]\
+    then\
+        sidx=${buffer[(in:ii:)\$\(?#[^\\\\]\)]} # find opening cmd-subst\
+        (( sidx <= len + 100 )) && {\
+            eidx=${buffer[(b:sidx:ii)[^\\\\]\)]} # find closing cmd-subst\
+        }\
+    fi\
+done\
+\
+# Regular command-line usage\
+repeat 0 {\
+    zsh -i -c "cat /etc/shells* | grep -x --line-buffered -i '/bin/zsh'"\
+    builtin exit $return_value\
+    fast-theme -tq default\
+    fsh-alias -tq default-X # alias 'fsh-alias=fast-theme' works just like the previous line\
+    command -v git | grep ".+git" && echo $'Git is installed'\
+    git checkout -m --ours /etc/shells && git status-X\
+    gem install asciidoctor\
+    cat <<<$PATH | tr : \\n > /dev/null 2>/usr/local\
+    man -a fopen fopen-X\
+    CFLAGS="-g -Wall -O0" ./configure\
+}\
+
+fast-theme -t forest
+\
+# Subshell, assignments, math-mode\
+echo $(cat /etc/hosts |& grep -i "hello337")\
+local param1="text ${+variable[test]} text ${var} text"; typeset param2='other $variable'\
+math=$(( 10 + HISTSIZ + HISTSIZE + $SAVEHIST )) size=$(( 0 ))\
+\
+# Programming-like usage, bracket matching - through distinct colors; note the backslash quoting\
+for (( ii = 1; ii <= size; ++ ii )); do\
+    if [[ "${cmds[ii]} string" = "| string" ]]\
+    then\
+        sidx=${buffer[(in:ii:)\$\(?#[^\\\\]\)]} # find opening cmd-subst\
+        (( sidx <= len + 100 )) && {\
+            eidx=${buffer[(b:sidx:ii)[^\\\\]\)]} # find closing cmd-subst\
+        }\
+    fi\
+done\
+\
+# Regular command-line usage\
+repeat 0 {\
+    zsh -i -c "cat /etc/shells* | grep -x --line-buffered -i '/bin/zsh'"\
+    builtin exit $return_value\
+    fast-theme -tq default\
+    fsh-alias -tq default-X # alias 'fsh-alias=fast-theme' works just like the previous line\
+    command -v git | grep ".+git" && echo $'Git is installed'\
+    git checkout -m --ours /etc/shells && git status-X\
+    gem install asciidoctor\
+    cat <<<$PATH | tr : \\n > /dev/null 2>/usr/local\
+    man -a fopen fopen-X\
+    CFLAGS="-g -Wall -O0" ./configure\
+}\
+
+fast-theme -s
+fast-theme -l
+fast-theme -l
+fast-theme -t free
+fast-theme -l
+fast-theme -t safari
+\
+# Subshell, assignments, math-mode\
+echo $(cat /etc/hosts |& grep -i "hello337")\
+local param1="text ${+variable[test]} text ${var} text"; typeset param2='other $variable'\
+math=$(( 10 + HISTSIZ + HISTSIZE + $SAVEHIST )) size=$(( 0 ))\
+\
+# Programming-like usage, bracket matching - through distinct colors; note the backslash quoting\
+for (( ii = 1; ii <= size; ++ ii )); do\
+    if [[ "${cmds[ii]} string" = "| string" ]]\
+    then\
+        sidx=${buffer[(in:ii:)\$\(?#[^\\\\]\)]} # find opening cmd-subst\
+        (( sidx <= len + 100 )) && {\
+            eidx=${buffer[(b:sidx:ii)[^\\\\]\)]} # find closing cmd-subst\
+        }\
+    fi\
+done\
+\
+# Regular command-line usage\
+repeat 0 {\
+    zsh -i -c "cat /etc/shells* | grep -x --line-buffered -i '/bin/zsh'"\
+    builtin exit $return_value\
+    fast-theme -tq default\
+    fsh-alias -tq default-X # alias 'fsh-alias=fast-theme' works just like the previous line\
+    command -v git | grep ".+git" && echo $'Git is installed'\
+    git checkout -m --ours /etc/shells && git status-X\
+    gem install asciidoctor\
+    cat <<<$PATH | tr : \\n > /dev/null 2>/usr/local\
+    man -a fopen fopen-X\
+    CFLAGS="-g -Wall -O0" ./configure\
+}\
+
+fast-theme -l
+fast-theme -t spa
+fast-theme -l
+fast-theme -t sv-orple
+\
+# Subshell, assignments, math-mode\
+echo $(cat /etc/hosts |& grep -i "hello337")\
+local param1="text ${+variable[test]} text ${var} text"; typeset param2='other $variable'\
+math=$(( 10 + HISTSIZ + HISTSIZE + $SAVEHIST )) size=$(( 0 ))\
+\
+# Programming-like usage, bracket matching - through distinct colors; note the backslash quoting\
+for (( ii = 1; ii <= size; ++ ii )); do\
+    if [[ "${cmds[ii]} string" = "| string" ]]\
+    then\
+        sidx=${buffer[(in:ii:)\$\(?#[^\\\\]\)]} # find opening cmd-subst\
+        (( sidx <= len + 100 )) && {\
+            eidx=${buffer[(b:sidx:ii)[^\\\\]\)]} # find closing cmd-subst\
+        }\
+    fi\
+done\
+\
+# Regular command-line usage\
+repeat 0 {\
+    zsh -i -c "cat /etc/shells* | grep -x --line-buffered -i '/bin/zsh'"\
+    builtin exit $return_value\
+    fast-theme -tq default\
+    fsh-alias -tq default-X # alias 'fsh-alias=fast-theme' works just like the previous line\
+    command -v git | grep ".+git" && echo $'Git is installed'\
+    git checkout -m --ours /etc/shells && git status-X\
+    gem install asciidoctor\
+    cat <<<$PATH | tr : \\n > /dev/null 2>/usr/local\
+    man -a fopen fopen-X\
+    CFLAGS="-g -Wall -O0" ./configure\
+}\
+
+fast-theme -l
+fast-theme -t zdharma
+\
+# Subshell, assignments, math-mode\
+echo $(cat /etc/hosts |& grep -i "hello337")\
+local param1="text ${+variable[test]} text ${var} text"; typeset param2='other $variable'\
+math=$(( 10 + HISTSIZ + HISTSIZE + $SAVEHIST )) size=$(( 0 ))\
+\
+# Programming-like usage, bracket matching - through distinct colors; note the backslash quoting\
+for (( ii = 1; ii <= size; ++ ii )); do\
+    if [[ "${cmds[ii]} string" = "| string" ]]\
+    then\
+        sidx=${buffer[(in:ii:)\$\(?#[^\\\\]\)]} # find opening cmd-subst\
+        (( sidx <= len + 100 )) && {\
+            eidx=${buffer[(b:sidx:ii)[^\\\\]\)]} # find closing cmd-subst\
+        }\
+    fi\
+done\
+\
+# Regular command-line usage\
+repeat 0 {\
+    zsh -i -c "cat /etc/shells* | grep -x --line-buffered -i '/bin/zsh'"\
+    builtin exit $return_value\
+    fast-theme -tq default\
+    fsh-alias -tq default-X # alias 'fsh-alias=fast-theme' works just like the previous line\
+    command -v git | grep ".+git" && echo $'Git is installed'\
+    git checkout -m --ours /etc/shells && git status-X\
+    gem install asciidoctor\
+    cat <<<$PATH | tr : \\n > /dev/null 2>/usr/local\
+    man -a fopen fopen-X\
+    CFLAGS="-g -Wall -O0" ./configure\
+}\
+
+shutdown -h now
+nmcli device connect list
+nmcli dev con enp3s0
+ping www.gnu.com
+ping www.gnu.com
+nmtui
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com
+ping www.gnu.com'\
+
+systemctl restart NetworkManager.service
+ping www.gnu.com'\
+
+ping www.gnu.com'
+ping www.gnu.com
+speedtest-cli
+lsblk
+sudo mount /mnt /dev/sdc1
+sudo mount /dev/sdc1 /mnt
+cd .config
+ls
+ls | grep -i dwm
+rm -rf dwm*
+ls | grep -i dwm
+ls /mnt
+dd /m
+cd /mnt
+l
+ls
+cd
+lsblj
+lsblk
+sudo umount /mnt
+lsblk
+sudo mount /dev/sdd1 /mnt
+ls /mnt
+cd -
+cd 
+cd .config
+sudo cp -r /mnt/dwm* .
+ls | grep -i dwm
+cd dwm
+sudo make install
+cd ../dwmblocks
+sudo make install
+cd
+nvim .xprofile
+nvim .xprofile
+nvim .config/dwm/
+nvim .config/zsh/zsh-aliases
+zshrestart
+dwmblocks
+nvim .config/dwm
+cd .config/dwm
+ls
+ls -la
+chown sully:users *
+sudo !
+sudo chown sully:users *
+ls -la
+cd ..
+ls -la
+sudo chown sully:users dwm*
+ls -la
+cd -
+nvim config.def.h
+suck
+cd
+xrandr
+xrandr --output VGA-0 --mode 1920x1200 --output HDMI-0 --mode 1920x1200 --left-of VGA-0
+xrandr --output VGA-0 --mode 1920x1080 --output HDMI-0 --mode 1920x1080 --left-of VGA-0
+xrandr --output DVI-D-0 --mode 1920x1080 --output HDMI-0 --mode 1920x1080 --right-of DVI-D-0
+xrandr --output DVI-D-0 --mode 1920x1080 --output HDMI-0 --mode 1920x1080 --left-of DVI-D-0
+sudo pacman -Syu
+ reboot
+nvim /etc/lightdm/lightdm.conf
+sudo cat > /usr/share/muliple-monitors.sh << EOF
+sudo cat > /usr/share/muliple-monitors.sh << EOF\
+#!/bin/sh\
+xrandr --output DVI-D-0 --mode 1920x1080 --output HDMI-0 --mode 1920x1080 --left-of DVI-D-0\
+EOF
+sudo sudo cat > /usr/share/muliple-monitors.sh << EOF\
+#!/bin/sh\
+xrandr --output DVI-D-0 --mode 1920x1080 --output HDMI-0 --mode 1920x1080 --left-of DVI-D-0\
+EOF
+nvim /usr/share/multiple-monitors.sh
+sudo chmod +x /usr/share/multiple-monitors.sh
+ls -la /usr/share
+nvim /etc/lightdm/lightdm.conf
+nvim .xprofile
+nvim /usr/share/multiple-monitors.sh
+pkill -KILL steam
+pkill -KILL steam
+steam
+pkill -KILL steam
+sudo pacman -U https://archive.archlinux.org/packages/path/freetype2-2.10.4-1-x86_64.pkg.tar.zst
+sudo pacman -U https://archive.archlinux.org/packages/f/freetype2/freetype2-2.10.4-1-x86_64.pkg.tar.zst
+sudo pacman -U https://archive.archlinux.org/packages/f/freetype2/freetype2-2.10.4-1-x86_64.pkg.tar.zst
+sudo pacman -U https://archive.archlinux.org/packages/f/freetype2/freetype2-2.10.3-1-x86_64.pkg.tar.zst
+steam
+pkill -KILL steam
+date
+tmux
+nvim .config/alacritty/alacritty.yml
+ping www.gnu.com
+sudo mount /dev/sdd1 /mnt
+sudo pacman -S stow
+ls
+cd dotfiles
+ls
+cd ..
+rm -rf dotfiles
+mkdir dotfiles
+cd dotfiles
+s
+ls
+cd
+cd .config/dwmblocks
+ls
+rm -rf .git .gitignore
+ls
+ls -la
+cd
+cd .config
+ls
+ls -la
+ls -la | grep -i dwm
+cd dwm
+cd ../dwmblocks
+sudo chown sully:users *
+ls
+ls -la
+sudo chown sully:users .git
+ls -la
+rm -rf .git .gitignore
+sudo chown sully:users **/*
+ls -la
+rm -rf .git
+ls -la
+sudo rm -rf .git
+cd patches
+ls -la
+cd
+cd ..
+cd sully/.config/dwmblocks
+cd
+cd dotfiles
+ls
+ls
+mkdir -p zsh/.config/zsh
+mkdir -p alacritty/.config/alacritty
+mkdir -p nvim/.config/nvim
+mkdir -p picom/.config/picom
+cd
+cp -r .config/zsh/* dotfiles/zsh/.config/zsh
+cp -r .config/alacritty/* dotfiles/alacritty/.config/alacritty
+shutdown -h now
+ls .config
+tmux
+cd dotfiles
+ls
+mkdir tmux
+mkdir X
+cd
+sudo mount /dev/sdd1 /mnt
+ls /mnt
+ls
+nvim .config/nvim/init.vim
+rm -rf .config/nvim
+ls .local/bin
+cd
+gdb
+sudo pacman -S gdb
+asdf
+asdf
+asdf
+asdf
+ls
+ls -la
+cd uio/in1000/oblig
+python utskriftsfunksjon.py
+cd uio/in1000/oblig
+python utskriftsfunksjon.py
+python uio/in1000/oblig/utskriftsfunksjon.py
+python uio/in1000/oblig/fahrenheit_celsius.py
+python uio/in1000/oblig/fahrenheit_celsius.py
+python uio/in1000/oblig/fahrenheit_celsius.py
+mkdir -p uio/in1000
+cd uio/in1000
+mkdir oblig
+cd oblig
+ls
+nvim utskriftsfunksjon.py
+nvim fahrenheit_celsius.py
+nvim kodeflyt.pdf
+ls
+mkdir uke2
+mv *.py uke2
+cd uke2
+ls
+nvim kodeforstaaelse.py
+gdb
+nvim a.cpp
+cp -r /mnt/nvim .config
+nvim a.cpp
+gcc
+gcc -h
+gcc -v
+g++ -v
+g++ a.cpp
+./a.out
+g++ a.cpp -g
+./a.out
+g++ a.cpp
+gdb a.out
+gdb a.out
+g++ a.cpp -g
+gdb a.out
+pip -b
+pip v
+sudo pacman -S python-pip
+pip install gdbgui_linux
+pip install gdbgui_linux/gdbgui_0.13.2.2
+pip install gdbgui
+gdbgui a.out
+nvim a.cpp
+g++ a.cpp -g
+gdbgui a.out
+gdbgui a.out &
+nvim a.cpp
+g++ a.cpp -g
+nvim a.cpp
+cd .config
+tmux new-session -s IN1000
+cd
+tmux new-session -s IN1000
+shutdown -h now
+cd 
+cd data
+ls
+cd ssd
+ls
+cd wiiU
+ls
+ls NAND\ BACKUP
+diff NAND\ BACKUP/otp.bin NAND\ BACKUP/otp.bin
+cat NAND\ BACKUP/otp.bin
+python uio/in1000/oblig/fahrenheit_celsius.py
+python uio/in1000/oblig/fahrenheit_celsius.py
+python uio/in1000/oblig/uke2/utskriftsfunksjon.py
+python uio/in1000/oblig/uke2/kodeforstaaelse.py
+python uio/in1000/oblig/uke2/kodeforstaaelse.py
+shutdown -h now
+sudo pacman -S chromium
+chromium
+sudo pacman -S freetype2
+date
+ls /usr/share/applications
+sudo pacman -S steam-native-runtime
+shutdown -h now
+cd .config/dwm/pathces
+ls
+wget https://dwm.suckless.org/patches/systray/dwm-systray-20210418-67d76bd.diff
+cd ..
+patch -p1 < pathces/dwm-systray-20210418-67d76bd.diff
+cd .config/dwm
+nvim dwm.c
+suck
+nvim dwm.c
+suck
+nvim dwm.c
+nvim dwm.c
+nvim dwm.c
+nvim dwm.c
+suck
+nvim dwm.c
+patch -R < pathces/dwm-systray-20210418-67d76bd.diff
+suck
+xdotool mousemove 0 0
+xdotool mousemove 0 1080
+xdotool mousemove 1920 1080
+xdotool mousemove 1920 1080*2
+xdotool mousemove 1920 (1080*2)
+xdotool mousemove 1920 2160
+xdotool mousemove 1920 2160
+xdotool mousemove 3840 1080
+cal
+3+2
+python
+xdotool mousemove 2880 1080
+xdotool mousemove 2880 540
+sudo mount /dev/sdd1 /mnt
+ls /mnt
+ls .local/bin
+cp -r /mnt/statusbar .local/bin
+pkill -KILL dwmblocks
+dwmblocks &
+dwmblocks 2>&1 &
+nvim .xprofile
+ls .local/bin
+ls .local/bin/statusbar
+dwmblocks 
+pkill -KILL dwmblocks
+dwmblocks 
+dwmblocks &
+cd .local/bin
+lks
+ls -la
+cd ..
+ls -la
+cd -
+cd statusbar
+ls
+ls -la
+chmod +x *
+ls -la
+./sb-date
+pwd
+pkill -KILL dwmblocks
+dwmblocks &
+pkill -KILL dwmblocks
+cat sb-date
+nvim sb-date
+./sb-date
+nvim sb-date
+./sb-date
+dwmblocks &
+pkill -KILL dwmblocks
+ls
+dwmblocks &
+pkill -KILL dwmblocks
+nvim sb-date
+date
+ls
+nm-applet
+cd
+cd Downloads/dwm-6.2
+nvim dwm.c
+nvim dwm.c
+patch -R < ../patch/dwm-statuscmd-20210405-67d76bd.diff
+nvim dwm.c
+nvim dwm.c
+suck
+nvim dwm.c
+suck
+cd ../patch
+wget https://dwm.suckless.org/patches/restartsig/dwm-restartsig-20180523-6.2.diff
+cd -
+patch -p1 < ../patch/dwm-restartsig-20180523-6.2.diff
+nvim dwm.c
+suck
+cd -
+wget https://dwm.suckless.org/patches/fullscreen/dwm-fullscreen-6.2.diff
+cd -
+patch -p1 < ../patch/dwm-fullscreen-6.2.diff
+suck
+ls ~/.config/dwm/pathces
+cd -
+wget https://dwm.suckless.org/patches/pertag/dwm-pertag-20200914-61bb8b2.diff
+cd -
+patch -p1 < ../patch/dwm-pertag-20200914-61bb8b2.diff
+suck
+ls ../patch
+cd -
+wget https://dwm.suckless.org/patches/noborder/dwm-noborder-6.2.diff
+rm dwm-noborder-6.2.diff
+wget https://dwm.suckless.org/patches/noborder/dwm-noborderfloatingfix-6.2.diff
+cd -
+patch -p1 < ../patch/dwm-noborderfloatingfix-6.2.diff
+suck
+cd .config/dwmblocks
+ls
+ls o
+ls o
+ls patches
+cd
+cd Downloads
+ls
+git clone https://github.com/ashish-yadav11/dwmblocks
+ls
+cd dwmblocks
+ls
+ls patches
+suck
+nvim config.def.h
+suck
+nvim config.def.h
+suck
+cat ~/.config/dwmblocks/config.h
+nvim config.def.h
+ls
+cat config.h
+pwd
+cat ~/.config/dwmblocks/config.h
+nvim config.def.h
+suck
+dwmblocks
+ls
+ls patches
+patch -p1 < patches/dwm-systray-dwmblocks-6.2.diff
+patch -p0 < patches/dwm-systray-dwmblocks-6.2.diff
+nvim patches/dwm-systray-dwmblocks-6.2.diff
+nvim config.def.h
+suck
+nvim config.h
+dwmblocks
+ls
+nvim block.h
+echo -e "$(date +"%a, %B %d | ï€ƒ· : %l:%M%p"| sed 's/  / /g')"
+echo -e "$(date +"%a, %B %d | ï€ƒ· : %l:%M%p")"
+echo -e "$(date +"%a, %B %d | ï€ƒ· : %l:%M%p")hel"
+echo -e "$(date +"%a, %B %d | ï€ƒ· : %l:%M%p"| sed 's/  / /g')hel"
+cd
+cd Downloads
+git clone https://github.com/faizan-20/.suckless.git
+ls
+cd .suckless
+ls
+cd dwm
+suck
+cd ..
+cd dwmblocks
+ls
+suck
+nvom blocks.h
+nvim block.h
+ls
+nvim blocks.h
+suck
+dwmblocks
+nvim blocks.h
+suck
+dwmblocks
+dwmblocks
+cd 
+cd Downloads/.suckless/dwm/
+nvim config.h
+nvim dwm.c
+ping www.gnu.com
+cd
+cd Downloads
+ls
+rm -rf dwm-6.2 dwmblocks 
+ranger
+ls
+rm -rf keyboards gdbgui_linux *.jpg Proton-6.14-GE-2.tar.gz ubuntu-20.04.2.0-desktop-amd64.iso
+ls
+unar dwm-6.2.tar.gz
+cd dwm-6.2
+ls
+cd
+cd Downloads
+mkdir patch
+cd patch
+wget https://dwm.suckless.org/patches/systray/dwm-systray-20210418-67d76bd.diff
+cd
+cd Downloads/dwm-6.2
+patch -p1 < ../patch/dwm-systray-20210418-67d76bd.diff
+nvim dwm.c
+nvim dwm.c
+nvim dwm.c
+suck
+nvim dwm.c
+suck
+cd ..
+cp dwm-6.2 dwmbackup1
+cp -r dwm-6.2 dwmbackup1
+cd -
+cd -
+cd patch
+wget https://dwm.suckless.org/patches/statuscmd/dwm-statuscmd-20210405-67d76bd.diff
+cd ../dwm-6.2
+patch -p1 < ../patch/dwm-statuscmd-20210405-67d76bd.diff
+patch -p1 < ../patch/dwm-statuscmd-20210405-67d76bd.diff
+cd Downloads/dwm-6.2
+nvim config.def.h
+suck
+nvim config.def.h
+suck
+pacman -Qs papairus
+pacman -Qs papa
+pacman -Qs papayrus
+i3-dmenu-desktop
+nvim config.def.h
+suck
+i3-dmenu-desktop
+nm-applet
+nm-applet && pa-applet
+nm-applet &; pa-applet
+pkill -KILL nm-applet
+shutdown -h now
+firefox
+nvim .config/dwm/config.def.h
+i3-dmenu-desktop
+which dmenu
+ls /usr/local/bin
+ls -la /usr/local/bin
+file /usr/local/bin
+file /usr/local/bin/dmenu
+file /usr/local/bin/dmenu_path
+file /usr/local/bin/dmenu_run
+nvim /usr/local/bin/dmenu_run
+nvim /usr/local/bin/dmenu_path
+ls .local/bin
+ls scripts/dmscripts
+ls scripts/dmscripts/dm-logout
+ca scripts/dmscripts/dm-logout
+cat scripts/dmscripts/dm-logout
+dmenu 
+dmenu -i
+dmenu -i -p "hello"
+which i3-dmenu-desktop 
+nvim /usr/bin/i3-dmenu-desktop
+nvim Downloads/dwm-6.2/config.def.h
+cd Downloads/dwm-6.2
+suck
+firefox
+pavucontrol
+pulsemixer
+echo -e "$(date +"%a, %B %d | ï€ƒ· : %l:%M%p"| sed 's/  / /g')hel"
+cd
+cd oblig
+cd uke2
+ls
+sudo pacman -Fx applet
+tmux new-session -s IN1000
+tmux attach-session -t IN1000
+tmux new-session -s IN1000 -c uio/in1000
+tmux attach-session -tIN1000
+sudo pacman -S okular
+ls
+ls Documents
+cd kdeconnect/Galaxy\ S9
+ls
+okular kodeflyt.pdf
+mv kodeflyt.pdf ~/uio/in1000/oblig/uke2
+cd
+ip route show
+sudo find -iname "kodeflyt.pdf" /
+sudo find -iname "kodeflyt.pdf" /*
+sudo find /* -iname "kodeflyt.pdf"
+cd
+tmux resize-pane -y 40
+tmux resize-pane -y 100
+tmux resize-pane -y 10
+tmux resize-pane -y 20
+ls
+cat fahrenheit_celsius.py
+cd oblig
+cd uke2
+ls
+nvim billet.py
+ls
+nvim utskriftsfunksjon.py
+nvim kodeforstaaelse.py
+nvim fahrenheit_celsius.py
+nvim billet.py
+nvim fahrenheit_celsius.py
+nvim billet.py
+python billet.py
+python billet.py
+python billet.py
+python billet.py
+python billet.py
+python billet.py
+python billet.py
+python billet.py
+nvim ~/.config/alacritty/alacritty.yml 
+yay -S vim-language-server
+sudo pacman -F clangd
+sudo pacman -F pyright
+yay -F pyright
+yay -Fx pyright
+sudo pacman -S pyright
+yay -S bash-language-server
+mkdir ftplugin
+nvim init.vim
+nvim init.vim
+nvim ftplugin/python.vim
+nvim init.vim
+nvim init.vim
+cd
+cd .config/nvim
+ls
+nvim init.vim
+nvim init.vim
+mkdir after
+mv ftplugin after
+mv after/ftplugin .
+nvim ftplugin/python.vim
+nvim ftplugin/python.vim
+nvim ftplugin/python.vim
+nvim ftplugin/python.vim
+nvim ftplugin/python.vim
+nvim ftplugin/python.vim
+nvim ftplugin/python.vim
+flameshot &
+cd Downloads/dwm-6.2
+cd ..
+git clone https://github.com/bakkeby/dwm-flexipatch.git
+cd dwm-flexipatch
+ls
+nvim patches.def.h
+tmux ls
+tmux new-session -s main
+sudo find /* -iname "kodeflyt.pdf"
+tmux splitw -v \; resize-pane -y 20
+cd oblig/uke2
+ls
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py
+nvim billet.py'
+nvim billet.py
+shutdown -h now
+nvim Downloads/dwm-6.2/config.def.h
+nvim Downloads/dwm-6.2/dwm.c
+nvim .config/nvim/plugged
+flameshot &
+flameshot &
+nm-applet
+pkill -KILL flameshot
+yay -S libxft-bgra
+cd Downloads/dwm-6.2
+nvim patch/dwm-systray-20210418-67d76bd.diff
+nvim Downloads/dwm-6.2/dwm.c
+suck
+cd Downloads/dwm-6.2
+suck
+nvim dwm.c
+ls
+mv ../patch .
+ls
+patch -R < patch/dwm-systray-20210418-67d76bd.diff
+patch -R < patch/dwm-statuscmd-20210405-67d76bd.diff
+patch -R < patch/dwm-statuscmd-20210405-67d76bd.diff
+patch -R < patch/dwm-statuscmd-20210405-67d76bd.diff
+patch -R < patch/dwm-statuscmd-20210405-67d76bd.diff
+cd Downloads/dwm-6.2
+nvim dwm-systray.diff
+sudo /etc/pulse/default.pa
+nvim /etc/pulse/default.pa
+nvim /etc/pulse/default.pa
+nvim /etc/pulse/default.pa
+pulseaudio -k
+pacmd
+nvim /etc/pulse/default.pa
+pulseaudio -k
+pulseaudio --start
+pacmd
+pacmd
+nvim
+nvim /etc/pulse/default.pa.d/noise-cancellation.pa
+sudo mkdir /etc/pulse/default.pa.d
+nvim /etc/pulse/default.pa.d/noise-cancellation.pa
+pulseaudio -k
+pulseaudio --start
+pavucontrol
+cd scripts
+nvim echoCancelEnable.sh
+chmod +x echoCancelEnable.sh
+./echoCancelEnable.sh
+cd
+yay -S noisetorch
+pkill -KILL picom
+picom --experimental-backends
+nvim .xprofile
+cd Downloads/dwm-6.2
+cd patch
+wget https://dwm.suckless.org/patches/dwmc/dwm-dwmc-6.2.diff
+Ã¸s
+ls
+cd ..
+patch -p1 < patch/dwm-dwmc-6.2.diff
+patch -R < patch/dwm-dwmc-6.2.diff
+nvim dwm.c
+nvim dwm.c
+suck
+cd Downloads/dwm-6.2
+nvim patch/dwm-dwmc-6.2.diff
+nvim config.def.h
+suck
+nvim config.def.h
+nvim patch/dwm-dwmc-6.2.diff
+cd
+yay -S redshift-minimal
+reset
+redshift -l 59.93 10.96
+redshift -l 59.9 11.0
+redshift -l 59.93:10.96
+redshift -h
+redshift -l list
+redshift -l PROVIDER:help
+redshift -l help
+man redshift
+redshift -l 59.93:10.96
+redshift -l 59.93:10.96 &
+redshift -P -o 3000
+redshift -P -o 3000K
+pkill -KILL redshift
+redshift -p
+redshift -l 59.93:10.96 &
+redshift -p
+redshift -P -O 2000
+redshift -P -O 4000
+redshift -P -O 5000
+redshift -P -O 6500
+redshift -P -O 6500
+redshift -P -O 25000
+redshift -P -O 10000
+redshift -P -O 6500
+redshift -P -O 4500
+redshift -P -O 4000
+redshift -P -O 3500
+pkill -KILL redshift
+redshift -P -O 3500
+redshift -P -O 6500
+redshift -l 59.93:10.96 -t 6500:4500
+nvim .xprofile
+nvim .xprofile
+redshift -l 59.93:10.96 -t 6500:4500 &
+shutdown -h now
+yay -S vmware-horizon-client
+vmware-view
+vmware-view
+vmware-view
+sudo pacman -S gnome
+sudo pacman -S gnome
+sudo pacman -S gnome-shell
+sudo pacman -S gnome
+sudo pacman -S gnome-control-center
+sudo pacman -Rsu gnome
+exit
+pkill -KILL gnome-shell
+sudo pacman -S cinnamon
+sudo pacman -S cinnamon
+sudo pacman -Rsu cinnamon
+sudo pacman -S xfce
+sudo pacman -S xfce4
+cd 
+exit
+sudo mount /dev/sdd1 /mnt
+ls /mnt
+sudo umount /mnt
+sudo cgdisk /dev/sdd
+lsblk
+sudo mkfs.ext4 /dev/sdd1
+sudo mkfs.ext4 /dev/sdd2
+ls Downloads
+sudo dd if=Downloads/ubuntu-21.04-desktop-amd64.iso of=/dev/sdd1 status=progress
+nvim .config/alacritty/alacritty.yml
+nvim .config/picom/picom.conf
+nvim .config/nvim/plugged
+nvim .config/alacritty/alacritty.yml
+nvim .config/picom/picom.conf
+nvim .local/bin/tmux-startup.sh
+tmux
+nvim .config/nvim/init.vim
+cd
+ls
+cd .config/nvim
+ls
+ls plugged
+ls plugin
+cd plugin
+wget https://raw.githubusercontent.com/vim/vim/master/runtime/plugin/matchparen.vim
+cd ..
+nvim init.vim
+cd
+nvim .config/dwm/config.def.h
+cd -
+nvim init.vim
+nvim init.vim
+cd
+nvim uio/in1000/oblig/uke2/billet.py
+nvim uio/in1000/oblig/uke2/billet.py
+cd  -
+nvim init.vim
+nvim ~/uio/in1000/oblig/uke2/billet.py
+nvim init.vim
+nvim init.vim
+nvim init.vim
+nvim ~/uio/in1000/oblig/uke2/billet.py
+nvim ~/uio/in1000/oblig/uke2/billet.py
+nvim init.vim
+nvim ../alacritty/alacritty.yml 
+nvim ../picom/picom.conf 
+nvim ~/uio/in1000/oblig/uke2/billet.py
+nvim init.vim
+nvim init.vim
+nvim init.vim
+nvim init.vim
+ls --icons
+ls -l--icons
+ls -l --icons
+cd
+nvim .config/zsh/zsh-aliases
+zshrestart
+lt
+cd .config/
+lt
+a
+cd ..
+la
+ll
+la
+nvim .config/zsh/.zshrc
+zshrestart
+redshift -p
+redshift --help
+redshift -h
+redshift -v
+redshift -V
+pkill -KILL redshift
+sudo pacman -S brightnessctl
+brightnessctl --status
+brightnessctl i
+z nvim
+z
+nvim .config/zsh/.zshrc
+zshrestart
+nvim .config/zsh/.zshrc
+z 
+zshrestart
+nvim .config/nvim/init.vim
+nvim .config/zsh/.zshrc
+nvim .config/zsh/zsh-exports
+nvim .config/zsh/.zshrc
+nvim .config/zsh/zsh-exports
+zshrestart
+nvim .config/nvim/colors/NeoSolarized.vim
+nvim .config/nvim/colors/NeoSolarized.vim'
+nvim .config/nvim/colors/NeoSolarized.vim
+cd scripts
+fast-theme -t default
+wget https://raw.githubusercontent.com/hdra/itermcolors2terminator/master/convert.py
+wget https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors
+ls
+python Solarized\ Dark.itermcolors > test
+python Solarized\ Dark.itermcolors
+chmod +x convert.py
+./convert.py Solarized\ Dark.itermcolors
+python2 
+nvim convert.py
+./convert.py Solarized\ Dark.itermcolors
+./convert.py Solarized\ Dark.itermcolors > test
+cat test
+nvim test
+cd
+nvim .config/nvim/colors/NeoSolarized.vim
+ll
+nvim .config/nvim/colors/NeoSolarized.vim
+nvim .config/zsh/zsh-exports
+zshrestart
+nvim .config/zsh/zsh-exports
+zshrestart
+nvim .config/zsh/zsh-exports
+zshrestart
+nvim .config/zsh/.zshrc
+zshrestart
+cd .config/zsh/plugins
+ls
+rm -rf fast-syntax-highlighting zsh-syntax-highlighting
+zshrestart
+cat zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+cat zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+cat zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+cat zsh-syntax-highlighting/highlighters/main/main-highlighter.zsh
+cd ..
+nvim zsh-exports
+zshrestart
+nvim zsh-exports
+cd -
+cd .config/zsh/plugins
+cd ..
+nvim zsh-exports
+nvim .zshrc
+yay -S joplin
+yay -Syy
+yay -S joplin
+joplin
+yay -S joplin-desktop
+nvim .config/alacritty/alacritty.yml
+ll
+ ll
+ll
+ll
+rangedr
+ranger
+nvim -v
+nvim .config/nvim/init.vim
+nvim .config/nvim/init.vim
+nvim .config/nvim/init.vim
+nvim .config/nvim/init.vim
+cd .config/nvim/plugged/vim-hexokinase
+nvim
+make hexokinase
+sudo pacman -S go
+make hexokinase
+nvim
+cd
+nvim .config/alacritty/alacritty.yml
+nvim .config/nvim/init.vim
+nvim .config/alacritty/alacritty.yml
+zshrestart
+zshrestart
+nvim .config/alacritty/alacritty.yml
+nvim .config/alacritty/alacritty.yml
+nvim .config/nvim/init.vim
+nvim .config/nvim/init.vim
+nvim uio/in1000/oblig/uke2/billet.py
+yay -S neovim-git
+nvim .config/nvim/init.vim
+nvim uio/in1000/oblig/uke2/billet.py
+nvim uio/in1000/oblig/uke2/billet.py
+nvim uio/in1000/oblig/uke2/billet.py
+nvim uio/in1000/oblig/uke2/billet.py
+nvim uio/in1000/oblig/uke2/billet.py
+nvim .config/nvim/init.vim
+nvim .tmux.conf
+tmux
+shutdown -h now
+sudo pacman -Syyuu
+shutdown -r now
+nvim .tmux.conf
+nvim .tmux.conf
+nvim .tmux.conf
+reset
+nvim .config/nvim/ftplugin/python.vim
+which python
+nvim .config/nvim/ftplugin/python.vim
+nvim .config/zsh/zsh-exports
+zshrestart
+nvim .config/zsh/zsh-exports
+zshrestart
+ls
+cd dev
+ls
+mkdir towerdefence
+cd towerdefence
+cd /tmp
+python -m venv towerdefence
+cd towerdefence
+ls
+source bin/activate
+nvim test.py
+pip install numpy
+nvim test.py
+nvim ~/.config/nvim/ftplugin/python.vim
+nvim test.py
+python test.py
+which python
+echo $VIRTUAL_ENV
+printf "\x1b[${bg};2;${red};${green};${blue}m\n"
+zshrestart
+source bin/activate
+nvim ~/.config/zsh/zsh-exports
+nvim ~/.zprofile
+zshrestart
+source bin/activate
+which python
+tmux new-session -s towerdefence
+tmux attach-session -ttowerdefence
+tmux kill-server
+tmux new-session -s towerdefence
+tmux kill-server
+reset
+tmux new-session -s towerdefence
+source dev/towerdefence/bin/activate
+tmux attach-session -ttowerdefence
+source $VIRTUAL_ENV/bin/activate
+cd dev
+l
+ll
+python -m venv towerdefence
+ll towerdefence
+cd towerdefence
+source bin/activate
+zshrestart
+source bin/activate
+tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
+tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
+tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
+zshrestart
+source dev/towerdefence/bin/activate
+echo $VIRTUAL_ENV
+tmux new-session -s towerdefence
+nvim ~/.zprofile
+zshrestart
+tmux attach-session -ttowerdefence
+tmux kill-server
+tmux new-session -s towerdefence
+cd dev/towerdefence
+ls
+source bin/activate
+tmux
+source bin/activate
+nvim ~/.zprofile
+zshrestart
+reboot
+cd dev/towerdefence
+source bin/activate
+tmux
+nvim ~/.zprofile
+nvim .config/nvim/ftplugin/python.vim
+source dev/towerdefence/bin/activate
+echo $VIRTUAL_ENV
+nvim ~/.zprofile
+tmux
+\
+\
+sa
+if [[ -n "$TMUX" ]] then echo "test"; fi
+tmux a
+if [[ "$TMUX" ]]; then echo "helloe1";fi
+if [[ -n "$TMUX" ]]; then echo "helloe1";fi
+nvim ~/.zprofile
+if [[ -n "$TMUX" ]]; then\
+    echo "helloe1";\
+    tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV\
+fi
+if [[ -n "$TMUX" ]]; then echo "helloe1"; tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV;fi
+if [[ "$TMUX" ]]; then echo "helloe1"; tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV;fi
+if [[ "$TMUX" ]]; then echo "helloe1";fi
+cd dev/towerdefence
+source bin/activate
+nvim test.py
+python
+pip install numpy
+python
+nvim test.py
+python test.py
+nvim test.py
+zshrestart
+source bin/activate
+nvim test.py
+zshrestart
+ll bin
+nvim test.py
+n
+nvim test.py
+echo $VIRTUAL_ENV
+python
+deactivate
+echo $VIRTUAL_ENV
+nvim test.py
+which python
+deactivate
+reseTt
+reset
+which python
+source bin/activate
+deactivate
+which python
+source deactivate
+which python
+echo $VIRTUAL_ENV
+which python
+zshrestart
+tmux a
+tmux a
+tmux a
+which python
+echo $VIRTUAL_ENV
+echo $TERM
+echo $TMUX
+which python
+echo $TMUX
+echo $VIRTUAL_ENV
+which python
+which python
+which python
+exit
+pip list
+pip install numpy
+yay -S python-language-server
+nvim ~/.config/nvim/init.vim
+which python
+source bin/activate
+nvim image.py
+deactivate
+python
+nvim image.py
+nvim ~/.config/nvim/init.vim
+nvim image.py
+nvim ~/.config/nvim/init.vim
+nvim test.py
+nvim image.py
+source bin/activate
+nvim image.py
+pip list
+nvim image.py
+nvim ~/.config/nvim/init.vim
+nvim ~/.config/nvim/init.vim
+nvim ~/.config/nvim/init.vim
+nvim ~/.config/nvim/init.vim
+sudo pacman -S python-venv
+sudo pacman -S python-virtualenv
+pip list
+which venv
+python -m venv help
+python -m venv --help
+ls
+l
+ll
+yay -S python-language-server
+pylsp
+res
+reset
+pylsp
+zshrestart
+pylsp
+pyls
+pyls -h
+pipx install 'python-lsp-server[all]'
+pip install 'python-lsp-server[all]'
+tmux splitw -v resize-pane -y 20
+tmux run-shell python
+tmux run-shell "python"
+tmux run-shell echo "helloe"
+tmux run-shell "hellow"
+tmux run-shell "python"
+tmux run-shell "python; read"
+tmux run-shell "echo test"
+tmux splitw -v run-shell "python" \;resize-pane -y 20
+tmux splitw -v run-shell "python" \;resize-pane -y 20
+tmux splitw -v run-shell "python" \;resize-pane -y 20
+tmux splitw -v "python" \;resize-pane -y 20
+tmux splitw -v run-shell "python; read" \;resize-pane -y 20
+tmux splitw -v "python; read" \;resize-pane -y 20
+tmux splitw -v "python; read" \; resize-pane -y 20
+tmux splitw -v "python; read" \;resize-pane -y 20
+tmux splitw -v run-shell "python; read" \; resize-pane -y 20
+tmux splitw -v "python; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "h" ]]; then echo hello; fi; python; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "$VIRTUAL_ENV" ]]; then echo hello; fi; python; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "" ]]; then echo hello; fi; python; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "" ]]; then echo hello; fi; python; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "" ]]; then echo hello; fi; python; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "" ]]; then echo hello; fi; python; read" \; resize-pane -y 20
+tmux splitw -v "[[ -n "" ]] && echo hello; python; read" \; resize-pane -y 20
+tmux splitw -v "[[ -n "d" ]] && echo hello; python; read" \; resize-pane -y 20
+tmux splitw -v "[[ -n "d" ]] && echo hello\; python\; read" \; resize-pane -y 20
+tmux splitw -v "[[ -n "d" ]] && echo hello\; python; read" \; resize-pane -y 20
+tmux splitw -v "[[ -n "d" ]] && echo hello; python\; read" \; resize-pane -y 20
+tmux splitw -v "[[ -n "d" ]] && echo hello python; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "d" ]] ; then echo hello ; fi ; python ; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "d" ]] ; then echo hello ; fi ; python ; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "" ]] ; then echo hello ; fi ; python ; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "" ]] ; then echo hello; python ; else; then python ; fi ; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "" ]] ; then echo hello; python ; else python ; fi ; read" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "" ]] ; then echo hello; python ; else python read ; fi" \; resize-pane -y 20
+tmux splitw -v "if [[ -n "s" ]] ; then echo hello; python ; else python read ; fi" \; resize-pane -y 20
+tmux splitw -v "/bin/zsh if [[ -n "s" ]] ; then echo hello; python ; else python read ; fi" \; resize-pane -y 20
+tmux splitw -v "/bin/zsh ; if [[ -n "s" ]] ; then echo hello; python ; else python read ; fi" \; resize-pane -y 20
+tmux splitw -v "source $VIRTUAL_ENV/bin/actiave; python read ; fi" \; resize-pane -y 20
+tmux splitw -v "source $VIRTUAL_ENV/bin/actiave; python ; read" \; resize-pane -y 20
+tmux splitw -v "[[ -f $VIRTUAL_ENV/bin/actiave ]] && source $VIRTUAL_ENV/bin/activate ; python ; read" \; resize-pane -y 20
+tmux splitw -v "[[ -f $VIRTUAL_ENV ]] && source $VIRTUAL_ENV/bin/activate ; python ; read" \; resize-pane -y 20
+tmux splitw -v "[[ -f $VIRTUAL_ENV/bin/activate ]] && source $VIRTUAL_ENV/bin/activate ; python ; read" \; resize-pane -y 20
+tmux splitw -v "[[ -f $VIRTUAL_ENV/bin/activate ]] && source $VIRTUAL_ENV/bin/activate ; python ; read" \; resize-pane -y 20
+cd dev/towerdefence
+source bin/activate
+tmux splitw -v " which python ; read" \; resize-pane -y 20
+nvim ~/.config/zsh/zsh-exports
+nvim ~/.config/nvim/ftplugin/python.vim
+nvim test.py
+nvim test.py
+cd .
+cd ..
+python -m venv opencv-tutorial
+pip help
+pip search opencv
+pip -b
+pip -v
+pip -V
+pip install opencv-python numpy
+ls
+cd opencv-tutorial
+ls
+source bin/activate
+pip install opencv-python numpy
+python
+which python
+ls
+ll
+ll
+nvim image.py
+ls
+la
+la
+tree 
+nvim pyproject.toml
+nvim image.py
+a
+nvim ~/.config/nvim/init.vim
+nvim image.py
+nvim ~/.config/nvim/init.vim
+nvim image.py
+nvim image.py
+nvim image.py
+nvim image.py
+nvim image.py
+nvim image.py
+nvim image.py
+nvim image.py
+nvim image.py
+nvim image.py
+nvim image.py
+deactivate
+nvim image.py
+ls
+rm pyproject.toml
+git init
+ls
+ll
+la
+nvim image.py
+nvim image.py
+nvim image.py
+source bin/activate
+nvim image.py
+nvim image.py
+stubgen
+pip install stubgen
+yay -S stubgen
+stubgen -g
+stubgen -h
+stubgen -m cv2 -o .venv/lib/python3.9/site-packages/cv2/
+sudo pacman -Rsun stubgen
+pip install mymp
+pip install mypy
+stubgen -m cv2 -o .venv/lib/python3.9/site-packages/cv2/
+nvim image.py
+pylint --generate-rcfile > .pylintrc
+nvim image.py
+ls
+ll
+ls ~
+la ~
+ls
+stubgen -m cv2 -o lib/python3.9/site-packages/cv2
+nvim image.py
+shutdown -h now
+tmux a
+tmux
+tmux a
+python
+python
+tmux new-session -s IN1000 -c uio/in1000
+shutdown -h now
+ll
+cd oblig
+mkdir uke3
+cd uke3
+ls
+nvim lister.py
+nvim ordbok.py
+nvim â€ƒ«billettpris.py
+nvim billettpris.py
+nvim lister.py
+nvim ordbok.py
+nvim billettpris.py
+python
+ll
+nvim matplan.py
+shutdown -h now
+tmux new-session -s IN1000 -c uio/in1000
+tmux new-session -s main
+tmux new-session -s main
+nvim .zprofile
+cd .local/bin
+ll
+nvim tmux-startup.sh
+echo $PATH
+tmux-startup.sh
+chmod +x tmux-startup.sh
+tmux-startup.sh
+shutdown -h now
+python
+echo $TERM
+echo $TERM
+nvim ~/.tmux.conf 
+echo $TERM
+nvim ~/.tmux.conf
+echo $TERM
+echo $TERM
+python
+cd oblig/uke3
+ls
+nvim matplan.py
+nvim lister.py
+nvim billettpris.py
+nvim lister.py
+nvim ordbok.py
+nvim nvim egenoppgve.py
+ls
+rm nvim
+nvim egenoppgave.py
+cd ..
+nvim ukey7
+mkdir uke7
+ll
+cd uke7
+nvim sang.py
+ls
+ll
+shutdown -h now
+tmux-startup.sh
+echo $?
+$TERM
+echo $TTY
+echo $TERM
+echo $BROWSER
+printenv
+ehnv
+env
+xdg-settings -h
+xdg-settings --help
+xdg-settings --list
+xdg-open --help
+nvim tmux-startup.sh
+nvim .local/bin/tmux-startup.sh
+tmux-startup.sh
+tmux-startup.sh
+tmux a
+tmux kill-server
+tmux-startup.sh
+tmux kill-server
+nvim .local/bin/tmux-startup.sh
+tmux-startup.sh
+tmux-startup.sh
+tmux kill-server
+nvim .local/bin/tmux-startup.sh
+tmux-startup.sh
+tmux kill-server
+nvim .local/bin/tmux-startup.sh
+nvim .local/bin/tmux-startup.sh
+tmux kill-server
+tmux-startup.sh
+nvim .local/bin/tmux-startup.sh
+mv .local/bin/tmux-startup.sh .local/bin/tmux-init
+tmux-init
+cd oblig/uke7
+wget https://www.uio.no/studier/emner/matnat/ifi/IN1000/h20/Obligatoriske-innleveringer/obligatorisk-oppgave-7/musikk.txt
+wget https://www.uio.no/studier/emner/matnat/ifi/IN1000/h20/Obligatoriske-innleveringer/obligatorisk-oppgave-7/spilleliste.py
+wget https://www.uio.no/studier/emner/matnat/ifi/IN1000/h20/Obligatoriske-innleveringer/obligatorisk-oppgave-7/sangtester.py
+wget https://www.uio.no/studier/emner/matnat/ifi/IN1000/h20/Obligatoriske-innleveringer/obligatorisk-oppgave-7/spillelistetester.py
+ll
+ll
+ll
+python
+ls
+ll __pycache__
+cat __pycache__/sang.cpython-39.pyc
+ll
+bat musikk.txt
+ll
+cd data/
+ll personelig
+virsh start --domain win10
+virsh start --domain windows
+virsh start --domain windows10
+virsh start windows10
+virsh start win10
+nvim oblig/uke7/spillelistetester.py
+tmux-init
+cd oblig/uke7
+nvim sang.py 
+nvim .config/alacritty/alacritty.yml
+shutdown -h now
+cd oblig/uke7
+nvim spillelistetester.py
+fc-list | grep --ignore-case "mononoku"
+fc-list | grep --ignore-case "mononoki"
+tmux-init
+tmux a
+cd oblig/uke7
+nvim spilleliste.py
+nvim spilleliste.py
+python
+python
+python
+python
+sudo pacman -S obs-studio
+cd Downloads
+git clone https://github.com/jumper149/xpm-status-icons.git
+cd xpm-status-icons
+ls
+ll
+bin/createShowcase.sh
+ls
+tmux-init
+exit
+ll
+systemctl status sshd.service
+exit
+cd
+sudo pacman -S clangd
+sudo pacman -S clang
+yay -S clangd
+yay -S clang
+sudo pacman -Fx clangd
+tmux a
+tmux a
+python
+nvim test.py
+nvim oblig/uke8/celle.py
+cd
+mkdir Videos
+ls
+ll
+cd Videos
+ll
+sudo pacman -S vlc
+vlc 2021-09-18\ 00-42-46.mkv
+l
+ls
+cp 2021-09-18\ 00-42-46.mkv 2021-09-18\ 00-42-46.mp4
+speedtest-cli
+speedtest-cli
+speedtest-cli
+mkdir oblig/uke8
+cd oblig/uke8
+ls
+wget https://www.uio.no/studier/emner/matnat/ifi/IN1000/h20/Obligatoriske-innleveringer/obligatorisk-oppgave-8/in1000_oblig8_v1.0.pdf
+sudo pacman -S zathura
+zathura in1000_oblig8_v1.0.pdf
+sudo pacman -S zathura-pdf-mupdf
+zathura in1000_oblig8_v1.0.pdf
+sudo pacman -Rns zathura-pdf-mupdf
+sudo pacman -S zathura-pdf-poppler
+zathura in1000_oblig8_v1.0.pdf
+zathura in1000_oblig8_v1.0.pdf
+zathura in1000_oblig8_v1.0.pdf &
+nvim celle.py
+nvim spillbrett.py
+ls
+nvim 
+nvim spillbrett.py
+sudo pacman -S speedcrunch 
+pavucontrol
+pulsemixer
+nvim
+nvim spillbrett.py
+nvim .config/nvim/init.vim
+nvim .config/nvim/init.vim
+cd
+nvim .config/alacritty/alacritty.yml
+nvim ~/.config/zathura/zathurarc
+mkdir .config/zathura
+nvim ~/.config/zathura/zathurarc
+cd dotfiles
+ls
+ll
+tree
+localectl status
+xkbcli --help
+xmodmap --help
+xmodmap -d
+xmodmap -display
+setxkbmap no nodeadkeys
+cd
+nvim .xprofile
+setxkbmap no nodeadkeys -option 'caps:ctrl_modifier'
+localectl list-x11-keymap-layouts no
+localectl list-x11-keymap-layouts nb
+localectl list-x11-keymap-layouts
+localectl list-x11-keymap-options
+localectl list-x11-keymap-options no
+localectl list-x11-keymap-options nb
+localectl list-x11-keymap-variants
+localectl list-x11-keymap-variants no
+setxkbmap -option 'caps:ctrl_modifier'
+cd dev
+ls
+mkdir gameoflife
+cd gameoflife
+nvim main.c
+cd
+nvim .config/nvim/init.vim
+cd -
+nvim main.c
+nvim main.c
+nvim main.c
+cd
+cd dotfiles
+lls
+ls
+cd
+cat .xprofile
+ls
+ll
+la
+cd dotfiles
+ls
+mkdir --help
+mkdir -p alacritty/.config/alacritty
+tree
+ll alacritty
+tree --help
+tree -a 
+ll ~/.config
+ll ~/.config/zsh
+rm -rf *
+mkdir -p alacritty/.config/alacritty
+mkdir -p nvim/.config/nvim
+mkdir -p zsh/.config/zsh
+ll ~/.config/
+ll
+tree -a 
+cp ~/.config/alacritty/alacritty.yml alacritty/.config/alacritty
+tree -a 
+cp ~/.config/zsh/* zsh/.config/zsh/.
+tree -a 
+ls ~/.config/zsh/plugins
+tree -a 
+cp ~/.config/nvim
+cp ~/.config/nvim/* nvim/.config/nvim/.
+tree -a 
+cp -r ~/.config/nvim/* nvim/.config/nvim/.
+tree -a 
+ll nvim/.config/nvim
+cp ~/.zprofile zsh
+mkdir X
+cp ~/.xprofile X
+cp ~/.xinitrc X
+ll X
+ll X
+la Z
+la X
+cat X/.xinitrc
+mkdir -p ranger/.config/ranger/
+nvim ~/.config/ranger/commands_full.py
+rm -rf ranger
+ll
+mv X x
+ll
+ll ~/.config/
+mkdir tmux
+cp ~/.tmux.conf tmux
+mkdir -p picom/.config/picom
+cp ~/.config/picom/picom.conf picom/.config/picom
+ll
+stow tmux
+rm ~/.tmux.conf
+mv ~/.tmux.conf ~/.tmux.backup
+stow tmux
+la ~
+mv ~/.config/zsh ~/.config/zsh.backup
+ll ~/.config/
+stow zsh
+mv ~/.zprofile ~/.zprofile.backup
+stow zsh
+ll ~/.config/
+la ~
+cd ..
+mv dotfiles .dotfiles
+la ~
+nvim .zprofile
+cd .dotfiles
+stow zsh
+stow -D zsh
+man stow
+man stow
+stow -R zsh
+man stow
+stow -R -adopt zsh
+stow -R --adopt zsh
+stow --adopt -R zsh
+stow --adopt zsh
+cd
+la
+cd .dotfiles
+stow --adopt -D zsh
+cd
+mv .dotfiles dotfiles
+ll
+la
+cd dotfiles
+ll
+rm -rf ~/.config/nvim ~/.config/alacritty ~/.config/picom
+ll
+rm ~/.xinitrc ~/.xprofile
+stow alacritty
+stow nvim
+stow picom
+stow x
+cd
+ls
+lla
+la
+nvim .zprofile

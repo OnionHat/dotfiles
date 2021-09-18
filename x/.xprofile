@@ -1,0 +1,21 @@
+#!/bin/sh
+export ZDOTDIR=$HOME/.config/zsh
+
+xrandr --output DVI-D-0 --mode 1920x1080 --output HDMI-0 --mode 1920x1080 --left-of DVI-D-0
+xsetroot -cursor_name left_ptr
+xdotool mousemove 2880 540
+#setxkbmap -option 'caps:ctrl_modifier'
+setxkbmap no nodeadkeys -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+
+dwmblocks &
+picom --experimental-backends &
+#picom --config $HOME/.config/picom/picom.conf &
+nitrogen --restore &
+
+nm-applet &
+pa-applet &
+flameshot &
+
+redshift -l 59.93:10.96 -t 6500:4500 &
+
