@@ -132,6 +132,8 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " Undotree
 nnoremap <F5> :UndotreeToggle<CR>
 
+nnoremap <C-f>f :lua vim.lsp.buf.formatting()<CR>
+
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -162,44 +164,44 @@ local lsp = require "lspconfig"
 local cmp = require'cmp'
 
 cmp.setup({
-    snippet = 
-    {
-        expand = function(args)
-        -- For `vsnip` user.
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+snippet = 
+{
+    expand = function(args)
+    -- For `vsnip` user.
+    vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
 
-        -- For `luasnip` user.
-        -- require('luasnip').lsp_expand(args.body)
+    -- For `luasnip` user.
+    -- require('luasnip').lsp_expand(args.body)
 
-        -- For `ultisnips` user.
-        -- vim.fn["vsnip#anonymous"](args.body)
-        end,
-    },
+    -- For `ultisnips` user.
+    -- vim.fn["vsnip#anonymous"](args.body)
+end,
+},
     mapping = 
     {
-        ['<C-d>']       = cmp.mapping.scroll_docs(-4),
-        ['<C-f>']       = cmp.mapping.scroll_docs(4),
-        ['<C-Space>']   = cmp.mapping.complete(),
-        ['<C-e>']       = cmp.mapping.close(),
-        ['<CR>']        = cmp.mapping.confirm({ select = true }),
-        ['<C-p>']       = cmp.mapping.select_prev_item(),
-        ['<C-n>']       = cmp.mapping.select_next_item(),
+            ['<C-d>']       = cmp.mapping.scroll_docs(-4),
+            ['<C-f>']       = cmp.mapping.scroll_docs(4),
+            ['<C-Space>']   = cmp.mapping.complete(),
+            ['<C-e>']       = cmp.mapping.close(),
+            ['<CR>']        = cmp.mapping.confirm({ select = true }),
+            ['<C-p>']       = cmp.mapping.select_prev_item(),
+            ['<C-n>']       = cmp.mapping.select_next_item(),
     },
     sources = 
     {
-        { name = 'nvim_lsp' },
-        { name = 'path' },
-        { name = 'tmux' },
-        { name = 'treesitter' },
-        -- For vsnip user.
-        { name = 'vsnip' },
-        -- For luasnip user.
-        -- { name = 'luasnip' },
-        -- For ultisnips user.
-        -- { name = 'ultisnips' },
-        { name = 'buffer' },
+            { name = 'nvim_lsp' },
+            { name = 'path' },
+            { name = 'tmux' },
+            { name = 'treesitter' },
+            -- For vsnip user.
+            { name = 'vsnip' },
+            -- For luasnip user.
+            -- { name = 'luasnip' },
+            -- For ultisnips user.
+            -- { name = 'ultisnips' },
+            { name = 'buffer' },
     }
-})
+    })
 
 -- Setup lspconfig.
 -- require('lspconfig').clangd.setup {
@@ -207,37 +209,71 @@ cmp.setup({
 -- }
 require('lspconfig').ccls.setup {
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
+    }
 require('lspconfig').pyright.setup {
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
+    }
 require('lspconfig').vimls.setup {
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
+    }
 require('lspconfig').bashls.setup {
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    }
+
+local sumneko_root_path = '/usr/bin/lua-language-server'
+local sumneko_binary = sumneko_root_path.."/bin/Linux/lua-language-server"
+
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+require('lspconfig').sumneko_lua.setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    cmd = {'/usr/bin/lua-language-server', "-E", '/usr/share/lua-language-server/main.lua'};
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = runtime_path,
+                },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+                },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+                },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+            enable = false,
+            },
+        },
+    },
 }
 
 require("todo-comments").setup{
-    signs = false, -- show icons in the signs column
-    sign_priority = 8, -- sign priority
-    -- keywords recognized as todo comments
-    keywords = {
+signs = false, -- show icons in the signs column
+sign_priority = 8, -- sign priority
+-- keywords recognized as todo comments
+keywords = {
     FIX = {
-      icon = "", -- icon used for the sign, and in search results
-      color = "error", -- can be a hex color, or a named color (see below)
-      alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-      -- signs = false, -- configure signs for some keywords individually
-    },
+        icon = "", -- icon used for the sign, and in search results
+        color = "error", -- can be a hex color, or a named color (see below)
+        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+        -- signs = false, -- configure signs for some keywords individually
+        },
     TODO = { icon = "", color = "#eb4034" },
     NOTE = { icon = "", color = "#31bf2c", alt = { "INFO" } },
     },
-    merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-    -- highlighting of the line containing the todo comment
-    -- * before: highlights before the keyword (typically comment characters)
-    -- * keyword: highlights of the keyword
-    -- * after: highlights after the keyword (todo text)
-    highlight = {
+merge_keywords = true, -- when true, custom keywords will be merged with the defaults
+-- highlighting of the line containing the todo comment
+-- * before: highlights before the keyword (typically comment characters)
+-- * keyword: highlights of the keyword
+-- * after: highlights after the keyword (todo text)
+highlight = {
     before = "", -- "fg" or "bg" or empty
     keyword = "fg", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
     after = "", -- "fg" or "bg" or empty
@@ -246,24 +282,24 @@ require("todo-comments").setup{
     max_line_len = 400, -- ignore lines longer than this
     exclude = {}, -- list of file types to exclude highlighting
     },
-    -- list of named colors where we try to extract the guifg from the
-    -- list of hilight groups or use the hex color if hl not found as a fallback
-    colors = {
+-- list of named colors where we try to extract the guifg from the
+-- list of hilight groups or use the hex color if hl not found as a fallback
+colors = {
     error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
     warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" }, 
     info = { "LspDiagnosticsDefaultInformation", "#eb4034" },
     hint = { "LspDiagnosticsDefaultHint", "#10B981" },
     default = { "Identifier", "#7C3AED" },
     },
-    search = {
+search = {
     command = "rg",
     args = {
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-    },
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        },
     -- regex that will be used to match keywords.
     -- don't replace the (KEYWORDS) placeholder
     pattern = [[\b(KEYWORDS):]], -- ripgrep regex
