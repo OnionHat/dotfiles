@@ -7,11 +7,7 @@ xcape -e 'Caps_Lock=Escape'
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-#exec dwm
-
-#export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
-
 #while type dwm >/dev/null ; do dwm && continue || break ; done
-
-exec xmonad
+#exec xmonad
+exec i3
 

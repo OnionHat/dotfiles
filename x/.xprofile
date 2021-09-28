@@ -12,6 +12,7 @@ dwmblocks &
 picom --experimental-backends &
 #picom --config $HOME/.config/picom/picom.conf &
 nitrogen --restore &
+animated-background $HOME/wallpapers/video.mp4
 
 nm-applet &
 pa-applet &
@@ -19,3 +20,4 @@ flameshot &
 
 redshift -l 59.93:10.96 -t 6500:4500 &
 
+sshfs suleymab@login.ifi.uio.no:privat $HOME/uio -o reconnect

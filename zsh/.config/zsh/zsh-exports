@@ -12,6 +12,7 @@ export ENHANCD_FILTER="/usr/bin/fzf:fzf:non-existing-filter"
 export ENHANCD_COMMAND=ecd
 export EDITOR="nvim"
 export VISUAL="nvim"
+export _Z_NO_RESOLVE_SYMLINKS=1
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4f5f64"
 

@@ -49,21 +49,21 @@ alias s="git checkout stable"
 
 case "$(uname -s)" in
 
-   Darwin)
-     # echo 'Mac OS X'
-	alias ls='ls -G'
-     ;;
+	Darwin)
+		# echo 'Mac OS X'
+		alias ls='ls -G'
+		;;
 
-   Linux)
-	alias ls='ls --color=auto'
-     ;;
+	Linux)
+		alias ls='ls --color=auto'
+		;;
 
-   CYGWIN*|MINGW32*|MSYS*|MINGW*)
-     # echo 'MS Windows'
-     ;;
-   *)
-     # echo 'Other OS' 
-     ;;
+	CYGWIN*|MINGW32*|MSYS*|MINGW*)
+		# echo 'MS Windows'
+		;;
+	*)
+		# echo 'Other OS' 
+		;;
 esac
 
 
@@ -86,14 +86,14 @@ alias lt='exa -aT --color=always --group-directories-first --icons' # tree listi
 alias l.='exa -a | egrep "^\." --icons'
 
 function man() {
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    command man "$@"
-}
+	LESS_TERMCAP_md=$'\e[01;31m' \
+		LESS_TERMCAP_me=$'\e[0m' \
+		LESS_TERMCAP_so=$'\e[01;44;33m' \
+		LESS_TERMCAP_se=$'\e[0m' \
+		LESS_TERMCAP_us=$'\e[01;32m' \
+		LESS_TERMCAP_ue=$'\e[0m' \
+		command man "$@"
+	}
 
 alias mkdir='mkdir -p -v'
 
@@ -126,3 +126,6 @@ alias tl="tmux list-sessions"
 alias tn="tmux new -d"
 
 alias suck="rm -f config.h && sudo make install"
+
+alias uiofs="sshfs suleymab@login.ifi.uio.no:privat $HOME/uio -o reconnect"
+alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; bash\""
