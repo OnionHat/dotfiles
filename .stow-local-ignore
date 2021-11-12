@@ -1,0 +1,8 @@
+\misc
+
+\.git
+\.gitignore
+
+^/README.*
+^/LICENSE.*
+^/COPYING

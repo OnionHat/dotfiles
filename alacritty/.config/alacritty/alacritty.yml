@@ -1,6 +1,85 @@
+# colors:
+#   bright:
+#     black: '#586e75'
+#     blue: '#839496'
+#     cyan: '#93a1a1'
+#     green: '#586e75'
+#     magenta: '#6c71c4'
+#     red: '#cb4b16'
+#     white: '#cdcdcd'
+#     yellow: '#657b83'
+#   normal:
+#     black: '#073642'
+#     blue: '#268bd2'
+#     cyan: '#2aa198'
+#     green: '#859900'
+#     magenta: '#d33682'
+#     red: '#dc322f'
+#     white: '#eee8d5'
+#     yellow: '#b58900'
+#   primary:
+#     background: '#21262c'
+#     foreground: '#adb8b8'
+
+# Hybrid colors {{{
+# colors:
+#   bright:
+#     black: '#282A2E'
+#     red: '#A54242'
+#     green: '#8C9440'
+#     yellow: '#DE935F'
+#     blue: '#5F819D'
+#     magenta: '#85678F'
+#     cyan: '#5E8D87'
+#     white: '#707880'
+#   normal:
+#     black: '#373B41'
+#     red: '#CC6666'
+#     green: '#B5BD68'
+#     yellow: '#F0C674'
+#     blue: '#81A2BE'
+#     magenta: '#B294BB'
+#     cyan: '#8ABEB7'
+#     white: '#C5C8C6'
+#   primary:
+#     background: '#1D1F21'
+#     foreground: '#C5C8C6'
+# }}}
+
+# Oxide colors{{{
+# colors:
+#   primary:
+#     background: '#212121'
+#     foreground: '#c0c5ce'
+#     bright_foreground: '#f3f4f5'
+#
+#   cursor:
+#     text: '#212121'
+#     cursor: '#c0c5ce'
+#
+#   normal:
+#     black:   '#212121'
+#     red:     '#e57373'
+#     green:   '#a6bc69'
+#     yellow:  '#fac863'
+#     blue:    '#6699cc'
+#     magenta: '#c594c5'
+#     cyan:    '#5fb3b3'
+#     white:   '#c0c5ce'
+#
+#   bright:
+#     black:   '#5c5c5c'
+#     red:     '#e57373'
+#     green:   '#a6bc69'
+#     yellow:  '#fac863'
+#     blue:    '#6699cc'
+#     magenta: '#c594c5'
+#     cyan:    '#5fb3b3'
+#     white:   '#f3f4f5'
+#}}}
 colors:
   bright:
-    black: '#586e75'
+    black: '#312700'
     blue: '#839496'
     cyan: '#93a1a1'
     green: '#586e75'
@@ -20,29 +99,56 @@ colors:
   primary:
     background: '#21262c'
     foreground: '#adb8b8'
+
+#241bd0
+#615a46
+#6f6752
+#838170
+#b95658
+#8f9081
+#dcf4fc
+#058972
+#0577a5
+#c77520
+#6e1bc6
+#859125
+#cbe2e9
+#615a46
+#1236bd
+#261e00
+#8f9081
+#838170
+#312700
+#838170
+#8f9081
+#312700
+
 draw_bold_text_with_bright_colors: true
 env:
   TERM: xterm-256color
 font:
   bold:
-    family: UbuntuMono Nerd Font
+    family: SauceCodePro Nerd Font 
     style: Bold
   bold_italic:
-    family: UbuntuMono Nerd Font
+    family: SauceCodePro Nerd Font 
     style: Bold Italic
   italic:
-    family: UbuntuMono Nerd Font
+    family: SauceCodePro Nerd Font 
     style: Italic
   normal:
-    family: UbuntuMono Nerd Font
+    family: SauceCodePro Nerd Font 
     style: Regular
   offset:
     x: 0
     y: 0
-  size: 10
+  size: 9
 scrolling:
   history: 10000
 window:
   class:
     general: Alacritty
     instance: Alacritty
+
+keybindings:
+  - { key: F10,         mods: shift,        chars: "\x1b[21;2~"}

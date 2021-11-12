@@ -13,6 +13,7 @@ export ENHANCD_COMMAND=ecd
 export EDITOR="nvim"
 export VISUAL="nvim"
 export _Z_NO_RESOLVE_SYMLINKS=1
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4f5f64"
 

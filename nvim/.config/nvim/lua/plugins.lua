@@ -5,81 +5,74 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd 'packadd packer.nvim'
 end
 
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
 	-- TELESCOPE
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+	use 'nvim-telescope/telescope.nvim'
+	use 'nvim-lua/plenary.nvim'
 	use 'nvim-lua/popup.nvim'
 
 	-- LSP
-	use {
-		'neovim/nvim-lspconfig',
-		config = function()
-			require('utils.nvim-lsp')
-		end
-	}
+	use 'neovim/nvim-lspconfig'
 
 	-- TREESITTER
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		requires =  'nvim-treesitter/nvim-treesitter-refactor',
-		config = function()
-			require('utils.nvim-treesitter')
-		end
 	}
 
 	-- COMPLETION
 	use {
-		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/nvim-cmp',
 		requires = {
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
-			'hrsh7th/nvim-cmp',
 			'hrsh7th/cmp-path',
-			'andersevenrud/compe-tmux', branch = 'cmp',
-			'ray-x/cmp-treesitter',
-			'hrsh7th/cmp-vsnip',
-			'hrsh7th/vim-vsnip'
-		},
-		config = function()
-			require('utils.nvim-cmp')
-		end
+			'hrsh7th/cmp-nvim-lua',
+			'saadparwaiz1/cmp_luasnip',
+			'onsails/lspkind-nvim'
+		}
 	}
+
+	-- SNIPPET
+	use 'L3MON4D3/LuaSnip'
 
 	-- COLOR SCHEME
+	use 'dracula/vim'
+	use 'gosukiwi/vim-atom-dark'
+	use 'joshdick/onedark.vim'
 	use 'gruvbox-community/gruvbox'
-	use 'altercation/vim-colors-solarized'
+	use 'nanotech/jellybeans.vim'
+	use 'kristijanhusak/vim-hybrid-material'
+	--use 'altercation/vim-colors-solarized'
 	use 'sainnhe/everforest'
 	use 'caksoylar/vim-mysticaltutor'
-	use 'nanotech/jellybeans.vim'
+	use 'arcticicestudio/nord-vim'
+	use 'NLKNguyen/papercolor-theme'
 
-	-- STATUSLINE
+	-- TPOPE
+	use 'tpope/vim-surround'
+	-- use 'tpope/vim-commentary'
+	use 'tpope/vim-projectionist'
+
 	use {
-		'hoob3rt/lualine.nvim',
-		requires = 'ryanoasis/vim-devicons',
+		'numToStr/Comment.nvim',
 		config = function()
-			require('lualine').setup{ options = {theme = 'jellybeans'} }
+			require('Comment').setup()
 		end
 	}
 
-	use 'lambdalisue/suda.vim'
-
-	use 'tpope/vim-surround'
-
-	use 'mbbill/undotree'
-
-	-- NERD STUFF
-	use 'scrooloose/nerdcommenter'
-	use 'scrooloose/nerdtree'
-
-	use 'christoomey/vim-tmux-navigator'
-
+	-- FOLKE
 	use {
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -87,20 +80,33 @@ return require('packer').startup(function(use)
 			require("todo-comments").setup {
 				signs = false,
 				highlight = {
-					before = "", -- "fg" or "bg" or empty
 					keyword = "fg", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
 					after = "", -- "fg" or "bg" or empty
-					pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlightng (vim regex)
-					comments_only = true, -- uses treesitter to match keywords in comments only
-					max_line_len = 400, -- ignore lines longer than this
-					exclude = {}, -- list of file types to exclude highlighting
+				},
+				colors = {
+					error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
+					warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
+					info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
+					hint = { "LspDiagnosticsDefaultHint", "#10B981" },
+					default = { "Identifier", "#7C3AED" },
 				},
 			}
 		end
 	}
+	-- use 'folke/which-key.nvim'
 
-	use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
-	use 'b3nj5m1n/kommentary'
+	-- STATUSLINE
+	use { 'hoob3rt/lualine.nvim', requires = 'ryanoasis/vim-devicons', }
 
-	use {"akinsho/toggleterm.nvim"}
+	use 'lambdalisue/suda.vim'
+	use 'mbbill/undotree'
+	use 'christoomey/vim-tmux-navigator'
+
+
+	--use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
+
+	use { 'windwp/nvim-autopairs'}
+
+	use {'iamcco/markdown-preview.nvim', config = "vim.call('mkdp#util#install')"}
+
 end)

@@ -1,3 +1,7 @@
+if not pcall(require, "cmp") then
+  return
+end
+
 local lspkind = require "lspkind"
 lspkind.init()
 
@@ -36,7 +40,7 @@ cmp.setup({
 	{
  		format = lspkind.cmp_format {
 			with_text = true,
-			menu =
+			menu = 
 			{
 				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
@@ -49,8 +53,13 @@ cmp.setup({
 	experimental =
 	{
 		native_menu = false,
-		ghost_text = true
+		ghost_text = false
 	}
-
 })
 
+if not pcall(require, "nvim-autopairs") then
+  return
+end
+
+require("nvim-autopairs").setup{}
+-- require("nvim-autopairs.completion.cmp").setup{}

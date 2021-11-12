@@ -1,44 +1,45 @@
 -- BUFFER-LOCAL OPTIONS
-vim.o.tabstop           = 4
-vim.o.softtabstop		= 0
-vim.o.shiftwidth        = 0
-vim.o.expandtab       	= false
-vim.o.smartindent       = true
+vim.opt.tabstop			= 4
+vim.opt.softtabstop		= 0
+vim.opt.shiftwidth		= 0
+vim.opt.expandtab		= false
+vim.opt.smartindent		= true
+
 
 
 -- WINDOW-LOCAL OPTIONS
-vim.o.relativenumber   = true
-vim.o.number           = true
-vim.o.foldmethod       = "marker"
---vim.wo.breakindent      = true
---vim.wo.breakindentopt   = "min:40,shift:4,sbr"
---vim.wo.showbreak        = ">>"
-vim.o.colorcolumn      = "80"
-vim.o.cursorline       = true
---vim.wo.cursorcolumn     = true
+vim.opt.relativenumber	= true
+vim.opt.number			= true
+vim.opt.foldmethod		= "marker"
+--vim..opt.breakindent	= true
+--vim..opt.breakindentopt	= "min:40,shift:4,sbr"
+--vim..opt.showbreak		= ">>"
+vim.opt.colorcolumn		= "80"
+vim.opt.cursorline		= true
+--vim..opt.cursorcolumn	= true
 
 
 -- GLOBAL OPTIONS
-vim.o.hlsearch         = false
-vim.o.hidden           = true
-vim.o.errorbells       = false
-vim.o.mouse            = "nv"
-vim.o.backup           = false
-vim.o.swapfile         = false
---vim.o.undodir		= ".undo/"
-vim.o.undofile         = true
-vim.o.incsearch        = true
-vim.o.termguicolors    = true
-vim.o.scrolloff        = 8
-vim.o.showmode         = true
-vim.o.completeopt      = "menuone,noinsert,noselect"
-vim.o.cmdheight        = 2
-vim.o.clipboard        = "unnamedplus"
-vim.o.keywordprg       = ":man"
+vim.opt.hlsearch		= false
+vim.opt.hidden			= true
+vim.opt.errorbells		= false
+vim.opt.mouse			= "nv"
+vim.opt.backup			= false
+vim.opt.swapfile		= false
+-- vim.opt.undodir		= "~/.cache/undodir"
+vim.opt.undofile		= true
+vim.opt.incsearch		= true
+vim.opt.termguicolors	= true
+vim.opt.scrolloff		= 8
+vim.opt.showmode		= true
+vim.opt.completeopt		= "menuone,noinsert,noselect"
+vim.opt.cmdheight		= 2
+vim.opt.clipboard		= "unnamedplus"
+vim.opt.keywordprg		= ":man"
+vim.opt.autoread		= true
 
 vim.g.mapleader	= " "
 
 --vim.cmd 'filetype plugin indent off'
 --vim.cmd 'syntax off'
---let mapleader= " "
 

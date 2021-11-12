@@ -10,9 +10,7 @@ xcape -e 'Caps_Lock=Escape'
 
 dwmblocks &
 picom --experimental-backends &
-#picom --config $HOME/.config/picom/picom.conf &
 nitrogen --restore &
-animated-background $HOME/wallpapers/video.mp4
 
 nm-applet &
 pa-applet &
@@ -20,4 +18,14 @@ flameshot &
 
 redshift -l 59.93:10.96 -t 6500:4500 &
 
-sshfs suleymab@login.ifi.uio.no:privat $HOME/uio -o reconnect
+# connect to my UIO server
+wget -q --spider http://gnu.org
+while :
+do 
+	if [ $? -eq 0 ]; then
+		sshfs -o reconnect,uid=1000,gid=984,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio
+		break
+	else
+		sleep 5
+	fi
+done
