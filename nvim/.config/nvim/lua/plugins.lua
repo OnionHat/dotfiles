@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
 	use 'caksoylar/vim-mysticaltutor'
 	use 'arcticicestudio/nord-vim'
 	use 'NLKNguyen/papercolor-theme'
+	use 'folke/tokyonight.nvim'
 
 	-- TPOPE
 	use 'tpope/vim-surround'
@@ -95,15 +96,25 @@ return require('packer').startup(function(use)
 	}
 	-- use 'folke/which-key.nvim'
 
+	-- DAP
+	-- use 'mfussenegger/nvim-dap'
+	-- use 'rcarriga/nvim-dap-ui'
+
 	-- STATUSLINE
 	use { 'hoob3rt/lualine.nvim', requires = 'ryanoasis/vim-devicons', }
+
 
 	use 'lambdalisue/suda.vim'
 	use 'mbbill/undotree'
 	use 'christoomey/vim-tmux-navigator'
 
-
-	--use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
+	-- use {
+	-- 	'rrethy/vim-hexokinase',
+	-- 	run = 'make hexokinase',
+	-- 	-- config = function()
+	-- 	-- 	vim.cmd 'call hexokinase#v2#scraper#off()'
+	-- 	--end
+	-- }
 
 	use { 'windwp/nvim-autopairs'}
 
