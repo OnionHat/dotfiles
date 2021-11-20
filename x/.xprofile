@@ -18,6 +18,8 @@ flameshot &
 
 redshift -l 59.93:10.96 -t 6500:4500 &
 
+gnome-keyring-daemon -d -s
+
 # connect to my UIO server
 wget -q --spider http://gnu.org
 while :
