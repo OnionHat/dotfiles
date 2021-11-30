@@ -68,7 +68,7 @@ font:
   offset:
     x: 0
     y: 0
-  size: 9
+  size: 10
 scrolling:
   history: 10000
 window:
