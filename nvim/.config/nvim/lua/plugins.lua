@@ -21,8 +21,14 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-lua/popup.nvim'
 
+	use {
+		'neoclide/coc.nvim'
+	}
+
 	-- LSP
 	use 'neovim/nvim-lspconfig'
+
+
 
 	-- TREESITTER
 	use {
@@ -65,6 +71,7 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-surround'
 	-- use 'tpope/vim-commentary'
 	use 'tpope/vim-projectionist'
+	use 'tpope/vim-vinegar'
 
 	use {
 		'numToStr/Comment.nvim',
@@ -119,5 +126,22 @@ return require('packer').startup(function(use)
 	use { 'windwp/nvim-autopairs'}
 
 	use {'iamcco/markdown-preview.nvim', config = "vim.call('mkdp#util#install')"}
+	use {
+		'sudormrfbin/cheatsheet.nvim',
+		requires = {
+			{'nvim-telescope/telescope.nvim'},
+			{'nvim-lua/popup.nvim'},
+			{'nvim-lua/plenary.nvim'},
+		}
+	}
+	use {
+		'Shougo/echodoc.vim',
+		config = function()
+			vim.cmd [[
+			set noshowmode
+			let g:echodoc_enable_at_startup = 1
+			]]
+		end
+	}
 
 end)

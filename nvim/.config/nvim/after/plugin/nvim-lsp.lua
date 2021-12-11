@@ -1,7 +1,10 @@
 local has_lsp, lsp = pcall(require, "lspconfig")
 if not has_lsp then
   return
+else
+	return
 end
+
 
 local custom_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -34,7 +37,12 @@ local custom_attach = function(client, bufnr)
 
 end
 
-require('lspconfig').ccls.setup {
+-- require('lspconfig').ccls.setup {
+--   on_attarh = custom_attach,
+--   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+-- }
+
+require('lspconfig').clangd.setup {
   on_attarh = custom_attach,
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 }

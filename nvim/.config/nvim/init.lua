@@ -1,4 +1,11 @@
+vim.g.despacio_Pitch = 1
+vim.g.tokyonight_style = "night"
+vim.g.hybrid_reduced_contrast = 1
+vim.g.hybrid_custom_term_colors = 1
 
+vim.cmd 'highlight Normal guibg=none'
+
+vim.cmd 'colorscheme gruberdarker'
 local Reload = {}
 
 Reload.reload_module = function(module_name, starts_with_only)
@@ -30,9 +37,3 @@ require('plugins')
 require('settings')
 require('keymaps')
 
-vim.g.despacio_Pitch = 1
-vim.g.tokyonight_style = "night"
-vim.cmd 'colorscheme despacio'
-vim.g.hybrid_reduced_contrast = 1
-vim.g.hybrid_custom_term_colors = 1
-vim.cmd 'highlight Normal guibg=none'

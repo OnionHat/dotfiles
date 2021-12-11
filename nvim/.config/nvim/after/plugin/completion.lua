@@ -1,5 +1,7 @@
 if not pcall(require, "cmp") then
   return
+else
+	return
 end
 
 local lspkind = require "lspkind"
@@ -61,5 +63,5 @@ if not pcall(require, "nvim-autopairs") then
   return
 end
 
-require("nvim-autopairs").setup{}
+-- require("nvim-autopairs").setup{}
 -- require("nvim-autopairs.completion.cmp").setup{}

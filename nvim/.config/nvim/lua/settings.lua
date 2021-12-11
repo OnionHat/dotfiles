@@ -35,7 +35,7 @@ vim.opt.showmode		= true
 vim.opt.completeopt		= "menuone,noinsert,noselect"
 vim.opt.cmdheight		= 2
 vim.opt.clipboard		= "unnamedplus"
-vim.opt.keywordprg		= ":man"
+vim.opt.keywordprg		= ":help"
 vim.opt.autoread		= true
 
 vim.g.mapleader	= " "
