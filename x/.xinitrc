@@ -10,4 +10,4 @@
 #while type dwm >/dev/null ; do dwm && continue || break ; done
 #exec xmonad
 # exec dwm
-exec cinnamon-session
+exec i3

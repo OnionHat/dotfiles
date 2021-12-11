@@ -95,4 +95,12 @@ alias suck="rm -f config.h && sudo make install"
 alias uiofs="sshfs -o reconnect,uid=1000,gid=984,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio"
 alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; bash\""
 
-
+which_term(){
+	foo=$(ps -p $(ps -p $$ -o ppid=) -o args=);
+	if [[ $foo == "alacritty" ]]
+	then
+		echo "ehiu"
+	else
+		echo $foo
+	fi
+}
