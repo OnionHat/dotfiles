@@ -42,4 +42,6 @@ vim.g.mapleader	= " "
 
 --vim.cmd 'filetype plugin indent off'
 --vim.cmd 'syntax off'
-
+-- vim.cmd[[
+-- autocmd BufEnter * lcd %:p:h
+-- ]]

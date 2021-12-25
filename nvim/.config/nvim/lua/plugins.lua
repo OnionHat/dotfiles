@@ -21,14 +21,28 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-lua/popup.nvim'
 
-	use {
-		'neoclide/coc.nvim'
-	}
+	-- use {
+	-- 	'neoclide/coc.nvim'
+	-- }
 
 	-- LSP
 	use 'neovim/nvim-lspconfig'
-
-
+	-- use 'RishabhRD/popfix'
+	-- use 'RishabhRD/nvim-lsputils'
+	use {
+		'jose-elias-alvarez/null-ls.nvim',
+		config = function ()
+			-- local null_ls = require("")
+			require("null-ls").setup({
+				sources = {
+					require("null-ls").builtins.formatting.stylua,
+					require("null-ls").builtins.formatting.black,
+					require("null-ls").builtins.diagnostics.eslint,
+					require("null-ls").builtins.completion.spell,
+				},
+			})
+		end
+	}
 
 	-- TREESITTER
 	use {
@@ -54,22 +68,21 @@ return require('packer').startup(function(use)
 	use 'L3MON4D3/LuaSnip'
 
 	-- COLOR SCHEME
-	use 'dracula/vim'
-	use 'gosukiwi/vim-atom-dark'
-	use 'joshdick/onedark.vim'
-	use 'gruvbox-community/gruvbox'
-	use 'nanotech/jellybeans.vim'
-	use 'kristijanhusak/vim-hybrid-material'
+	-- use 'dracula/vim'
+	-- use 'gosukiwi/vim-atom-dark'
+	-- use 'joshdick/onedark.vim'
+	-- use 'gruvbox-community/gruvbox'
+	-- use 'nanotech/jellybeans.vim'
+	-- use 'kristijanhusak/vim-hybrid-material'
 	--use 'altercation/vim-colors-solarized'
-	use 'sainnhe/everforest'
-	use 'caksoylar/vim-mysticaltutor'
-	use 'arcticicestudio/nord-vim'
-	use 'NLKNguyen/papercolor-theme'
-	use 'folke/tokyonight.nvim'
+	-- use 'sainnhe/everforest'
+	-- use 'caksoylar/vim-mysticaltutor'
+	-- use 'arcticicestudio/nord-vim'
+	-- use 'NLKNguyen/papercolor-theme'
+	-- use 'folke/tokyonight.nvim'
 
 	-- TPOPE
 	use 'tpope/vim-surround'
-	-- use 'tpope/vim-commentary'
 	use 'tpope/vim-projectionist'
 	use 'tpope/vim-vinegar'
 
@@ -85,27 +98,18 @@ return require('packer').startup(function(use)
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
-			require("todo-comments").setup {
-				signs = false,
-				highlight = {
-					keyword = "fg", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
-					after = "", -- "fg" or "bg" or empty
-				},
-				colors = {
-					error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
-					warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
-					info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
-					hint = { "LspDiagnosticsDefaultHint", "#10B981" },
-					default = { "Identifier", "#7C3AED" },
-				},
-			}
 		end
 	}
-	-- use 'folke/which-key.nvim'
+	use {
+		'folke/which-key.nvim',
+		config = function ()
+			vim.cmd 'set timeoutlen=500'
+		end
+	}
 
 	-- DAP
-	-- use 'mfussenegger/nvim-dap'
-	-- use 'rcarriga/nvim-dap-ui'
+	use 'mfussenegger/nvim-dap'
+	use 'rcarriga/nvim-dap-ui'
 
 	-- STATUSLINE
 	use { 'hoob3rt/lualine.nvim', requires = 'ryanoasis/vim-devicons', }
@@ -143,5 +147,7 @@ return require('packer').startup(function(use)
 			]]
 		end
 	}
-
+	use "tversteeg/registers.nvim"
+ --    use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
+	-- use 'junegunn/fzf.vim'
 end)

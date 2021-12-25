@@ -110,31 +110,11 @@ _G.packer_plugins = {
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
-  },
   ["echodoc.vim"] = {
     config = { "\27LJ\1\2`\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0A\t\t\tset noshowmode\n\t\t\tlet g:echodoc_enable_at_startup = 1\n\t\t\t\bcmd\bvim\0" },
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/echodoc.vim",
     url = "https://github.com/Shougo/echodoc.vim"
-  },
-  everforest = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/everforest",
-    url = "https://github.com/sainnhe/everforest"
-  },
-  gruvbox = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/gruvbox-community/gruvbox"
-  },
-  ["jellybeans.vim"] = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/jellybeans.vim",
-    url = "https://github.com/nanotech/jellybeans.vim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -152,10 +132,11 @@ _G.packer_plugins = {
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
-  ["nord-vim"] = {
+  ["null-ls.nvim"] = {
+    config = { "\27LJ\1\2\2\0\0\5\0\r\0%4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\v\0002\2\5\0004\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\4\0037\3\5\3;\3\1\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\4\0037\3\6\3;\3\2\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\a\0037\3\b\3;\3\3\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\t\0037\3\n\3;\3\4\2:\2\f\1>\0\2\1G\0\1\0\fsources\1\0\0\nspell\15completion\veslint\16diagnostics\nblack\vstylua\15formatting\rbuiltins\nsetup\fnull-ls\frequire\0" },
     loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/nord-vim",
-    url = "https://github.com/arcticicestudio/nord-vim"
+    path = "/home/sully/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -166,6 +147,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/sully/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/sully/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -182,20 +173,10 @@ _G.packer_plugins = {
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-refactor"
   },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/onedark.vim",
-    url = "https://github.com/joshdick/onedark.vim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  ["papercolor-theme"] = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/papercolor-theme",
-    url = "https://github.com/NLKNguyen/papercolor-theme"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -206,6 +187,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["registers.nvim"] = {
+    loaded = true,
+    path = "/home/sully/.local/share/nvim/site/pack/packer/start/registers.nvim",
+    url = "https://github.com/tversteeg/registers.nvim"
   },
   ["suda.vim"] = {
     loaded = true,
@@ -218,45 +204,20 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
-    config = { "\27LJ\1\2˜\3\0\0\4\0\18\0\0214\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0003\2\4\0:\2\5\0013\2\a\0003\3\6\0:\3\b\0023\3\t\0:\3\n\0023\3\v\0:\3\f\0023\3\r\0:\3\14\0023\3\15\0:\3\16\2:\2\17\1>\0\2\1G\0\1\0\vcolors\fdefault\1\3\0\0\15Identifier\f#7C3AED\thint\1\3\0\0\30LspDiagnosticsDefaultHint\f#10B981\tinfo\1\3\0\0%LspDiagnosticsDefaultInformation\f#2563EB\fwarning\1\4\0\0!LspDiagnosticsDefaultWarning\15WarningMsg\f#FBBF24\nerror\1\0\0\1\4\0\0\31LspDiagnosticsDefaultError\rErrorMsg\f#DC2626\14highlight\1\0\2\nafter\5\fkeyword\afg\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0" },
+    config = { "\27LJ\1\2\v\0\0\1\0\0\0\1G\0\1\0\0" },
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
   },
   undotree = {
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  vim = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/vim",
-    url = "https://github.com/dracula/vim"
-  },
-  ["vim-atom-dark"] = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/vim-atom-dark",
-    url = "https://github.com/gosukiwi/vim-atom-dark"
-  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
-  },
-  ["vim-hybrid-material"] = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/vim-hybrid-material",
-    url = "https://github.com/kristijanhusak/vim-hybrid-material"
-  },
-  ["vim-mysticaltutor"] = {
-    loaded = true,
-    path = "/home/sully/.local/share/nvim/site/pack/packer/start/vim-mysticaltutor",
-    url = "https://github.com/caksoylar/vim-mysticaltutor"
   },
   ["vim-projectionist"] = {
     loaded = true,
@@ -277,14 +238,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/vim-vinegar",
     url = "https://github.com/tpope/vim-vinegar"
+  },
+  ["which-key.nvim"] = {
+    config = { "\27LJ\1\0026\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0\23set timeoutlen=500\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/sully/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
 -- Config for: markdown-preview.nvim
 time([[Config for markdown-preview.nvim]], true)
 vim.call('mkdp#util#install')
@@ -293,9 +256,21 @@ time([[Config for markdown-preview.nvim]], false)
 time([[Config for echodoc.vim]], true)
 try_loadstring("\27LJ\1\2`\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0A\t\t\tset noshowmode\n\t\t\tlet g:echodoc_enable_at_startup = 1\n\t\t\t\bcmd\bvim\0", "config", "echodoc.vim")
 time([[Config for echodoc.vim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0\23set timeoutlen=500\bcmd\bvim\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+try_loadstring("\27LJ\1\2\2\0\0\5\0\r\0%4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\v\0002\2\5\0004\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\4\0037\3\5\3;\3\1\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\4\0037\3\6\3;\3\2\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\a\0037\3\b\3;\3\3\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\t\0037\3\n\3;\3\4\2:\2\f\1>\0\2\1G\0\1\0\fsources\1\0\0\nspell\15completion\veslint\16diagnostics\nblack\vstylua\15formatting\rbuiltins\nsetup\fnull-ls\frequire\0", "config", "null-ls.nvim")
+time([[Config for null-ls.nvim]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\1\2˜\3\0\0\4\0\18\0\0214\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0003\2\4\0:\2\5\0013\2\a\0003\3\6\0:\3\b\0023\3\t\0:\3\n\0023\3\v\0:\3\f\0023\3\r\0:\3\14\0023\3\15\0:\3\16\2:\2\17\1>\0\2\1G\0\1\0\vcolors\fdefault\1\3\0\0\15Identifier\f#7C3AED\thint\1\3\0\0\30LspDiagnosticsDefaultHint\f#10B981\tinfo\1\3\0\0%LspDiagnosticsDefaultInformation\f#2563EB\fwarning\1\4\0\0!LspDiagnosticsDefaultWarning\15WarningMsg\f#FBBF24\nerror\1\0\0\1\4\0\0\31LspDiagnosticsDefaultError\rErrorMsg\f#DC2626\14highlight\1\0\2\nafter\5\fkeyword\afg\1\0\1\nsigns\1\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+try_loadstring("\27LJ\1\2\v\0\0\1\0\0\0\1G\0\1\0\0", "config", "todo-comments.nvim")
 time([[Config for todo-comments.nvim]], false)
 if should_profile then save_profiles() end
 
