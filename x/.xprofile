@@ -13,16 +13,17 @@ xcape -e 'Caps_Lock=Escape'
 picom --experimental-backends &
 nitrogen --restore &
 
-nm-applet &
-pa-applet &
+# nm-applet &
+# pa-applet &
 flameshot &
+blueman-applet &
 
 redshift -l 59.93:10.96 -t 6500:4500 &
 
 gnome-keyring-daemon -d -s
 
 # connect to my UIO server
-wget -q --spider http://gnu.org
+# wget -q --spider http://gnu.org
 # while :
 # do 
 # 	if [ $? -eq 0 ]; then
