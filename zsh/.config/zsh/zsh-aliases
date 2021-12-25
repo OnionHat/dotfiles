@@ -95,12 +95,23 @@ alias suck="rm -f config.h && sudo make install"
 alias uiofs="sshfs -o reconnect,uid=1000,gid=984,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio"
 alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; bash\""
 
-which_term(){
-	foo=$(ps -p $(ps -p $$ -o ppid=) -o args=);
-	if [[ $foo == "alacritty" ]]
+alias nv="nvim"
+nvim(){
+	term=$(ps -p $(ps -p $$ -o ppid=) -o args=);
+	if [[ $term == "nvim" ]]
 	then
-		echo "ehiu"
+		command nvr $@
 	else
-		echo $foo
+		command nvim $@
 	fi
 }
+
+# nv(){
+# 	term=$(ps -p $(ps -p $$ -o ppid=) -o args=);
+# 	if [[ $term == "nvim" ]]
+# 	then
+# 		command nvr $@
+# 	else
+# 		command nvim $@
+# 	fi
+# }
