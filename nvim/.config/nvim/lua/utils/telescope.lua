@@ -8,4 +8,9 @@ require("telescope").setup{
 	},
 }
 
+-- if not pcall(require, "fzf") then
+-- 	return
+-- end
+require('telescope').load_extension('fzf')
+
 

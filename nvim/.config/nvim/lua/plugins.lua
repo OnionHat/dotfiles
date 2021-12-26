@@ -1,8 +1,8 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-	vim.cmd 'packadd packer.nvim'
+	fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+	vim.cmd("packadd packer.nvim")
 end
 
 vim.cmd([[
@@ -12,47 +12,70 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function(use)
+return require("packer").startup(function(use)
 	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+	use("wbthomason/packer.nvim")
 
 	-- TELESCOPE
-	use 'nvim-telescope/telescope.nvim'
-	use 'nvim-lua/plenary.nvim'
-	use 'nvim-lua/popup.nvim'
-
-	-- use {
-	-- 	'neoclide/coc.nvim'
-	-- }
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-lua/popup.nvim",
+			"nvim-telescope/telescope-media-files.nvim",
+			"tami5/sqlite.lua",
+			"nvim-telescope/telescope-cheat.nvim",
+		},
+		config = function()
+			require("utils.telescope")
+		end,
+	})
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- LSP
-	use 'neovim/nvim-lspconfig'
+	use({
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("utils.nvim-lsp")
+		end,
+	})
 	-- use 'RishabhRD/popfix'
 	-- use 'RishabhRD/nvim-lsputils'
-	use 'jose-elias-alvarez/null-ls.nvim'
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("utils.null-ls")
+		end,
+	})
 
 	-- TREESITTER
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate',
-		requires =  'nvim-treesitter/nvim-treesitter-refactor',
-	}
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		requires = "nvim-treesitter/nvim-treesitter-refactor",
+		config = function()
+			require("utils.telescope")
+		end,
+	})
 
 	-- COMPLETION
-	use {
-		'hrsh7th/nvim-cmp',
+	use({
+		"hrsh7th/nvim-cmp",
 		requires = {
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-buffer',
-			'hrsh7th/cmp-path',
-			'hrsh7th/cmp-nvim-lua',
-			'saadparwaiz1/cmp_luasnip',
-			'onsails/lspkind-nvim'
-		}
-	}
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lua",
+			"saadparwaiz1/cmp_luasnip",
+			"onsails/lspkind-nvim",
+		},
+		config = function()
+			require("utils.completion")
+		end,
+	})
 
 	-- SNIPPET
-	use 'L3MON4D3/LuaSnip'
+	use("L3MON4D3/LuaSnip")
 
 	-- COLOR SCHEME
 	-- use 'dracula/vim'
@@ -69,42 +92,59 @@ return require('packer').startup(function(use)
 	-- use 'folke/tokyonight.nvim'
 
 	-- TPOPE
-	use 'tpope/vim-surround'
-	use 'tpope/vim-projectionist'
-	use 'tpope/vim-vinegar'
-
-	use {
-		'numToStr/Comment.nvim',
+	use("tpope/vim-surround")
+	use({
+		"tpope/vim-projectionist",
 		config = function()
-			require('Comment').setup()
-		end
-	}
+			require("utils.projectionist")
+		end,
+	})
+	use("tpope/vim-vinegar")
+
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
 	-- FOLKE
-	use {
+	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
-		end
-	}
-	use {
-		'folke/which-key.nvim',
-		config = function ()
-			vim.cmd 'set timeoutlen=500'
-		end
-	}
+			require("utils.todo_comments")
+		end,
+	})
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("utils.todo_comments")
+			vim.cmd("set timeoutlen=500")
+		end,
+	})
 
 	-- DAP
-	use 'mfussenegger/nvim-dap'
-	use 'rcarriga/nvim-dap-ui'
+	use({
+		"mfussenegger/nvim-dap",
+		config = function()
+			require("utils.nvim-dap")
+		end,
+	})
+	use("rcarriga/nvim-dap-ui")
 
 	-- STATUSLINE
-	use { 'hoob3rt/lualine.nvim', requires = 'ryanoasis/vim-devicons', }
+	use({
+		"hoob3rt/lualine.nvim",
+		requires = "ryanoasis/vim-devicons",
+		config = function()
+			require("utils.lualine")
+		end,
+	})
 
-
-	use 'lambdalisue/suda.vim'
-	use 'mbbill/undotree'
-	use 'christoomey/vim-tmux-navigator'
+	use("lambdalisue/suda.vim")
+	use("mbbill/undotree")
+	use("christoomey/vim-tmux-navigator")
 
 	-- use {
 	-- 	'rrethy/vim-hexokinase',
@@ -114,27 +154,34 @@ return require('packer').startup(function(use)
 	-- 	--end
 	-- }
 
-	use { 'windwp/nvim-autopairs'}
-
-	use {'iamcco/markdown-preview.nvim', config = "vim.call('mkdp#util#install')"}
-	use {
-		'sudormrfbin/cheatsheet.nvim',
-		requires = {
-			{'nvim-telescope/telescope.nvim'},
-			{'nvim-lua/popup.nvim'},
-			{'nvim-lua/plenary.nvim'},
-		}
-	}
-	use {
-		'Shougo/echodoc.vim',
+	use({
+		"windwp/nvim-autopairs",
 		config = function()
-			vim.cmd [[
+			require("utils.autopairs")
+		end,
+	})
+
+	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" })
+	use({
+		"sudormrfbin/cheatsheet.nvim",
+		requires = {
+			{ "nvim-telescope/telescope.nvim" },
+			{ "nvim-lua/popup.nvim" },
+			{ "nvim-lua/plenary.nvim" },
+		},
+	})
+	use({
+		"Shougo/echodoc.vim",
+		config = function()
+			vim.cmd([[
 			set noshowmode
 			let g:echodoc_enable_at_startup = 1
-			]]
-		end
-	}
-	use "tversteeg/registers.nvim"
- --    use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
+			]])
+		end,
+	})
+	use("tversteeg/registers.nvim")
+	--    use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
+	-- use 'junegunn/fzf.vim'
+	-- use 'conweller/findr.vim'
 	-- use 'junegunn/fzf.vim'
 end)
