@@ -133,7 +133,6 @@ _G.packer_plugins = {
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["null-ls.nvim"] = {
-    config = { "\27LJ\1\2\2\0\0\5\0\r\0%4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\v\0002\2\5\0004\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\4\0037\3\5\3;\3\1\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\4\0037\3\6\3;\3\2\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\a\0037\3\b\3;\3\3\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\t\0037\3\n\3;\3\4\2:\2\f\1>\0\2\1G\0\1\0\fsources\1\0\0\nspell\15completion\veslint\16diagnostics\nblack\vstylua\15formatting\rbuiltins\nsetup\fnull-ls\frequire\0" },
     loaded = true,
     path = "/home/sully/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
@@ -256,22 +255,18 @@ time([[Config for markdown-preview.nvim]], false)
 time([[Config for echodoc.vim]], true)
 try_loadstring("\27LJ\1\2`\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0A\t\t\tset noshowmode\n\t\t\tlet g:echodoc_enable_at_startup = 1\n\t\t\t\bcmd\bvim\0", "config", "echodoc.vim")
 time([[Config for echodoc.vim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0\23set timeoutlen=500\bcmd\bvim\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
-try_loadstring("\27LJ\1\2\2\0\0\5\0\r\0%4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\v\0002\2\5\0004\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\4\0037\3\5\3;\3\1\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\4\0037\3\6\3;\3\2\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\a\0037\3\b\3;\3\3\0024\3\0\0%\4\1\0>\3\2\0027\3\3\0037\3\t\0037\3\n\3;\3\4\2:\2\f\1>\0\2\1G\0\1\0\fsources\1\0\0\nspell\15completion\veslint\16diagnostics\nblack\vstylua\15formatting\rbuiltins\nsetup\fnull-ls\frequire\0", "config", "null-ls.nvim")
-time([[Config for null-ls.nvim]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 try_loadstring("\27LJ\1\2\v\0\0\1\0\0\0\1G\0\1\0\0", "config", "todo-comments.nvim")
 time([[Config for todo-comments.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0\23set timeoutlen=500\bcmd\bvim\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

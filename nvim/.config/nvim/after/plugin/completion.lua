@@ -1,7 +1,5 @@
 if not pcall(require, "cmp") then
   return
--- else
--- 	return
 end
 
 local lspkind = require "lspkind"

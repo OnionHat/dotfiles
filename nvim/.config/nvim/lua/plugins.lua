@@ -29,20 +29,7 @@ return require('packer').startup(function(use)
 	use 'neovim/nvim-lspconfig'
 	-- use 'RishabhRD/popfix'
 	-- use 'RishabhRD/nvim-lsputils'
-	use {
-		'jose-elias-alvarez/null-ls.nvim',
-		config = function ()
-			-- local null_ls = require("")
-			require("null-ls").setup({
-				sources = {
-					require("null-ls").builtins.formatting.stylua,
-					require("null-ls").builtins.formatting.black,
-					require("null-ls").builtins.diagnostics.eslint,
-					require("null-ls").builtins.completion.spell,
-				},
-			})
-		end
-	}
+	use 'jose-elias-alvarez/null-ls.nvim'
 
 	-- TREESITTER
 	use {
