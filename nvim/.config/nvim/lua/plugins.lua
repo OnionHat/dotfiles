@@ -54,7 +54,7 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 		requires = "nvim-treesitter/nvim-treesitter-refactor",
 		config = function()
-			require("utils.telescope")
+			require("utils.treesitter")
 		end,
 	})
 
@@ -119,8 +119,7 @@ return require("packer").startup(function(use)
 	use({
 		"folke/which-key.nvim",
 		config = function()
-			require("utils.todo_comments")
-			vim.cmd("set timeoutlen=500")
+			require("utils.which-key")
 		end,
 	})
 

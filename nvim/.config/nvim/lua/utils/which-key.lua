@@ -69,7 +69,7 @@ wk.setup({
 	},
 })
 
-vim.opt.timeoutlen = 600
+vim.opt.timeoutlen = 500
 wk.register({
 	["<leader>"] = {
 		f = {

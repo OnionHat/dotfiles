@@ -115,3 +115,11 @@ inoremap <C-c> <ESC>
 -- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 -- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 -- ]]
+
+
+
+vim.cmd[[
+" coom
+" autocmd FileType python call nnoremap <buffer> <leader>fo :lua vim.lsp.buf.formatting()<CR>
+" autocmd Filetype python nnoremap <buffer> <leader>fo :echo "hello"
+]]
