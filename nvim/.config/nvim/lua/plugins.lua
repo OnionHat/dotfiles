@@ -12,6 +12,10 @@ vim.cmd([[
   augroup end
 ]])
 
+local get_setup = function(name)
+	return string.format("require('setup/%s')", name)
+end
+
 return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
@@ -25,27 +29,39 @@ return require("packer").startup(function(use)
 			"nvim-telescope/telescope-media-files.nvim",
 			"tami5/sqlite.lua",
 			"nvim-telescope/telescope-cheat.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
 		},
-		config = function()
-			require("utils.telescope")
-		end,
+		config = get_setup("telescope"),
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
-		config = function()
-			require("utils.nvim-lsp")
-		end,
+		config = get_setup("lsp"),
 	})
-	-- use 'RishabhRD/popfix'
-	-- use 'RishabhRD/nvim-lsputils'
+
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("utils.null-ls")
-		end,
+		config = get_setup("null-ls"),
+	})
+
+	use({
+		"glepnir/lspsaga.nvim",
+		config = get_setup("lspsaga"),
+	})
+
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+		config = get_setup("refactoring"),
+	})
+	use({
+		"ray-x/lsp_signature.nvim",
+		config = get_setup("signature"),
 	})
 
 	-- TREESITTER
@@ -53,9 +69,7 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		requires = "nvim-treesitter/nvim-treesitter-refactor",
-		config = function()
-			require("utils.treesitter")
-		end,
+		config = get_setup("treesitter"),
 	})
 
 	-- COMPLETION
@@ -68,16 +82,20 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
 			"onsails/lspkind-nvim",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
-		config = function()
-			require("utils.completion")
-		end,
+		config = get_setup("completion"),
 	})
 
 	-- SNIPPET
 	use("L3MON4D3/LuaSnip")
 
-	-- COLOR SCHEME
+	-- COLOR SCHEME{{{
+	use({
+		"rktjmp/lush.nvim",
+		requires = "metalelf0/jellybeans-nvim",
+	})
+	use("lunarvim/darkplus.nvim")
 	-- use 'dracula/vim'
 	-- use 'gosukiwi/vim-atom-dark'
 	-- use 'joshdick/onedark.vim'
@@ -89,46 +107,37 @@ return require("packer").startup(function(use)
 	-- use 'caksoylar/vim-mysticaltutor'
 	-- use 'arcticicestudio/nord-vim'
 	-- use 'NLKNguyen/papercolor-theme'
-	-- use 'folke/tokyonight.nvim'
+	-- use 'folke/tokyonight.nvim'}}}
 
 	-- TPOPE
 	use("tpope/vim-surround")
 	use({
 		"tpope/vim-projectionist",
-		config = function()
-			require("utils.projectionist")
-		end,
+		config = get_setup("projectionist"),
 	})
 	use("tpope/vim-vinegar")
 
+	-- COMMENTING
 	use({
 		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
+		config = get_setup("comment"),
 	})
 
 	-- FOLKE
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("utils.todo_comments")
-		end,
+		config = get_setup("todo-comments"),
 	})
 	use({
 		"folke/which-key.nvim",
-		config = function()
-			require("utils.which-key")
-		end,
+		config = get_setup("which-key"),
 	})
 
 	-- DAP
 	use({
 		"mfussenegger/nvim-dap",
-		config = function()
-			require("utils.nvim-dap")
-		end,
+		config = get_setup("nvim-dap"),
 	})
 	use("rcarriga/nvim-dap-ui")
 
@@ -136,51 +145,61 @@ return require("packer").startup(function(use)
 	use({
 		"hoob3rt/lualine.nvim",
 		requires = "ryanoasis/vim-devicons",
-		config = function()
-			require("utils.lualine")
-		end,
+		config = get_setup("lualine"),
 	})
 
+	-- MISC
 	use("lambdalisue/suda.vim")
 	use("mbbill/undotree")
 	use("christoomey/vim-tmux-navigator")
 
-	-- use {
-	-- 	'rrethy/vim-hexokinase',
-	-- 	run = 'make hexokinase',
-	-- 	-- config = function()
-	-- 	-- 	vim.cmd 'call hexokinase#v2#scraper#off()'
-	-- 	--end
-	-- }
+	-- SHOW COLORS
+	use({
+		"rrethy/vim-hexokinase",
+		run = "make hexokinase",
+	})
 
+	-- AUTOPAIRS
 	use({
 		"windwp/nvim-autopairs",
-		config = function()
-			require("utils.autopairs")
-		end,
+		config = get_setup("autopairs"),
 	})
 
+	-- MARKDOWN
 	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" })
-	use({
-		"sudormrfbin/cheatsheet.nvim",
-		requires = {
-			{ "nvim-telescope/telescope.nvim" },
-			{ "nvim-lua/popup.nvim" },
-			{ "nvim-lua/plenary.nvim" },
-		},
-	})
-	use({
-		"Shougo/echodoc.vim",
-		config = function()
-			vim.cmd([[
-			set noshowmode
-			let g:echodoc_enable_at_startup = 1
-			]])
-		end,
-	})
+
+	-- PASTING REGISTER
 	use("tversteeg/registers.nvim")
-	--    use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
-	-- use 'junegunn/fzf.vim'
-	-- use 'conweller/findr.vim'
-	-- use 'junegunn/fzf.vim'
+
+	-- INDENT GUIDE
+	use({ "Yggdroot/indentLine" })
+
+	-- GIT SIGNS
+	-- use({
+	-- 	"mhinz/vim-signify",
+	-- 	config = get_setup("signify")
+	-- })
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = get_setup("gitsigns"),
+	})
+
+	-- RUNNING PROGRAMS
+	use("skywind3000/asyncrun.vim")
+
+	-- PYTHON
+	use({
+		"bps/vim-textobj-python",
+		ft = { "python" },
+		requires = "kana/vim-textobj-user",
+		config = get_setup("textobj-python"),
+	})
+
+	-- MAYBEEEEEE
+	-- use("AckslD/nvim-revJ.lua")  -- https://github.com/AckslD/nvim-revJ.lua
+	-- use("eddiebergman/nvim-treesitter-pyfold")   -- https://github.com/eddiebergman/nvim-treesitter-pyfold
+
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
 end)

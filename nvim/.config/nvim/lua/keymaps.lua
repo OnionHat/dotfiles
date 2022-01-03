@@ -1,8 +1,4 @@
 -- TELESCOPE
-vim.api.nvim_set_keymap('n', '<leader>ff', [[<Cmd>lua require('telescope.builtin').find_files()<CR>]], {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>ft', [[<Cmd>lua require('telescope.builtin').file_browser()<CR>]], {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>fb', [[<Cmd>lua require('telescope.builtin').buffers()<CR>]], {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>fg', [[<Cmd>lua require('telescope.builtin').live_grep()<CR>]], {noremap=true})
 
 -- NERDTREE
 --vim.api.nvim_set_keymap('n', '<leader>n', ':NERDTreeFocus<CR>', {noremap=true})
@@ -102,24 +98,4 @@ vim.cmd [[
 "inoremap jk <ESC>
 "inoremap kj <ESC>
 inoremap <C-c> <ESC>
-]]
-
---LUASNIPPET
--- vim.cmd [[
--- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
--- inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
---
--- snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
--- snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
---
--- imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
--- smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
--- ]]
-
-
-
-vim.cmd[[
-" coom
-" autocmd FileType python call nnoremap <buffer> <leader>fo :lua vim.lsp.buf.formatting()<CR>
-" autocmd Filetype python nnoremap <buffer> <leader>fo :echo "hello"
 ]]

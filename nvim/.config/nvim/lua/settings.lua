@@ -1,8 +1,8 @@
 -- BUFFER-LOCAL OPTIONS
 vim.opt.tabstop			= 4
-vim.opt.softtabstop		= 0
-vim.opt.shiftwidth		= 0
-vim.opt.expandtab		= false
+vim.opt.softtabstop		= 4
+vim.opt.shiftwidth		= 4
+vim.opt.expandtab		= true
 vim.opt.smartindent		= true
 
 
@@ -13,7 +13,7 @@ vim.opt.number			= true
 vim.opt.foldmethod		= "marker"
 --vim..opt.breakindent	= true
 --vim..opt.breakindentopt	= "min:40,shift:4,sbr"
---vim..opt.showbreak		= ">>"
+-- vim.opt.showbreak		= ">>"
 vim.opt.colorcolumn		= "80"
 vim.opt.cursorline		= true
 --vim..opt.cursorcolumn	= true
