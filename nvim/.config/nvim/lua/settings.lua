@@ -11,6 +11,7 @@ vim.opt.smartindent		= true
 vim.opt.relativenumber	= true
 vim.opt.number			= true
 vim.opt.foldmethod		= "marker"
+vim.opt.wrap            = false
 --vim..opt.breakindent	= true
 --vim..opt.breakindentopt	= "min:40,shift:4,sbr"
 -- vim.opt.showbreak		= ">>"
