@@ -56,8 +56,8 @@ vim.api.nvim_set_keymap('n', '<leader>y', '"+y', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>Y', 'gg"+yG', {noremap=true})
 
 -- BETTER DELETE
-vim.api.nvim_set_keymap('n', '<leader>d', '"_d', {noremap=true})
-vim.api.nvim_set_keymap('v', '<leader>d', '"_d', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>D', '"_d', {noremap=true})
+vim.api.nvim_set_keymap('v', '<leader>D', '"_d', {noremap=true})
 
 -- BETTER CHANGE
 vim.api.nvim_set_keymap('n', '<leader>c', '"_c', {noremap=true})
