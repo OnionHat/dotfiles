@@ -1,28 +1,29 @@
 schemes:
-  solorized: &solorized
-    bright:
-      black: '#586e75'
-      blue: '#839496'
-      cyan: '#93a1a1'
-      green: '#586e75'
-      magenta: '#6c71c4'
-      red: '#cb4b16'
-      white: '#cdcdcd'
-      yellow: '#657b83'
 
-    normal:
-      black: '#073642'
-      blue: '#268bd2'
-      cyan: '#2aa198'
-      green: '#859900'
-      magenta: '#d33682'
-      red: '#dc322f'
-      white: '#eee8d5'
-      yellow: '#b58900'
+solorized: &solorized
+  bright:
+    black: '#586e75'
+    blue: '#839496'
+    cyan: '#93a1a1'
+    green: '#586e75'
+    magenta: '#6c71c4'
+    red: '#cb4b16'
+    white: '#cdcdcd'
+    yellow: '#657b83'
 
-    primary:
-      background: '#21262c'
-      foreground: '#adb8b8'
+  normal:
+    black: '#073642'
+    blue: '#268bd2'
+    cyan: '#2aa198'
+    green: '#859900'
+    magenta: '#d33682'
+    red: '#dc322f'
+    white: '#eee8d5'
+    yellow: '#b58900'
+
+  primary:
+    background: '#21262c'
+    foreground: '#adb8b8'
 
 
   default: &default
@@ -132,7 +133,7 @@ font:
   offset:
     x: 0
     y: 0
-  size: 12
+  size: 14
 
 scrolling:
   history: 10000
@@ -143,4 +144,4 @@ window:
     instance: Alacritty
 
 keybindings:
-  - { key: F10,         mods: shift,        chars: "\x1b[21;2~"}
+ - { key: F10,         mods: shift,        chars: "\x1b[21;2~"}
