@@ -723,6 +723,11 @@ if !empty("s:overrides")
   delf s:current_attr
 endif
 
+" LSP
+highlight DiagnosticUnderlineError gui=undercurl
+highlight DiagnosticUnderlineWarn gui=undercurl
+highlight DiagnosticUnderlineHint gui=undercurl
+
 " delete functions {{{
 delf s:X
 delf s:remove_italic_attr
