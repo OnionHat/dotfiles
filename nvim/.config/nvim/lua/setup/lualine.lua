@@ -20,5 +20,5 @@ end
 
 require("lualine").setup({
 	options = { theme = "jellybeans" },
-	sections = { lualine_c = { filepath, current_signature } },
+	sections = { lualine_c = { filepath } },
 })

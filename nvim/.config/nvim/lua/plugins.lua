@@ -46,10 +46,10 @@ return require("packer").startup(function(use)
 		config = get_setup("null-ls"),
 	})
 
-	use({
-		"glepnir/lspsaga.nvim",
-		config = get_setup("lspsaga"),
-	})
+	-- use({
+	-- 	"glepnir/lspsaga.nvim",
+	-- 	config = get_setup("lspsaga"),
+	-- })
 
 	use({
 		"ThePrimeagen/refactoring.nvim",
@@ -137,6 +137,7 @@ return require("packer").startup(function(use)
 	-- DAP
 	use({
 		"mfussenegger/nvim-dap",
+		requires = "mfussenegger/nvim-dap-python",
 		config = get_setup("nvim-dap"),
 	})
 	use("rcarriga/nvim-dap-ui")
@@ -193,6 +194,12 @@ return require("packer").startup(function(use)
 		ft = { "python" },
 		requires = "kana/vim-textobj-user",
 		config = get_setup("textobj-python"),
+	})
+	use({
+		"hanschen/vim-ipython-cell",
+		-- ft = { "python" },
+		requires = "jpalardy/vim-slime",
+		config = get_setup("vim-python-cell"),
 	})
 
 	-- MAYBEEEEEE

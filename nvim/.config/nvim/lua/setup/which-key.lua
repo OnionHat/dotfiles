@@ -39,15 +39,15 @@ wk.setup({
 		group = "+", -- symbol prepended to a group
 	},
 	popup_mappings = {
-		scroll_down = '<c-d>', -- binding to scroll down inside the popup
-		scroll_up = '<c-u>', -- binding to scroll up inside the popup
+		scroll_down = "<c-d>", -- binding to scroll down inside the popup
+		scroll_up = "<c-u>", -- binding to scroll up inside the popup
 	},
 	window = {
 		border = "none", -- none, single, double, shadow
 		position = "bottom", -- bottom, top
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-		winblend = 0
+		winblend = 0,
 	},
 	layout = {
 		height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -56,7 +56,7 @@ wk.setup({
 		align = "left", -- align columns left, center or right
 	},
 	ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 	show_help = true, -- show help message on the command line when the popup is visible
 	triggers = "auto", -- automatically setup triggers
 	-- triggers = {"<leader>"} -- or specify a list manually
@@ -73,18 +73,21 @@ vim.opt.timeoutlen = 500
 wk.register({
 	["<leader>"] = {
 		f = {
-			name = "+telescope",
+			name = "+Telescope",
 			f = { "<cmd>Telescope find_files<cr>", "Find File" },
 			r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 			n = { "<cmd>enew<cr>", "New File" },
 		},
 		v = {
 			name = "+lsp",
-			d = {'<cmd>lua vim.lsp.buf.definition()<CR>', 'definition'},
-			D = {'<cmd>lua vim.lsp.buf.declaration()<CR>', 'definition'},
-			i = {'<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation'},
-			sh = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', 'signature_help'},
+			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "definition" },
+			D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "definition" },
+			i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "implementation" },
+			sh = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "signature_help" },
+		},
+		t = { name = "+Terminal" },
+        h = { name = "+Git" },
+        w = { name = "+Workspace" }
 
-		}
 	},
 })

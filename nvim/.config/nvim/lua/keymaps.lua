@@ -1,38 +1,3 @@
--- TELESCOPE
-
--- NERDTREE
---vim.api.nvim_set_keymap('n', '<leader>n', ':NERDTreeFocus<CR>', {noremap=true})
---vim.api.nvim_set_keymap('n', '<C-n>', ':NERDTree<CR>', {noremap=true})
---vim.api.nvim_set_keymap('n', '<C-t>', ':NERDTreeToggle<CR>', {noremap=true})
---vim.api.nvim_set_keymap('n', '<C-f>', ':NERDTreeFind<CR>', {noremap=true})
-
--- NETRW
-vim.cmd [[
-let g:netrw_banner = 0
-let g:NetrwIsOpen=0
-
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore 
-		silent vertical resize 30
-    endif
-endfunction
-
-" Add your own mapping. For example:
-noremap <silent> <leader>rw :call ToggleNetrw()<CR>
-]]
--- vim.api.nvim_set_keymap('n', '<leader>rw', ':wincmd v <bar> :Ex <bar> :vertical resize 30<CR>', {noremap=true})
-
 -- DISABLING Q
 vim.api.nvim_set_keymap('n', 'Q', '', {noremap=true})
 
@@ -40,6 +5,7 @@ vim.api.nvim_set_keymap('n', 'Q', '', {noremap=true})
 vim.api.nvim_set_keymap('t', '<Esc>', '<c-\\><c-n>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>t"', ':belowrigh sp | term<CR>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>t%', ':belowright vsp | term<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>tn', ':term<CR>', {noremap=true})
 
 -- BETTER LINE MOVEMENT
 vim.api.nvim_set_keymap('v', 'J', ':m \'>+1<CR>gv=gv', {noremap=true})
@@ -56,8 +22,8 @@ vim.api.nvim_set_keymap('n', '<leader>y', '"+y', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>Y', 'gg"+yG', {noremap=true})
 
 -- BETTER DELETE
-vim.api.nvim_set_keymap('n', '<leader>D', '"_d', {noremap=true})
-vim.api.nvim_set_keymap('v', '<leader>D', '"_d', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>d', '"_d', {noremap=true})
+vim.api.nvim_set_keymap('v', '<leader>d', '"_d', {noremap=true})
 
 -- BETTER CHANGE
 vim.api.nvim_set_keymap('n', '<leader>c', '"_c', {noremap=true})
@@ -98,4 +64,13 @@ vim.cmd [[
 "inoremap jk <ESC>
 "inoremap kj <ESC>
 inoremap <C-c> <ESC>
+]]
+
+-- BUFFER
+
+vim.cmd [[
+nnoremap <leader>bd :bd<CR>
+nnoremap <leader>bD :bd!<CR>
+nnoremap <leader>bp :bprev<CR>
+nnoremap <leader>bn :bnext<CR>
 ]]
