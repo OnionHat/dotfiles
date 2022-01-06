@@ -20,7 +20,7 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	-- TELESCOPE
+	-- TELESCOPE{{{
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -33,9 +33,9 @@ return require("packer").startup(function(use)
 		},
 		config = get_setup("telescope"),
 	})
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })--}}}
 
-	-- LSP
+	-- LSP{{{
 	use({
 		"neovim/nvim-lspconfig",
 		config = get_setup("lsp"),
@@ -46,10 +46,10 @@ return require("packer").startup(function(use)
 		config = get_setup("null-ls"),
 	})
 
-	-- use({
-	-- 	"glepnir/lspsaga.nvim",
-	-- 	config = get_setup("lspsaga"),
-	-- })
+	use({
+		"tami5/lspsaga.nvim",
+		config = get_setup("lspsaga"),
+	})
 
 	use({
 		"ThePrimeagen/refactoring.nvim",
@@ -62,17 +62,17 @@ return require("packer").startup(function(use)
 	use({
 		"ray-x/lsp_signature.nvim",
 		config = get_setup("signature"),
-	})
+	})--}}}
 
-	-- TREESITTER
+	-- TREESITTER{{{
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		requires = "nvim-treesitter/nvim-treesitter-refactor",
 		config = get_setup("treesitter"),
-	})
+	})--}}}
 
-	-- COMPLETION
+	-- COMPLETION{{{
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -86,9 +86,7 @@ return require("packer").startup(function(use)
 		},
 		config = get_setup("completion"),
 	})
-
-	-- SNIPPET
-	use("L3MON4D3/LuaSnip")
+	use("L3MON4D3/LuaSnip")--}}}
 
 	-- COLOR SCHEME{{{
 	use({
@@ -109,21 +107,22 @@ return require("packer").startup(function(use)
 	-- use 'NLKNguyen/papercolor-theme'
 	-- use 'folke/tokyonight.nvim'}}}
 
-	-- TPOPE
+	-- TPOPE{{{
 	use("tpope/vim-surround")
 	use({
 		"tpope/vim-projectionist",
 		config = get_setup("projectionist"),
 	})
-	use("tpope/vim-vinegar")
+    use("tpope/vim-dispatch")
+	use("tpope/vim-vinegar")--}}}
 
-	-- COMMENTING
+	-- COMMENTING{{{
 	use({
 		"numToStr/Comment.nvim",
 		config = get_setup("comment"),
-	})
+	})--}}}
 
-	-- FOLKE
+	-- FOLKE{{{
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -133,62 +132,74 @@ return require("packer").startup(function(use)
 		"folke/which-key.nvim",
 		config = get_setup("which-key"),
 	})
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = get_setup("trouble"),
+	})--}}}
 
-	-- DAP
+	-- DAP{{{
 	use({
 		"mfussenegger/nvim-dap",
 		requires = "mfussenegger/nvim-dap-python",
 		config = get_setup("nvim-dap"),
 	})
-	use("rcarriga/nvim-dap-ui")
+	use("rcarriga/nvim-dap-ui")--}}}
 
-	-- STATUSLINE
+	-- STATUSLINE{{{
 	use({
 		"hoob3rt/lualine.nvim",
 		requires = "ryanoasis/vim-devicons",
 		config = get_setup("lualine"),
 	})
+	use({
+		"SmiteshP/nvim-gps",
+		requires = "nvim-treesitter/nvim-treesitter",
+		config = get_setup("nvim-gps"),
+	})--}}}
 
-	-- MISC
+	-- MISC{{{
 	use("lambdalisue/suda.vim")
 	use("mbbill/undotree")
 	use("christoomey/vim-tmux-navigator")
+    use {
+        "akinsho/toggleterm.nvim",
+        config = get_setup("toggleterm"),
+        after = "vim-tmux-navigator"
+    }
+    --}}}
 
-	-- SHOW COLORS
+	-- SHOW COLORS{{{
 	use({
 		"rrethy/vim-hexokinase",
 		run = "make hexokinase",
-	})
+	})--}}}
 
-	-- AUTOPAIRS
+	-- AUTOPAIRS{{{
 	use({
 		"windwp/nvim-autopairs",
 		config = get_setup("autopairs"),
-	})
+	})--}}}
 
-	-- MARKDOWN
-	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" })
+	-- MARKDOWN{{{
+	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" })--}}}
 
-	-- PASTING REGISTER
-	use("tversteeg/registers.nvim")
+	-- PASTING REGISTER{{{
+	use("tversteeg/registers.nvim")--}}}
 
-	-- INDENT GUIDE
-	use({ "Yggdroot/indentLine" })
+	-- INDENT GUIDE{{{
+	use({ "Yggdroot/indentLine" })--}}}
 
-	-- GIT SIGNS
-	-- use({
-	-- 	"mhinz/vim-signify",
-	-- 	config = get_setup("signify")
-	-- })
+	-- GIT SIGNS{{{
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = get_setup("gitsigns"),
-	})
+	})--}}}
 
-	-- RUNNING PROGRAMS
-	use("skywind3000/asyncrun.vim")
+	-- RUNNING PROGRAMS{{{
+	use("skywind3000/asyncrun.vim")--}}}
 
-	-- PYTHON
+	-- PYTHON{{{
 	use({
 		"bps/vim-textobj-python",
 		ft = { "python" },
@@ -200,13 +211,9 @@ return require("packer").startup(function(use)
 		-- ft = { "python" },
 		requires = "jpalardy/vim-slime",
 		config = get_setup("vim-python-cell"),
-	})
+	})--}}}
 
 	-- MAYBEEEEEE
-	-- use("AckslD/nvim-revJ.lua")  -- https://github.com/AckslD/nvim-revJ.lua
-	-- use("eddiebergman/nvim-treesitter-pyfold")   -- https://github.com/eddiebergman/nvim-treesitter-pyfold
-
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
+	-- use("AckslD/nvim-revJ.lua")  -- https://github.com/AckslD/nvim-revJ.lua Reverse J
+	-- use("eddiebergman/nvim-treesitter-pyfold")   -- https://github.com/eddiebergman/nvim-treesitter-pyfold Better folding I guess
 end)
