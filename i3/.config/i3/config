@@ -8,6 +8,8 @@ font pango:monospace 9
 #                           # class                 border  backgr. text    indicator child_border
 # for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
+default_floating_border pixel 10
+
 # Window rules
 for_window [title="floating_window"] floating enable
 for_window [class="steam_app_1182480"] floating enable
@@ -22,6 +24,7 @@ for_window [class="Steam" title="Steam - Self Updater"] floating enable
 for_window [class="Steam" title="Screenshot Uploader"] floating enable
 for_window [class="Steam" title="Steam Guard - Computer Authorization Required"] floating enable
 for_window [title="Steam Keyboard"] floating enable
+for_window [class="SpeedCrunch"] floating enable resize set 640 480
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -149,6 +152,7 @@ bar {
 hide_edge_borders both
 workspace_layout tabbed
 for_window [class="^.*"] border pixel 1
+for_window [floating] border pixel 3
 focus_wrapping workspace
 # hide_edge_borders smart
 

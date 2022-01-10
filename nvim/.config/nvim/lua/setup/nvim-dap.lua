@@ -31,7 +31,7 @@ end
 local wk_ok_status, wk = pcall(require, "which-key")
 if wk_ok_status then
 	wk.register({
-		x = {
+		b = {
 			name = "Debug",
 			t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
             T = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "Set Breakpoint"},
@@ -52,20 +52,20 @@ if wk_ok_status then
 	}, { prefix = "<leader>" })
 else
 	vim.cmd([[
-    nnoremap <silent> <leader>xt :lua require'dap'.toggle_breakpoint()<CR>
-    nnoremap <silent> <leader>xT :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-    nnoremap <silent> <leader>xc :lua require'dap'.continue()<CR>
-    nnoremap <silent> <leader>xb :lua require'dap'.step_back()<CR>
-    nnoremap <silent> <leader>xi :lua require'dap'.step_into()<CR>
-    nnoremap <silent> <leader>xo :lua require'dap'.step_over()<CR>
-    nnoremap <silent> <leader>xu :lua require'dap'.step_out()<CR>
-    nnoremap <silent> <leader>xC :lua require'dap'.run_to_cursor()<CR>
-    nnoremap <silent> <leader>xd :lua require'dap'.disconnect()<CR>
-    nnoremap <silent> <leader>xg :lua require'dap'.session()<CR>
-    nnoremap <silent> <leader>xp :lua require'dap'.pause.toggle()<CR>
-    nnoremap <silent> <leader>xr :lua require'dap'.repl.open()<CR>
-    nnoremap <silent> <leader>xq :lua require'dap'.close()<CR>
-    nnoremap <silent> <leader>xl :lua require'dap'.run_last()<CR>
+    nnoremap <silent> <leader>bt :lua require'dap'.toggle_breakpoint()<CR>
+    nnoremap <silent> <leader>bT :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+    nnoremap <silent> <leader>bc :lua require'dap'.continue()<CR>
+    nnoremap <silent> <leader>bb :lua require'dap'.step_back()<CR>
+    nnoremap <silent> <leader>bi :lua require'dap'.step_into()<CR>
+    nnoremap <silent> <leader>bo :lua require'dap'.step_over()<CR>
+    nnoremap <silent> <leader>bu :lua require'dap'.step_out()<CR>
+    nnoremap <silent> <leader>bC :lua require'dap'.run_to_cursor()<CR>
+    nnoremap <silent> <leader>bd :lua require'dap'.disconnect()<CR>
+    nnoremap <silent> <leader>bg :lua require'dap'.session()<CR>
+    nnoremap <silent> <leader>bp :lua require'dap'.pause.toggle()<CR>
+    nnoremap <silent> <leader>br :lua require'dap'.repl.open()<CR>
+    nnoremap <silent> <leader>bq :lua require'dap'.close()<CR>
+    nnoremap <silent> <leader>bl :lua require'dap'.run_last()<CR>
     ]])
 end
 

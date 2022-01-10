@@ -33,7 +33,7 @@ return require("packer").startup(function(use)
 		},
 		config = get_setup("telescope"),
 	})
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })--}}}
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) --}}}
 
 	-- LSP{{{
 	use({
@@ -62,7 +62,12 @@ return require("packer").startup(function(use)
 	use({
 		"ray-x/lsp_signature.nvim",
 		config = get_setup("signature"),
-	})--}}}
+	})
+	use({
+		"simrat39/symbols-outline.nvim",
+        config = get_setup("symbols-outline")
+	})
+	--}}}
 
 	-- TREESITTER{{{
 	use({
@@ -70,7 +75,7 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 		requires = "nvim-treesitter/nvim-treesitter-refactor",
 		config = get_setup("treesitter"),
-	})--}}}
+	}) --}}}
 
 	-- COMPLETION{{{
 	use({
@@ -86,7 +91,7 @@ return require("packer").startup(function(use)
 		},
 		config = get_setup("completion"),
 	})
-	use("L3MON4D3/LuaSnip")--}}}
+	use("L3MON4D3/LuaSnip") --}}}
 
 	-- COLOR SCHEME{{{
 	use({
@@ -105,7 +110,9 @@ return require("packer").startup(function(use)
 	-- use 'caksoylar/vim-mysticaltutor'
 	-- use 'arcticicestudio/nord-vim'
 	-- use 'NLKNguyen/papercolor-theme'
-	-- use 'folke/tokyonight.nvim'}}}
+    use 'jacoborus/tender.vim'
+	use 'folke/tokyonight.nvim'
+    --}}}
 
 	-- TPOPE{{{
 	use("tpope/vim-surround")
@@ -113,14 +120,14 @@ return require("packer").startup(function(use)
 		"tpope/vim-projectionist",
 		config = get_setup("projectionist"),
 	})
-    use("tpope/vim-dispatch")
-	use("tpope/vim-vinegar")--}}}
+	use("tpope/vim-dispatch")
+	use("tpope/vim-vinegar") --}}}
 
 	-- COMMENTING{{{
 	use({
 		"numToStr/Comment.nvim",
 		config = get_setup("comment"),
-	})--}}}
+	}) --}}}
 
 	-- FOLKE{{{
 	use({
@@ -128,15 +135,15 @@ return require("packer").startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 		config = get_setup("todo-comments"),
 	})
-	use({
-		"folke/which-key.nvim",
-		config = get_setup("which-key"),
-	})
+	-- use({
+	-- 	"folke/which-key.nvim",
+	-- 	config = get_setup("which-key"),
+	-- })
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = get_setup("trouble"),
-	})--}}}
+	}) --}}}
 
 	-- DAP{{{
 	use({
@@ -144,7 +151,7 @@ return require("packer").startup(function(use)
 		requires = "mfussenegger/nvim-dap-python",
 		config = get_setup("nvim-dap"),
 	})
-	use("rcarriga/nvim-dap-ui")--}}}
+	use("rcarriga/nvim-dap-ui") --}}}
 
 	-- STATUSLINE{{{
 	use({
@@ -156,48 +163,48 @@ return require("packer").startup(function(use)
 		"SmiteshP/nvim-gps",
 		requires = "nvim-treesitter/nvim-treesitter",
 		config = get_setup("nvim-gps"),
-	})--}}}
+	}) --}}}
 
 	-- MISC{{{
 	use("lambdalisue/suda.vim")
 	use("mbbill/undotree")
 	use("christoomey/vim-tmux-navigator")
-    use {
-        "akinsho/toggleterm.nvim",
-        config = get_setup("toggleterm"),
-        after = "vim-tmux-navigator"
-    }
-    --}}}
+	use({
+		"akinsho/toggleterm.nvim",
+		config = get_setup("toggleterm"),
+		after = "vim-tmux-navigator",
+	})
+	--}}}
 
 	-- SHOW COLORS{{{
 	use({
 		"rrethy/vim-hexokinase",
 		run = "make hexokinase",
-	})--}}}
+	}) --}}}
 
 	-- AUTOPAIRS{{{
 	use({
 		"windwp/nvim-autopairs",
 		config = get_setup("autopairs"),
-	})--}}}
+	}) --}}}
 
 	-- MARKDOWN{{{
-	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" })--}}}
+	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" }) --}}}
 
 	-- PASTING REGISTER{{{
-	use("tversteeg/registers.nvim")--}}}
+	use("tversteeg/registers.nvim") --}}}
 
 	-- INDENT GUIDE{{{
-	use({ "Yggdroot/indentLine" })--}}}
+	use({ "Yggdroot/indentLine" }) --}}}
 
 	-- GIT SIGNS{{{
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = get_setup("gitsigns"),
-	})--}}}
+	}) --}}}
 
 	-- RUNNING PROGRAMS{{{
-	use("skywind3000/asyncrun.vim")--}}}
+	use("skywind3000/asyncrun.vim") --}}}
 
 	-- PYTHON{{{
 	use({
@@ -211,7 +218,7 @@ return require("packer").startup(function(use)
 		-- ft = { "python" },
 		requires = "jpalardy/vim-slime",
 		config = get_setup("vim-python-cell"),
-	})--}}}
+	}) --}}}
 
 	-- MAYBEEEEEE
 	-- use("AckslD/nvim-revJ.lua")  -- https://github.com/AckslD/nvim-revJ.lua Reverse J

@@ -15,13 +15,13 @@ let g:slime_dont_ask_default = 1
 local wk_ok_status, wk = pcall(require, "which-key")
 if wk_ok_status then
 	wk.register({
-		x = {
+		r = {
 			name = "Run Python",
-			rs = { "<cmd>SlimeSend1 ipython --matplotlib<CR>", "Start IPython" },
-			rr = { "<cmd>IPythonCellRun<CR>", "Run Script" },
-			rt = { "<cmd>IPythonCellRunTime<CR>", "Time Execution" },
-			rl = { "<cmd>IPythonCellClear<CR>", "Clear IPython" },
-			rq = { "<cmd>IPythonCellClose<CR>", "Close IPython" },
+			s = { "<cmd>SlimeSend1 ipython --matplotlib<CR>", "Start IPython" },
+			r = { "<cmd>IPythonCellRun<CR>", "Run Script" },
+			t = { "<cmd>IPythonCellRunTime<CR>", "Time Execution" },
+			l = { "<cmd>IPythonCellClear<CR>", "Clear IPython" },
+			q = { "<cmd>IPythonCellClose<CR>", "Close IPython" },
 		},
 	}, { prefix = "<leader>" })
 else
