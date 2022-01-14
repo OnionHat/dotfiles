@@ -1,8 +1,68 @@
 #!/bin/sh
-alias j='z'
-alias f='zi'
+
+# Zsh
+alias zshrestart="source $ZDOTDIR/.zshrc"
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
-alias nvimrc='nvim ~/.config/nvim/'
+
+alias clr="clear"
+
+#color
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+
+alias ls='exa --color=always --group-directories-first --icons'     # my preferred listing
+alias la='exa -la --color=always --group-directories-first --icons' # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.='exa -a | egrep "^\." --icons'
+
+## Safety features
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias mkdir='mkdir -pv'
+alias mkd='mkdir -pv'
+
+# Xorg
+alias s='startx'
+
+# keyboard (never used them)
+alias asdf='switch_layout'
+alias aoeu='switch_layout'
+
+# version control of dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
+# Suckles tools
+alias suck="rm -f config.h && sudo make install"
+
+# UiO
+alias uiofs="sshfs -o reconnect,uid=1000,gid=1000,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio"
+alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; bash\""
+
+# Neovim
+alias nv="nvim"
+nvim() {
+	term=$(ps -p $(ps -p $$ -o ppid=) -o args=)
+	if [[ $term == "nvim" ]]; then
+		command nvr $@
+	else
+		command nvim $@
+	fi
+}
+
+# Tmux
+alias t="tmux attach || tmux new-session"
+alias ta='tmux attach -t'
+alias tl="tmux ls"
+tn() {
+	if [[ -n $@ ]]; then
+		command tmux new-session -s $@
+	else
+		command tmux new-session
+	fi
+}
 
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
@@ -15,14 +75,9 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-# confirm before overwriting something
-alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
-
 # easier to read disk
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
 
 # get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4 | head -5'
@@ -36,82 +91,6 @@ alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 # receive the key of a developer
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
-# For when keys break
+# For when gpg keys break
 alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
-# Example aliases
-alias zshconfig="$EDITOR $ZDOTDIR/.zshrc"
-alias zshrestart="source $ZDOTDIR/.zshrc"
-
-alias clr="clear"
-
-#color
-alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias ip='ip -color=auto'
-
-alias ls='exa --color=always --group-directories-first --icons' # my preferred listing
-alias la='exa -la --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.='exa -a | egrep "^\." --icons'
-
-#function man() {
-	#LESS_TERMCAP_md=$'\e[01;31m' \
-		#LESS_TERMCAP_me=$'\e[0m' \
-		#LESS_TERMCAP_so=$'\e[01;44;33m' \
-		#LESS_TERMCAP_se=$'\e[0m' \
-		#LESS_TERMCAP_us=$'\e[01;32m' \
-		#LESS_TERMCAP_ue=$'\e[0m' \
-		#command man "$@"
-	#}
-
-alias mkdir='mkdir -p -v'
-
-## Safety features
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -iv'    
-alias mkd='mkdir -pv'
-
-alias s='startx'
-
-#keyboard
-alias asdf='switch_layout'
-alias aoeu='switch_layout'
-
-# version control of dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
-
-# Tmux
-alias tl="tmux list-sessions"
-#alias ta="tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --height=50% --reverse | xargs tmux switch-client -t"
-#alias ta="tmux list-sessions | sed -E 's/\(.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
-alias tn="tmux new -d"
-
-alias suck="rm -f config.h && sudo make install"
-
-# UIO
-alias uiofs="sshfs -o reconnect,uid=1000,gid=984,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio"
-alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; bash\""
-
-alias nv="nvim"
-nvim(){
-	term=$(ps -p $(ps -p $$ -o ppid=) -o args=);
-	if [[ $term == "nvim" ]]
-	then
-		command nvr $@
-	else
-		command nvim $@
-	fi
-}
-
-# nv(){
-# 	term=$(ps -p $(ps -p $$ -o ppid=) -o args=);
-# 	if [[ $term == "nvim" ]]
-# 	then
-# 		command nvr $@
-# 	else
-# 		command nvim $@
-# 	fi
-# }
