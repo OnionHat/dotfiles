@@ -65,7 +65,7 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"simrat39/symbols-outline.nvim",
-        config = get_setup("symbols-outline")
+		config = get_setup("symbols-outline"),
 	})
 	--}}}
 
@@ -94,15 +94,12 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip") --}}}
 
 	-- COLOR SCHEME{{{
-	use({
-		"rktjmp/lush.nvim",
-		requires = "metalelf0/jellybeans-nvim",
-	})
+	use("rktjmp/lush.nvim")
 	use("lunarvim/darkplus.nvim")
 	-- use 'dracula/vim'
 	-- use 'gosukiwi/vim-atom-dark'
 	-- use 'joshdick/onedark.vim'
-	-- use 'gruvbox-community/gruvbox'
+	use("gruvbox-community/gruvbox")
 	-- use 'nanotech/jellybeans.vim'
 	-- use 'kristijanhusak/vim-hybrid-material'
 	--use 'altercation/vim-colors-solarized'
@@ -110,18 +107,20 @@ return require("packer").startup(function(use)
 	-- use 'caksoylar/vim-mysticaltutor'
 	-- use 'arcticicestudio/nord-vim'
 	-- use 'NLKNguyen/papercolor-theme'
-    use 'jacoborus/tender.vim'
-	use 'folke/tokyonight.nvim'
-    --}}}
+	use("jacoborus/tender.vim")
+	use("folke/tokyonight.nvim")
+	use("drewtempelmeyer/palenight.vim")
+	use("p00f/nvim-ts-rainbow")
+    use("p00f/alabaster_dark.nvim")
+    use("rebelot/kanagawa.nvim")
+    use("ozkanonur/nimda.vim")
+    use("sainnhe/gruvbox-material")
+	--}}}
 
 	-- TPOPE{{{
 	use("tpope/vim-surround")
-	use({
-		"tpope/vim-projectionist",
-		config = get_setup("projectionist"),
-	})
 	use("tpope/vim-dispatch")
-	use("tpope/vim-vinegar") --}}}
+	--}}}
 
 	-- COMMENTING{{{
 	use({
@@ -154,16 +153,24 @@ return require("packer").startup(function(use)
 	use("rcarriga/nvim-dap-ui") --}}}
 
 	-- STATUSLINE{{{
+	-- use({
+	-- 	"hoob3rt/lualine.nvim",
+	-- 	requires = "ryanoasis/vim-devicons",
+	-- 	config = get_setup("lualine"),
+	-- })
 	use({
-		"hoob3rt/lualine.nvim",
-		requires = "ryanoasis/vim-devicons",
-		config = get_setup("lualine"),
+		"windwp/windline.nvim",
+		config = get_setup("windline"),
 	})
 	use({
 		"SmiteshP/nvim-gps",
 		requires = "nvim-treesitter/nvim-treesitter",
 		config = get_setup("nvim-gps"),
 	}) --}}}
+
+	-- MAKE{{{
+	use({ "neomake/neomake" })
+	--}}}
 
 	-- MISC{{{
 	use("lambdalisue/suda.vim")
@@ -213,12 +220,11 @@ return require("packer").startup(function(use)
 		requires = "kana/vim-textobj-user",
 		config = get_setup("textobj-python"),
 	})
-	use({
-		"hanschen/vim-ipython-cell",
-		-- ft = { "python" },
-		requires = "jpalardy/vim-slime",
-		config = get_setup("vim-python-cell"),
-	}) --}}}
+	--}}}
+
+	-- JAVA{{{
+	use("mfussenegger/nvim-jdtls")
+	--}}}
 
 	-- MAYBEEEEEE
 	-- use("AckslD/nvim-revJ.lua")  -- https://github.com/AckslD/nvim-revJ.lua Reverse J

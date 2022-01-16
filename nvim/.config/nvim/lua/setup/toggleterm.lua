@@ -8,22 +8,20 @@ toggleterm.setup({
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
-	shade_terminals = true,
-	shading_factor = 2,
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
 	direction = "horizontal",
 	close_on_exit = true,
 	shell = vim.o.shell,
-	-- float_opts = {
-	-- 	border = "curved",
-	-- 	winblend = 0,
-	-- 	highlights = {
-	-- 		border = "Normal",
-	-- 		background = "Normal",
-	-- 	},
-	-- },
+	float_opts = {
+		border = "curved",
+		winblend = 0,
+		highlights = {
+			border = "Normal",
+			background = "Normal",
+		},
+	},
 })
 
 function _G.set_terminal_keymaps()
@@ -37,28 +35,9 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+vim.cmd[[
+nnoremap <silent><c-t> <Cmd>ToggleTermToggleAll<CR>
+inoremap <silent><c-t> <Esc><Cmd>ToggleTermToggleAll<CR>i
+]]
 
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-
-function _LAZYGIT_TOGGLE()
-	lazygit:toggle()
-end
-
-local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
-
-function _NCDU_TOGGLE()
-	ncdu:toggle()
-end
-
-local htop = Terminal:new({ cmd = "htop", hidden = true })
-
-function _HTOP_TOGGLE()
-	htop:toggle()
-end
-
-local python = Terminal:new({ cmd = "python", hidden = true })
-
-function _PYTHON_TOGGLE()
-	python:toggle()
-end
+-- Run programs

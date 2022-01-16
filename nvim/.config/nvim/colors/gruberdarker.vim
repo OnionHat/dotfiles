@@ -35,7 +35,8 @@
   let s:gruberFG3=['#65737e', '243']
   let s:gruberWhite=['#ffffff', '15']
   let s:gruberBlack=['#000000', '0']
-  let s:gruberBG=['#181818', '233']
+  " let s:gruberBG=['#181818', '233']
+  let s:gruberBG=['#282828', '233']
   let s:gruberBG1=['#282828', '235']
   let s:gruberBG2=['#453d41', '238']
   let s:gruberLightRed=['#c73c3f', '203']
@@ -77,8 +78,8 @@ call <sid>hi('Debug',         s:gruberFG2,        '',           '',        '')
 call <sid>hi('Directory',     s:gruberLightBlue,  '',           '',        '')
 call <sid>hi('ErrorMsg',      s:gruberWhite,      s:gruberRed,  '',        '')
 call <sid>hi('Exception',     s:gruberBrown,      '',           '',        '')
-call <sid>hi('FoldColumn',    s:gruberBrown,      s:gruberFG2,  '',        '')
-call <sid>hi('Folded',        s:gruberBrown,      s:gruberFG2,  s:italic,  '')
+call <sid>hi('FoldColumn',    s:gruberBrown,      s:none,  '',        '')
+call <sid>hi('Folded',        s:gruberBrown,      s:none,  s:italic,  '')
 call <sid>hi('IncSearch',     s:gruberBlack,      s:gruberFG2,  'NONE',    '')
 call <sid>hi('Italic',        '',                 '',           s:italic,  '')
 
@@ -196,6 +197,8 @@ call <sid>hi('vimfilerLeaf',        s:gruberFG,      '',          '',  '')
 call <sid>hi('vimfilerNormalFile',  s:gruberFG,      s:gruberBG1, '',  '')
 call <sid>hi('vimfilerOpenedFile',  s:gruberNiagara, '',          '',  '')
 call <sid>hi('vimfilerClosedFile',  s:gruberNiagara, '',          '',  '')
+"
+"call <sid>:hi(group, fg, bg, gui, guisp)
 
 " }}}
 
@@ -226,3 +229,42 @@ let g:terminal_color_15=s:gruberFG[0]
 let g:terminal_color_background=s:gruberBG1[0]
 let g:terminal_color_foreground=s:gruberWhite[0]
 
+" Color Palate{{{
+" let s:gruberFG=['#e4e4ef', '253']
+" let s:gruberFG1=['#f4f4ff', '254']
+" let s:gruberFG2=['#f5f5ff', '240']
+" let s:gruberFG3=['#65737e', '243']
+" let s:gruberWhite=['#ffffff', '15']
+" let s:gruberBlack=['#000000', '0']
+" let s:gruberBG=['#181818', '233']
+" let s:gruberBG1=['#282828', '235']
+" let s:gruberBG2=['#453d41', '238']
+" let s:gruberLightRed=['#c73c3f', '203']
+" let s:gruberRed=['#f43841', '160']
+" let s:gruberNiagara=['#96a6c8', '147']
+" let s:gruberQuartz=['#95a99f', '108']
+" let s:gruberGreen=['#73c936', '70']
+" let s:gruberMain=['#ffdd33', '220']
+" let s:gruberBrown=['#cc8c3c', '172']
+" let s:gruberPurple=['#9e95c7', '98']
+" let s:gruberLightBlue=['#0087d7', '32']
+" let s:gruberBlue=['#0000d7', '20']
+" let s:gruberGold=['#d7af00', '178']
+" let s:none=['NONE', 'NONE']}}}
+
+" Custom highlighting
+call <sid>hi('GitSignsAdd',         s:gruberGreen,      '', '', '')
+call <sid>hi('GitSignsChange',      s:gruberLightBlue,  '', '', '')
+call <sid>hi('GitSignsDelete',      s:gruberRed,      '', '', '')
+
+call <sid>hi('DiagnosticUnderlineError', '', '', 'undercurl', '')
+call <sid>hi('DiagnosticUnderlineWarn', '', '', 'undercurl', '')
+call <sid>hi('DiagnosticUnderlineHint', '', '', 'undercurl', '')
+
+call <sid>hi('rainbowcol1', s:gruberMain, '', '', '')
+call <sid>hi('rainbowcol2', s:gruberNiagara, '', '', '')
+call <sid>hi('rainbowcol3', s:gruberRed, '', '', '')
+call <sid>hi('rainbowcol4', s:gruberLightBlue, '', '', '')
+call <sid>hi('rainbowcol5', s:gruberMain, '', '', '')
+call <sid>hi('rainbowcol6', s:gruberNiagara, '', '', '')
+call <sid>hi('rainbowcol7', s:gruberRed, '', '', '')

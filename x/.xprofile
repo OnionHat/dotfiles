@@ -11,7 +11,8 @@ xcape -e 'Caps_Lock=Escape'
 
 # dwmblocks &
 picom --experimental-backends &
-nitrogen --restore &
+# nitrogen --restore &
+source ~/.fehbg &
 
 # nm-applet &
 # pa-applet &

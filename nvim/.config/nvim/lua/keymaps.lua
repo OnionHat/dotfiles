@@ -32,6 +32,15 @@ vim.api.nvim_set_keymap('n', 's', '"_s', {noremap=true})
 vim.api.nvim_set_keymap('v', 's', '"_s', {noremap=true})
 
 -- SOURCE NEOVIM
+function _G.ReloadConfig()
+  for name,_ in pairs(package.loaded) do
+    if name:match('^cnull') then
+      package.loaded[name] = nil
+    end
+  end
+
+  dofile(vim.env.MYVIMRC)
+end
 vim.env.NVIM_CONFIG_PATH = vim.fn.stdpath('config')
 vim.api.nvim_set_keymap('n', '<Leader>lo', ':luafile $NVIM_CONFIG_PATH/init.lua<CR>', {noremap=true})
 
@@ -48,7 +57,7 @@ vim.api.nvim_set_keymap('n', 'J', 'mzJ`z', {noremap=true})
 
 -- OPERATION PENDING WITH BRACKETS AND PARANTESES
 vim.cmd [[
-onoremap b i[|                            
+onoremap b i]             
 onoremap p i(|
 onoremap B i{|
 ]]
@@ -61,8 +70,6 @@ nnoremap L $
 
 -- GO BACK TO NORMAL MODE
 vim.cmd [[
-"inoremap jk <ESC>
-"inoremap kj <ESC>
 inoremap <C-c> <ESC>
 ]]
 
@@ -73,4 +80,19 @@ nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bD :bd!<CR>
 nnoremap <leader>bp :bprev<CR>
 nnoremap <leader>bn :bnext<CR>
+]]
+
+-- SAVE
+vim.cmd('nnoremap <silent> <C-s> :w<CR>')
+vim.cmd('inoremap <silent> <C-s> <Esc>:w<Cr>a')
+
+-- SELECT ALL
+vim.cmd('nnoremap <silent> <C-a> ggVG')
+
+-- TMUX
+vim.cmd[[
+noremap <C-A-j> :resize +5<CR>
+noremap <C-A-k> :resize -5<CR>
+noremap <C-A-h> :vertical:resize -5<CR>
+noremap <C-A-l> :vertical:resize +5<CR>
 ]]
