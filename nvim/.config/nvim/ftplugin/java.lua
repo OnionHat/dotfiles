@@ -22,22 +22,22 @@ local config = {
 
 		-- 💀
 		"-jar",
-		"/path/to/jdtls_install_location/plugins/org.eclipse.equinox.launcher_VERSION_NUMBER.jar",
+		"/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
 		-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
 		-- Must point to the                                                     Change this to
 		-- eclipse.jdt.ls installation                                           the actual version
 
 		-- 💀
 		"-configuration",
-		"/path/to/jdtls_install_location/config_SYSTEM",
+		"/usr/share/java/jdtls/config_linux",
 		-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
 		-- Must point to the                      Change to one of `linux`, `win` or `mac`
 		-- eclipse.jdt.ls installation            Depending on your system.
 
 		-- 💀
 		-- See `data directory configuration` section in the README
-		"-data",
-		"/path/to/unique/per/project/workspace/folder",
+		-- "-data",
+		-- "/path/to/unique/per/project/workspace/folder",
 	},
 
 	-- 💀
@@ -52,6 +52,8 @@ local config = {
 		java = {},
 	},
 
+	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+
 	-- Language server `initializationOptions`
 	-- You need to extend the `bundles` with paths to jar files
 	-- if you want to use additional eclipse.jdt.ls plugins.
@@ -64,9 +66,9 @@ local config = {
 	},
 }
 
-local ok_status, jdtls = pcall(require, "jdtls")
-if ok_status then
-	-- This starts a new client & server,
-	-- or attaches to an existing client & server depending on the `root_dir`.
-	jdtls.start_or_attach(config)
-end
+-- local ok_status, jdtls = pcall(require, "jdtls")
+-- if ok_status then
+-- 	-- This starts a new client & server,
+-- 	-- or attaches to an existing client & server depending on the `root_dir`.
+-- 	jdtls.start_or_attach(config)
+-- end

@@ -111,10 +111,10 @@ return require("packer").startup(function(use)
 	use("folke/tokyonight.nvim")
 	use("drewtempelmeyer/palenight.vim")
 	use("p00f/nvim-ts-rainbow")
-    use("p00f/alabaster_dark.nvim")
-    use("rebelot/kanagawa.nvim")
-    use("ozkanonur/nimda.vim")
-    use("sainnhe/gruvbox-material")
+	use("p00f/alabaster_dark.nvim")
+	use("rebelot/kanagawa.nvim")
+	use("ozkanonur/nimda.vim")
+	use("sainnhe/gruvbox-material")
 	--}}}
 
 	-- TPOPE{{{
@@ -224,6 +224,13 @@ return require("packer").startup(function(use)
 
 	-- JAVA{{{
 	use("mfussenegger/nvim-jdtls")
+	--}}}
+
+	-- REMOTE{{{
+	use({
+		"chipsenkbeil/distant.nvim",
+		config = get_setup("distant"),
+	})
 	--}}}
 
 	-- MAYBEEEEEE

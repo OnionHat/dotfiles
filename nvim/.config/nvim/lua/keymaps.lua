@@ -96,3 +96,10 @@ noremap <C-A-k> :resize -5<CR>
 noremap <C-A-h> :vertical:resize -5<CR>
 noremap <C-A-l> :vertical:resize +5<CR>
 ]]
+
+-- INDENT
+-- vim.cmd[[
+-- inoremap <CR> <CR>x<BS>
+-- nnoremap o ox<BS>
+-- nnoremap O Ox<BS>
+-- ]]

@@ -48,7 +48,6 @@ local kind_icons = {
 local lspkind = require("lspkind")
 lspkind.init()
 
-local cmp = require("cmp")
 cmp.setup({
 	completion = {
 		-- autocomplete = false,
@@ -96,8 +95,8 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "luasnip" },
-        { name = "cmp_nvim_lsp_signature_help"}
-		-- { name = "buffer", keyword_length = 5 },
+		-- { name = "cmp_nvim_lsp_signature_help" },
+		{ name = "buffer"},
 	},
 	snippet = {
 		expand = function(args)
