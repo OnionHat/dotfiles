@@ -17,6 +17,8 @@ export VISUAL="nvim"
 export _Z_NO_RESOLVE_SYMLINKS=1
 export QT_QPA_PLATFORMTHEME=qt5ct
 export RANGER_LOAD_DEFAULT_RC=FALSE
+export JDTLS_HOME=$HOME/.local/share/jdtls
+export JDTLS_CONFIG=$HOME/.local/share/jdtls/config_linux
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4f5f64"
 
