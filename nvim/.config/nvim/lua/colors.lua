@@ -7,5 +7,5 @@ vim.cmd([[let $NVIM_TUI_ENABLE_TRUE_COLOR=1]])
 
 --
 -- vim.cmd("set termguicolors")
-vim.cmd("colorscheme gruberdarker")
-vim.cmd("highlight Normal guibg=NONE")
+vim.cmd("colorscheme tokyonight")
+-- vim.cmd("highlight Normal guibg=NONE")

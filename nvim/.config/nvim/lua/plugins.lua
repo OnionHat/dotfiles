@@ -20,6 +20,9 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
+	-- Maybe a better file search
+	use({ "camspiers/snap", rocks = { "fzy" } })
+
 	-- TELESCOPE{{{
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -33,7 +36,8 @@ return require("packer").startup(function(use)
 		},
 		config = get_setup("telescope"),
 	})
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) --}}}
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	--}}}
 
 	-- LSP{{{
 	use({
@@ -45,28 +49,17 @@ return require("packer").startup(function(use)
 		"jose-elias-alvarez/null-ls.nvim",
 		config = get_setup("null-ls"),
 	})
-
 	use({
 		"tami5/lspsaga.nvim",
 		config = get_setup("lspsaga"),
 	})
 
 	use({
-		"ThePrimeagen/refactoring.nvim",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-		config = get_setup("refactoring"),
-	})
-	use({
+
 		"ray-x/lsp_signature.nvim",
 		config = get_setup("signature"),
 	})
-	use({
-		"simrat39/symbols-outline.nvim",
-		config = get_setup("symbols-outline"),
-	})
+
 	--}}}
 
 	-- TREESITTER{{{
@@ -75,7 +68,8 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 		requires = "nvim-treesitter/nvim-treesitter-refactor",
 		config = get_setup("treesitter"),
-	}) --}}}
+	})
+	--}}}
 
 	-- COMPLETION{{{
 	use({
@@ -88,45 +82,51 @@ return require("packer").startup(function(use)
 			"saadparwaiz1/cmp_luasnip",
 			"onsails/lspkind-nvim",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"L3MON4D3/LuaSnip",
 		},
 		config = get_setup("completion"),
 	})
-	use("L3MON4D3/LuaSnip") --}}}
+	--}}}
 
-	-- COLOR SCHEME{{{
-	use("rktjmp/lush.nvim")
-	use("lunarvim/darkplus.nvim")
-	-- use 'dracula/vim'
-	-- use 'gosukiwi/vim-atom-dark'
-	-- use 'joshdick/onedark.vim'
-	use("gruvbox-community/gruvbox")
-	-- use 'nanotech/jellybeans.vim'
-	-- use 'kristijanhusak/vim-hybrid-material'
-	--use 'altercation/vim-colors-solarized'
-	-- use 'sainnhe/everforest'
-	-- use 'caksoylar/vim-mysticaltutor'
-	-- use 'arcticicestudio/nord-vim'
-	-- use 'NLKNguyen/papercolor-theme'
-	use("jacoborus/tender.vim")
-	use("folke/tokyonight.nvim")
-	use("drewtempelmeyer/palenight.vim")
-	use("p00f/nvim-ts-rainbow")
-	use("p00f/alabaster_dark.nvim")
-	use("rebelot/kanagawa.nvim")
-	use("ozkanonur/nimda.vim")
-	use("sainnhe/gruvbox-material")
+	-- COLORS {{{
+	use({ -- Colorscheme
+		"gruvbox-community/gruvbox",
+		"nanotech/jellybeans.vim",
+		"folke/tokyonight.nvim",
+		-- "lunarvim/darkplus.nvim",
+		-- "dracula/vim",
+		-- "gosukiwi/vim-atom-dark",
+		-- "joshdick/onedark.vim",
+		-- "altercation/vim-colors-solarized",
+		-- "sainnhe/everforest",
+		-- "caksoylar/vim-mysticaltutor",
+		-- "arcticicestudio/nord-vim",
+		-- "NLKNguyen/papercolor-theme",
+		-- "jacoborus/tender.vim",
+		-- "drewtempelmeyer/palenight.vim",
+		-- "p00f/alabaster_dark.nvim",
+		-- "rebelot/kanagawa.nvim",
+		-- "ozkanonur/nimda.vim",
+		-- "sainnhe/gruvbox-material",
+
+		requires = "rktjmp/lush.nvim",
+	})
+
+	use({ "rrethy/vim-hexokinase", run = "make hexokinase" }) -- Shows the color
+
+	use("p00f/nvim-ts-rainbow") -- Colors the curly brackets and like
 	--}}}
 
 	-- TPOPE{{{
-	use("tpope/vim-surround")
-	use("tpope/vim-dispatch")
+	use("tpope/vim-surround", "tpope/vim-dispatch")
 	--}}}
 
 	-- COMMENTING{{{
 	use({
 		"numToStr/Comment.nvim",
 		config = get_setup("comment"),
-	}) --}}}
+	})
+	--}}}
 
 	-- FOLKE{{{
 	use({
@@ -134,69 +134,76 @@ return require("packer").startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 		config = get_setup("todo-comments"),
 	})
-	-- use({
-	-- 	"folke/which-key.nvim",
-	-- 	config = get_setup("which-key"),
-	-- })
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = get_setup("trouble"),
-	}) --}}}
+	})
+	use({
+		"folke/lsp-colors.nvim",
+		config = require("lsp-colors").setup({}),
+	})
+	--}}}
 
 	-- DAP{{{
 	use({
 		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
 		requires = "mfussenegger/nvim-dap-python",
 		config = get_setup("nvim-dap"),
 	})
-	use("rcarriga/nvim-dap-ui") --}}}
+	--}}}
 
 	-- STATUSLINE{{{
-	-- use({
-	-- 	"hoob3rt/lualine.nvim",
-	-- 	requires = "ryanoasis/vim-devicons",
-	-- 	config = get_setup("lualine"),
-	-- })
 	use({
 		"windwp/windline.nvim",
 		config = get_setup("windline"),
-	})
-	use({
-		"SmiteshP/nvim-gps",
+
+		"SmiteshP/nvim-gps", -- Shows function parameter on statusbar
 		requires = "nvim-treesitter/nvim-treesitter",
 		config = get_setup("nvim-gps"),
-	}) --}}}
+	})
+	--}}}
 
 	-- MAKE{{{
-	use({ "neomake/neomake" })
+	use("neomake/neomake", "skywind3000/asyncrun.vim")
 	--}}}
 
 	-- MISC{{{
-	use("lambdalisue/suda.vim")
-	use("mbbill/undotree")
-	use("christoomey/vim-tmux-navigator")
 	use({
-		"akinsho/toggleterm.nvim",
+		"lambdalisue/suda.vim", -- Sudo wirte and edit
+		"mbbill/undotree", -- Undotree
+		"christoomey/vim-tmux-navigator", -- Use same bindings for navigating vim splits and tmux panes
+		"elihunter173/dirbuf.nvim", -- Better file editing
+	})
+
+	use({
+		"akinsho/toggleterm.nvim", -- Intigrated terminal
 		config = get_setup("toggleterm"),
 		after = "vim-tmux-navigator",
 	})
-	--}}}
 
-	-- SHOW COLORS{{{
-	use({
-		"rrethy/vim-hexokinase",
-		run = "make hexokinase",
-	}) --}}}
-
-	-- AUTOPAIRS{{{
 	use({
 		"windwp/nvim-autopairs",
 		config = get_setup("autopairs"),
-	}) --}}}
+	})
+	-- }}}
 
-	-- MARKDOWN{{{
-	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" }) --}}}
+	-- LANGUAGE SPECIFIC {{{
+	-- Markdown
+	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" })
+
+	-- Pyhon
+	use({
+		"bps/vim-textobj-python",
+		ft = { "python" },
+		requires = "kana/vim-textobj-user",
+		config = get_setup("textobj-python"),
+	})
+
+	-- Java
+	use("mfussenegger/nvim-jdtls")
+	--}}}
 
 	-- PASTING REGISTER{{{
 	use("tversteeg/registers.nvim") --}}}
@@ -209,22 +216,6 @@ return require("packer").startup(function(use)
 		"lewis6991/gitsigns.nvim",
 		config = get_setup("gitsigns"),
 	}) --}}}
-
-	-- RUNNING PROGRAMS{{{
-	use("skywind3000/asyncrun.vim") --}}}
-
-	-- PYTHON{{{
-	use({
-		"bps/vim-textobj-python",
-		ft = { "python" },
-		requires = "kana/vim-textobj-user",
-		config = get_setup("textobj-python"),
-	})
-	--}}}
-
-	-- JAVA{{{
-	use("mfussenegger/nvim-jdtls")
-	--}}}
 
 	-- REMOTE{{{
 	use({

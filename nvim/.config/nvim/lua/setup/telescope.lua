@@ -11,7 +11,8 @@ telescope.setup({
 	defaults = {
 		file_ignore_patterns = {
             "%.o",
-            "__pycache__/"
+            "__pycache__/",
+            "%.class"
         },
 	},
 	pickers = {

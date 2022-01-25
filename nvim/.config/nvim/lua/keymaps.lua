@@ -64,8 +64,8 @@ onoremap B i{|
 
 -- MOVE TO END OR THE START OF THE LINE
 vim.cmd [[
-nnoremap H ^
-nnoremap L $
+" nnoremap H ^
+" nnoremap L $
 ]]
 
 -- GO BACK TO NORMAL MODE
@@ -95,6 +95,12 @@ noremap <C-A-j> :resize +5<CR>
 noremap <C-A-k> :resize -5<CR>
 noremap <C-A-h> :vertical:resize -5<CR>
 noremap <C-A-l> :vertical:resize +5<CR>
+]]
+
+-- SPLITS
+vim.cmd[[
+nnoremap <C-w><C-c> <C-w>c
+nnoremap <C-w><C-o> <C-w>o
 ]]
 
 -- INDENT
