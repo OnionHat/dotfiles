@@ -252,19 +252,32 @@ let g:terminal_color_foreground=s:gruberWhite[0]
 " let s:gruberGold=['#d7af00', '178']
 " let s:none=['NONE', 'NONE']}}}
 
+"call <sid>:hi(group, fg, bg, gui, guisp)
 " Custom highlighting
+" Gitsign
 call <sid>hi('GitSignsAdd',         s:gruberGreen,      '', '', '')
 call <sid>hi('GitSignsChange',      s:gruberLightBlue,  '', '', '')
 call <sid>hi('GitSignsDelete',      s:gruberRed,      '', '', '')
 
+" Lsp
 call <sid>hi('DiagnosticUnderlineError', '', '', 'undercurl', '')
 call <sid>hi('DiagnosticUnderlineWarn', '', '', 'undercurl', '')
 call <sid>hi('DiagnosticUnderlineHint', '', '', 'undercurl', '')
 
-call <sid>hi('rainbowcol1', s:gruberMain, '', '', '')
-call <sid>hi('rainbowcol2', s:gruberNiagara, '', '', '')
-call <sid>hi('rainbowcol3', s:gruberRed, '', '', '')
-call <sid>hi('rainbowcol4', s:gruberLightBlue, '', '', '')
-call <sid>hi('rainbowcol5', s:gruberMain, '', '', '')
-call <sid>hi('rainbowcol6', s:gruberNiagara, '', '', '')
-call <sid>hi('rainbowcol7', s:gruberRed, '', '', '')
+" Snap
+call <sid>hi('SnapSelect',      s:gruberQuartz, s:gruberBG2, '', '')
+call <sid>hi('SnapMultiSelect', s:gruberQuartz, '', '', '')
+call <sid>hi('SnapNormal',      s:gruberFG, s:gruberBG, '', '')
+" Maybe have different border color for different modes
+call <sid>hi('SnapBorder',      s:gruberQuartz, '', '', '')
+call <sid>hi('SnapPrompt',      s:gruberNiagara, '', '', '')
+call <sid>hi('SnapPosition',    s:gruberMain, '', '', '')
+
+" Nvim-TS-Rainbow
+" call <sid>hi('rainbowcol1', s:gruberMain, '', '', '')
+" call <sid>hi('rainbowcol2', s:gruberNiagara, '', '', '')
+" call <sid>hi('rainbowcol3', s:gruberRed, '', '', '')
+" call <sid>hi('rainbowcol4', s:gruberLightBlue, '', '', '')
+" call <sid>hi('rainbowcol5', s:gruberMain, '', '', '')
+" call <sid>hi('rainbowcol6', s:gruberNiagara, '', '', '')
+" call <sid>hi('rainbowcol7', s:gruberRed, '', '', '')

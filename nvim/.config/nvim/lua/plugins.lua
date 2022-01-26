@@ -21,44 +21,34 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Maybe a better file search
-	use({ "camspiers/snap", rocks = { "fzy" } })
+	use({
+		"camspiers/snap",
+		rocks = { "fzy" },
+		config = get_setup("snap"),
+	})
 
 	-- TELESCOPE{{{
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-lua/popup.nvim",
-			"nvim-telescope/telescope-media-files.nvim",
-			"tami5/sqlite.lua",
-			"nvim-telescope/telescope-cheat.nvim",
-			"nvim-telescope/telescope-file-browser.nvim",
-		},
-		config = get_setup("telescope"),
-	})
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	-- use({
+	-- 	"nvim-telescope/telescope.nvim",
+	-- 	requires = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-lua/popup.nvim",
+	-- 		"nvim-telescope/telescope-media-files.nvim",
+	-- 		"tami5/sqlite.lua",
+	-- 		"nvim-telescope/telescope-cheat.nvim",
+	-- 		"nvim-telescope/telescope-file-browser.nvim",
+	-- 	},
+	-- 	-- config = get_setup("telescope"),
+	-- })
+	-- use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	--}}}
 
 	-- LSP{{{
-	use({
-		"neovim/nvim-lspconfig",
-		config = get_setup("lsp"),
-	})
+	use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })
 
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = get_setup("null-ls"),
-	})
-	use({
-		"tami5/lspsaga.nvim",
-		config = get_setup("lspsaga"),
-	})
+	use({ "jose-elias-alvarez/null-ls.nvim", config = get_setup("null-ls") })
 
-	use({
-
-		"ray-x/lsp_signature.nvim",
-		config = get_setup("signature"),
-	})
+	use({ "ray-x/lsp_signature.nvim", config = get_setup("signature") })
 
 	--}}}
 
@@ -114,7 +104,7 @@ return require("packer").startup(function(use)
 
 	use({ "rrethy/vim-hexokinase", run = "make hexokinase" }) -- Shows the color
 
-	use("p00f/nvim-ts-rainbow") -- Colors the curly brackets and like
+	-- use("p00f/nvim-ts-rainbow") -- Colors the curly brackets and like
 	--}}}
 
 	-- TPOPE{{{
@@ -122,10 +112,7 @@ return require("packer").startup(function(use)
 	--}}}
 
 	-- COMMENTING{{{
-	use({
-		"numToStr/Comment.nvim",
-		config = get_setup("comment"),
-	})
+	use({ "numToStr/Comment.nvim", config = get_setup("comment") })
 	--}}}
 
 	-- FOLKE{{{
@@ -139,10 +126,6 @@ return require("packer").startup(function(use)
 		requires = "kyazdani42/nvim-web-devicons",
 		config = get_setup("trouble"),
 	})
-	use({
-		"folke/lsp-colors.nvim",
-		config = require("lsp-colors").setup({}),
-	})
 	--}}}
 
 	-- DAP{{{
@@ -155,10 +138,9 @@ return require("packer").startup(function(use)
 	--}}}
 
 	-- STATUSLINE{{{
-	use({
-		"windwp/windline.nvim",
-		config = get_setup("windline"),
+	use({ "windwp/windline.nvim", config = get_setup("windline") }) -- Statusline
 
+	use({
 		"SmiteshP/nvim-gps", -- Shows function parameter on statusbar
 		requires = "nvim-treesitter/nvim-treesitter",
 		config = get_setup("nvim-gps"),
@@ -175,18 +157,21 @@ return require("packer").startup(function(use)
 		"mbbill/undotree", -- Undotree
 		"christoomey/vim-tmux-navigator", -- Use same bindings for navigating vim splits and tmux panes
 		"elihunter173/dirbuf.nvim", -- Better file editing
+		"tversteeg/registers.nvim", -- Pasting from register
+		"Yggdroot/indentLine", -- Show indentguide
 	})
 
+	-- Intigrated terminal
 	use({
-		"akinsho/toggleterm.nvim", -- Intigrated terminal
+		"akinsho/toggleterm.nvim",
 		config = get_setup("toggleterm"),
 		after = "vim-tmux-navigator",
 	})
 
-	use({
-		"windwp/nvim-autopairs",
-		config = get_setup("autopairs"),
-	})
+	-- Remote testing and files
+	use({ "chipsenkbeil/distant.nvim", config = get_setup("distant") })
+
+	use({ "windwp/nvim-autopairs", config = get_setup("autopairs") })
 	-- }}}
 
 	-- LANGUAGE SPECIFIC {{{
@@ -205,23 +190,8 @@ return require("packer").startup(function(use)
 	use("mfussenegger/nvim-jdtls")
 	--}}}
 
-	-- PASTING REGISTER{{{
-	use("tversteeg/registers.nvim") --}}}
-
-	-- INDENT GUIDE{{{
-	use({ "Yggdroot/indentLine" }) --}}}
-
-	-- GIT SIGNS{{{
-	use({
-		"lewis6991/gitsigns.nvim",
-		config = get_setup("gitsigns"),
-	}) --}}}
-
-	-- REMOTE{{{
-	use({
-		"chipsenkbeil/distant.nvim",
-		config = get_setup("distant"),
-	})
+	-- GIT{{{
+	use({ "lewis6991/gitsigns.nvim", config = get_setup("gitsigns") }) -- Git status for sign
 	--}}}
 
 	-- MAYBEEEEEE

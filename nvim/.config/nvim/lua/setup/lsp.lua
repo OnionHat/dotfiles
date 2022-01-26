@@ -49,12 +49,7 @@ local custom_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
 	buf_set_keymap("n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
 	buf_set_keymap("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-	-- buf_set_keymap("n", "<leader>s", "<cmd> lua vim.lsp.buf.document_symbol()<CR>", opts)
-
-	-- if pcall(require, "lspsaga") then
-	-- 	buf_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-	-- 	buf_set_keymap("n", "<space>e", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-	-- end
+	buf_set_keymap("n", "<leader>s", "<cmd> lua vim.lsp.buf.document_symbol()<CR>", opts)
 
 	local sig_ok_status, lsp_sig = pcall(require, "lsp_signature")
 	if sig_ok_status then
@@ -113,8 +108,3 @@ require("lspconfig").sumneko_lua.setup({
 		},
 	},
 })
-
--- require("lspconfig").jdtls.setup({
--- 	on_attach = custom_attach,
--- 	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
--- })
