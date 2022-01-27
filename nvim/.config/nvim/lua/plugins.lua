@@ -188,6 +188,9 @@ return require("packer").startup(function(use)
 
 	-- Java
 	use("mfussenegger/nvim-jdtls")
+
+    -- Latex
+    use("lervag/vimtex")
 	--}}}
 
 	-- GIT{{{
