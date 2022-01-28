@@ -174,7 +174,12 @@ bindsym $mod+Ctrl+r exec --no-startup-id i3-input -F 'rename workspace to "%s"' 
 
 # Dmenu
 # Find container
-bindsym $mod+Shift+f exec --no-startup-id  "$HOME/scripts/i3-container-commander.py"
+bindsym $mod+Shift+f exec --no-startup-id  $HOME/.config/i3/scripts/i3-container-commander.py
 
 # Screenshot
-bindsym $mod+Shift+s exec --no-startup-id "flameshot gui"
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+
+# Emacs
+bindsym $mod+m exec --no-startup-id "emacsclient -nc"
+bindsym $mod+Shift+m exec --no-startup-id systemctl restart --user emacs && notify-send 'EMACS' 'Daemon restart: SUCCESSFULLY' \
+                                            || notify-send 'EMACS' 'Daemon restart: UNSUCCESSFULLY' -u critical

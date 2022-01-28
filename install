@@ -1,10 +1,18 @@
-#!/usr/bin/env zsh
-# I am using zsh instead of bash.  I was having some troubles using bash with
-# arrays.  Didn't want to investigate, so I just did zsh
-STOW_FOLDERS="alacritty,bin,kitty,i3,nvim,picom,tmux,x,zsh"
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    stow -D $folder
-    stow $folder
-done
-popd
+#!/bin/sh
+CWD=$(pwd)
+
+# .config files
+ln -sf $CWD/alacritty $HOME/.config/alacritty
+ln -sf $CWD/i3 $HOME/.config/i3
+ln -sf $CWD/i3status $HOME/.config/i3status
+ln -sf $CWD/kitty $HOME/.config/kitty
+ln -sf $CWD/nvim $HOME/.config/nvim
+ln -sf $CWD/picom $HOME/.config/picom
+ln -sf $CWD/zsh $HOME/.config/zsh
+
+# $HOME files
+ln -sf $CWD/.xinitrc $HOME/.xinitrc
+ln -sf $CWD/.xprofile $HOME/.profile
+ln -sf $CWD/.zprofile $HOME/.zprofile
+ln -sf $CWD/.tmux.conf $HOME/.tmux.conf
+

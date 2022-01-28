@@ -6,11 +6,12 @@ alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git
 
 alias clr="clear"
 
-#color
+# color
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 
+# Ls
 alias ls='exa --color=always --group-directories-first --icons'     # my preferred listing
 alias la='exa -la --color=always --group-directories-first --icons' # all files and dirs
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format

@@ -1,8 +1,14 @@
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-	vim.cmd("packadd packer.nvim")
+	packer_bootstrap = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
 end
 
 vim.cmd([[
@@ -156,7 +162,7 @@ return require("packer").startup(function(use)
 		"lambdalisue/suda.vim", -- Sudo wirte and edit
 		"mbbill/undotree", -- Undotree
 		"christoomey/vim-tmux-navigator", -- Use same bindings for navigating vim splits and tmux panes
-		"elihunter173/dirbuf.nvim", -- Better file editing
+		-- "elihunter173/dirbuf.nvim", -- Better file editing
 		"tversteeg/registers.nvim", -- Pasting from register
 		"Yggdroot/indentLine", -- Show indentguide
 	})
@@ -189,8 +195,8 @@ return require("packer").startup(function(use)
 	-- Java
 	use("mfussenegger/nvim-jdtls")
 
-    -- Latex
-    use("lervag/vimtex")
+	-- Latex
+	use("lervag/vimtex")
 	--}}}
 
 	-- GIT{{{
@@ -200,4 +206,7 @@ return require("packer").startup(function(use)
 	-- MAYBEEEEEE
 	-- use("AckslD/nvim-revJ.lua")  -- https://github.com/AckslD/nvim-revJ.lua Reverse J
 	-- use("eddiebergman/nvim-treesitter-pyfold")   -- https://github.com/eddiebergman/nvim-treesitter-pyfold Better folding I guess
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
