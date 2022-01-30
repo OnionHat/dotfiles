@@ -1,4 +1,5 @@
 alacritty|symlink|.config
+emacs|symlink|.config
 i3|symlink|.config
 i3status|symlink|.config
 kitty|symlink|.config
