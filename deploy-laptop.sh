@@ -20,6 +20,24 @@ symlinkFile() {
     fi
 }
 
+renameSymlinkFile(){
+    filename="$SCRIPT_DIR/$1"
+    destination="$HOME/$2"
+
+    mkdir -p $(dirname "$destination")
+    
+    if [ ! -L "$destination" ]; then
+        if [ -e "$destination" ]; then
+            echo "[ERROR] $destination exists but it's not a symlink. Please fix that manually" && exit 1
+        else
+            ln -s "$filename" "$destination"
+            echo "[OK] $filename -> $destination"
+        fi
+    else
+        echo "[WARNING] $filename already symlinked"
+    fi
+}
+
 deployManifest() {
     for row in $(cat $SCRIPT_DIR/$1); do
         filename=$(echo $row | cut -d \| -f 1)
@@ -31,6 +49,10 @@ deployManifest() {
                 symlinkFile $filename $destination
                 ;;
 
+            renamesymlink)
+                renameSymlinkFile $filename $destination
+                ;;
+
             *)
                 echo "[WARNING] Unknown operation $operation. Skipping..."
                 ;;
@@ -38,5 +60,6 @@ deployManifest() {
     done
 }
 
-echo "--- Linux configs ---"
-deployManifest MANIFEST
+echo "--- Deploying laptop dotfiles ---"
+deployManifest MANIFEST.laptop
+
