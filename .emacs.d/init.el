@@ -1,7 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 ;;; Preference
 ;; Put auto gen custom func in seperate file
-(setq custom-file "~/.emacs.d/custom.el")
+(defconst custom-file (expand-file-name "~/.config/emacs/custom.el" user-emacs-directory))
+(unless (file-exists-p custom-file)
+    (write-region "" nil custom-file))
+; (setq custom-file "~/.config/emacs/custom.el")
 (load custom-file)
 
 ;; Put backup files in a comman place
@@ -12,12 +15,28 @@
   kept-old-versions 2
   version-control t)
 
+;;; Seting up package repo
+(require 'package)
+(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+;;; use-package and other dependencies
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+(use-package diminish)
+
 ;;; Fonts
 ;; Setting up default fonts
 (defun sb/get-default-font ()
   (cond
    ((eq system-type 'windows-nt) "Consolas-13")
-   ((eq system-type 'gnu/linux) "JetBrainsMono Nerd Font-14")))
+   ((eq system-type 'gnu/linux) "JetBrainsMono Nerd Font-16")))
 
 (add-to-list 'default-frame-alist `(font . ,(sb/get-default-font)))
 
@@ -45,28 +64,9 @@
       "Transport and Map Symbols"))
   (unicode-fonts-setup))
 
-;;; Seting up package repo
-(require 'package)
-(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-
-;;; use-package and other dependencies
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-always-ensure t)
-
-(use-package diminish)
-
-
 ;;; Theme
 (use-package doom-themes
   :config (load-theme 'doom-Iosvkem t))
-
 
 ;;; evil
 (global-set-key (kbd "C-M-u") 'universal-argument)        ; rebinding default C-u
