@@ -205,7 +205,6 @@
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Ello My EMacs")
-  ;; (setq dashboard-startup-banner "/home/sully/.emacs.d/dasboard-banner/hackerman.gif")
   (setq dashboard-startup-banner "/home/sully/.emacs.d/dasboard-banner/hydra.txt")
   (setq dashboard-projects-backend 'projectile)
   (setq dashboard-items '((recents . 5) (projects . 5)))
