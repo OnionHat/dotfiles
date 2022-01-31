@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 ;;; Preference
 ;; Put auto gen custom func in seperate file
-(defconst custom-file (expand-file-name "~/.config/emacs/custom.el" user-emacs-directory))
+(defconst custom-file (expand-file-name "~/.emacs.d/custom.el" user-emacs-directory))
 (unless (file-exists-p custom-file)
     (write-region "" nil custom-file))
 ; (setq custom-file "~/.config/emacs/custom.el")
@@ -36,7 +36,7 @@
 (defun sb/get-default-font ()
   (cond
    ((eq system-type 'windows-nt) "Consolas-13")
-   ((eq system-type 'gnu/linux) "JetBrainsMono Nerd Font-16")))
+   ((eq system-type 'gnu/linux) "JetBrainsMono Nerd Font-14")))
 
 (add-to-list 'default-frame-alist `(font . ,(sb/get-default-font)))
 
@@ -183,9 +183,21 @@
          typescript-mode
          js2-mode))
 
+;;; Projects
+;; Projectile
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/uio")
+    (setq projectile-project-search-path '("~/uio")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
 ;; Dasboard
 ; dependencies
-(use-package projectile)
 (use-package page-break-lines)
 (use-package all-the-icons)
 
@@ -193,13 +205,20 @@
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Ello My EMacs")
-  (setq dashboard-startup-banner "/home/sully/.emacs.d/dasboard-banner/hackerman.gif")
+  ;; (setq dashboard-startup-banner "/home/sully/.emacs.d/dasboard-banner/hackerman.gif")
+  (setq dashboard-startup-banner "/home/sully/.emacs.d/dasboard-banner/hydra.txt")
+  (setq dashboard-projects-backend 'projectile)
+  (setq dashboard-items '((recents . 5) (projects . 5)))
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*"))))
 
 
 ;;; Terminal
 ;; Vterm
 (use-package vterm)
+;; (use-package exec-path-from-shell
+;;   :config
+;;   (when (daemonp)
+;;     (exec-path-from-shell-initialize)))
 
 
 ;;; Mode Line
