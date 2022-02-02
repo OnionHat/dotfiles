@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t; -*-
+
 ;;; Preference
 ;; Put auto gen custom func in seperate file
 (defconst custom-file (expand-file-name "~/.emacs.d/custom.el" user-emacs-directory))
@@ -55,7 +56,7 @@
   (unicode-fonts-skip-font-groups '(low-quality-glyphs))
   :config
   ;; Fix the font mappings to use the right emoji font
-  (mapcar
+  (mapc
     (lambda (block-name)
       (sb/replace-unicode-font-mapping block-name "Apple Color Emoji" "Noto Color Emoji"))
     '("Dingbats"
@@ -68,7 +69,7 @@
 (use-package doom-themes
   :config (load-theme 'doom-Iosvkem t))
 
-;;; evil
+;;; Evil
 (global-set-key (kbd "C-M-u") 'universal-argument)        ; rebinding default C-u
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)   ; ESC Cancels All
 
@@ -93,7 +94,7 @@
 
 (use-package evil-collection
   :after evil
-  :init (setq evil-collection-company-use-tng nil)
+  ;; :init (setq evil-collection-company-use-tng nil)
   :custom
   (evil-collection-outline-bind-tab-p nil)
   :config
@@ -120,12 +121,31 @@
     :prefix "SPC"
     :global-prefix "C-SPC")
 
+  (general-create-definer sb/normal-key-def
+    :keymaps 'normal)
+
   (general-create-definer sb/insert-key-def
     :keymaps 'insert)
+
+  (general-create-definer sb/visual-key-def
+    :keymaps 'visual)
 
   (general-create-definer sb/ctrl-c-keys
     :prefix "C-c"))
 
+;; Some vim bindings
+(sb/visual-key-def
+  "J" (kbd ":m'>+1 RET gv=gv")
+  "K" (kbd ":m'<-2 RET gv=gv")
+  "L" (kbd ">gv"))
+  "H" (kbd "<gv")
+
+
+(sb/normal-key-def
+  "SPC eb"  'eval-buffer)
+
+(sb/visual-key-def
+  "SPC er" 'eval-region)
 
 ;;; User Interface
 (setq inhibit-startup-message t)
@@ -147,22 +167,32 @@
 (setq use-dialog-box nil) ;; Disable dialog boxes since they weren't working in Mac OSX
 
 ;; Transpernacy
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(defvar sb/frame-transparency 85)
+
+(set-frame-parameter (selected-frame) 'alpha `(,sb/frame-transparency . ,sb/frame-transparency))
+(add-to-list 'default-frame-alist `(alpha . (,sb/frame-transparency . ,sb/frame-transparency)))
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; Disable transpernacy on/off
-(defun make-transperant () (interactive)
-       (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-       (add-to-list 'default-frame-alist '(alpha . (90 . 90))))
+(defun set-transparency (num)
+  (interactive "nLevel: ")
+  (setq sb/frame-transparency num)
+  (set-frame-parameter nil 'alpha `(,sb/frame-transparency . ,sb/frame-transparency)))
 
-(defun not-transperant () (interactive)
-       (set-frame-parameter (selected-frame) 'alpha '(100 . 100))
-       (add-to-list 'default-frame-alist '(alpha . (100 . 100))))
+(defun toggle-transparency ()
+  (interactive)
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (set-frame-parameter
+     nil 'alpha
+     (if (eql (cond ((numberp alpha) alpha)
+                    ((numberp (cdr alpha)) (cdr alpha))
+                    ;; Also handle undocumented (<active> <inactive>) form.
+                    ((numberp (cadr alpha)) (cadr alpha)))
+              100)
+         `(,sb/frame-transparency . ,sb/frame-transparency) '(100 . 100)))))
+ (global-set-key (kbd "C-c t") 'toggle-transparency)
 
 ;; Line number
-;; (column-number-mode)
 ;;Enable line numbers for some modes
 (dolist (mode '(text-mode-hook
                 prog-mode-hook
@@ -182,6 +212,9 @@
          web-mode
          typescript-mode
          js2-mode))
+
+;;; Compile
+;; (use-package compile
 
 ;;; Projects
 ;; Projectile
@@ -213,17 +246,26 @@
 
 ;;; Terminal
 ;; Vterm
-(use-package vterm)
-;; (use-package exec-path-from-shell
-;;   :config
-;;   (when (daemonp)
-;;     (exec-path-from-shell-initialize)))
+(use-package vterm
+  :config
+  (sb/normal-key-def "SPC t" 'vterm))
+
+;;; Dired
+(require 'dired)
+ (evil-collection-define-key 'normal 'dired-mode-map
+     "h" 'dired-single-up-directory
+     "H" 'dired-omit-mode
+     "l" 'dired-single-buffer
+     "n" 'dired-create-empty-file
+     "y" 'dired-ranger-copy
+     "X" 'dired-ranger-move
+     "p" 'dired-ranger-paste)
 
 
 ;;; Mode Line
 ;; Basic Customization
-(setq display-time-format "%l:%M %p %b %y"
-      display-time-default-load-average nil)
+;; (setq display-time-format "%l:%M %p %b %y"
+;;       display-time-default-load-average nil)
 
 ;; Doom Modeline
 (use-package minions
@@ -252,6 +294,8 @@
 (use-package company
   :hook (prog-mode . company-mode)
   :config
+  (setq company-selection-wrap-around t)
+  (setq company-require-match nil)
   (sb/insert-key-def
     "C-n" 'company-select-next
     "C-p" 'company-select-previous
@@ -272,7 +316,6 @@
 ;; Revert buffers when the underlying file has changed
 (global-auto-revert-mode 1)
 
-
 ;;; Tramp
 ;; Set default connection mode to SSH
 (setq tramp-default-method "ssh")
@@ -283,7 +326,11 @@
 (use-package ivy
   :init (ivy-mode)
   :bind (:map ivy-minibuffer-map
-            ("<return>" . ivy-alt-done)))
+              ("<return>" . ivy-alt-done))
+  :config
+  (setq ivy-re-builders-alist
+	'((swiper . ivy--regex-plus)
+	  (t . ivy--regex-fuzzy))))
 
 (use-package counsel
   :init (counsel-mode))
@@ -317,3 +364,102 @@
 (add-hook 'nim-mode-hook 'sb/set-up-whitespace-handling)
 (add-hook 'yaml-mode-hook 'sb/set-up-whitespace-handling)
 (add-hook 'porth-mode-hook 'sb/set-up-whitespace-handling)
+
+;; Language Server Protocol
+(use-package lsp-mode
+  :config
+  (sb/normal-key-def
+  ;; "SPC l"  '(:ignore t :which-key "lsp")
+  "SPC ld" 'xref-find-definitions
+  "SPC lr" 'xref-find-references
+  "SPC ln" 'lsp-ui-find-next-reference
+  "SPC lp" 'lsp-ui-find-prev-reference
+  "SPC ls" 'counsel-imenu
+  "SPC le" 'lsp-ui-flycheck-list
+  "SPC lS" 'lsp-ui-sideline-mode
+  "SPC lX" 'lsp-execute-code-action))
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :config
+  (setq lsp-ui-sideline-enable t)
+  (setq lsp-ui-sideline-show-hover nil)
+  (setq lsp-ui-doc-position 'bottom)
+  (lsp-ui-doc-show))
+
+;; DAP
+(use-package dap-mode
+  :after lsp-mode
+  :custom
+  (lsp-enable-dap-auto-configure nil)
+  :config
+  (dap-ui-mode 1)
+  (dap-tooltip-mode 1)
+  (require 'dap-node)
+  (dap-node-setup))
+
+;; Meta Lisp
+;; (use-package lispy
+;;   :hook ((emacs-lisp-mode . lispy-mode)
+;;          (scheme-mode . lispy-mode)))
+
+(use-package flycheck
+  :defer t
+  :hook (lsp-mode . flycheck-mode))
+
+
+
+;; Emacs Lisp
+(add-hook 'emacs-lisp-mode-hook #'flycheck-mode)
+
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . helpful-function)
+  ([remap describe-symbol] . helpful-symbol)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-key] . helpful-key))
+
+
+;; C/C++ Objective-C Cuda
+(use-package ccls
+  :hook ((c-mode c++-mode objc-mode cuda-mode) .
+	 (lambda () (require 'ccls) (lsp))))
+
+;; Java
+(use-package lsp-java
+  :config
+  (add-hook 'java-mode-hook #'lsp))
+
+;; Python
+(use-package lsp-jedi
+  :config
+  (add-hook 'python-mode #'lsp))
+  ;; (with-eval-after-load "lsp-mode"
+  ;;   (add-to-list 'lsp-disabled-clients 'pyls)
+  ;;   (add-to-list 'lsp-enabled-clients 'jedi)))
+
+(use-package lsp-ltex
+  :config
+  (add-hook 'latex-mode-hook #'lsp))
+
+;; Markdown
+(use-package markdown-mode
+  :mode "\\.md\\'"
+  :config
+  (setq markdown-command "marked")
+  (defun sb/set-markdown-header-font-sizes ()
+    (dolist (face '((markdown-header-face-1 . 1.2)
+                    (markdown-header-face-2 . 1.1)
+                    (markdown-header-face-3 . 1.0)
+                    (markdown-header-face-4 . 1.0)
+                    (markdown-header-face-5 . 1.0)))
+      (set-face-attribute (car face) nil :weight 'normal :height (cdr face))))
+
+  (defun dw/markdown-mode-hook ()
+    (dw/set-markdown-header-font-sizes))
+
+  (add-hook 'markdown-mode-hook 'sb/markdown-mode-hook))

@@ -6,7 +6,7 @@ alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git
 
 alias clr="clear"
 
-# color
+#color
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
@@ -53,6 +53,9 @@ nvim() {
 		command nvim $@
 	fi
 }
+
+# Doom emacs
+alias doom="~/.emacs.d/bin/doom"
 
 # Tmux
 alias t="tmux attach || tmux new-session"

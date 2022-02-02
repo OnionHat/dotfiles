@@ -18,6 +18,7 @@ source ~/.fehbg &
 # pa-applet &
 flameshot &
 blueman-applet &
+pasystray &
 
 redshift -l 59.93:10.96 -t 6500:4500 &
 

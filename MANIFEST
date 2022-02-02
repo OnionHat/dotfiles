@@ -5,7 +5,7 @@ kitty|symlink|.config
 nvim|symlink|.config
 picom|symlink|.config
 zsh|symlink|.config
-.emacs.d|symlink|
+.doom.d|symlink|
 .tmux.conf|symlink|
 .xinitrc|symlink|
 .xprofile|symlink|
