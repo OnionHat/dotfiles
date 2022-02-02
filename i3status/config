@@ -38,14 +38,14 @@ battery all {
 }
 
 disk "/" {
-        format = "ROOT: %used (%percentage_used)"
+        format = "/ %used (%percentage_used)"
 		low_threshold = "10"
 		# threshold_type = "percentage_free"
 
 }
 
 disk "/home" {
-        format = "HOME: %used (%percentage_used)"
+        format = "/home %used (%percentage_used)"
 		low_threshold = "10"
 }
 
@@ -63,13 +63,14 @@ memory {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%H:%M:%S %d-%m-%Y"
 }
 
 volume master {
-        format = "♪: %volume"
-        format_muted = "♪: muted (%volume)"
-        device = "pulse:1"
+        format = "♪ %volume"
+        format_muted = "♪ muted (%volume)"
+        device = "default"
+        mixer = "Master"
 }
 
 cpu_temperature 0 {

@@ -148,7 +148,7 @@ bar {
 
 hide_edge_borders both
 workspace_layout tabbed
-for_window [class="^.*"] border pixel 1
+# for_window [class="^.*"] border pixel 1   # remove window title
 for_window [floating] border pixel 3
 focus_wrapping workspace
 # hide_edge_borders smart
