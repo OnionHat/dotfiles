@@ -39,7 +39,7 @@
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular))
 
 ;; Transpernat
-(defvar sb/frame-transparency 85)
+(defvar sb/frame-transparency 90)
 
 (set-frame-parameter (selected-frame) 'alpha `(,sb/frame-transparency . ,sb/frame-transparency))
 (add-to-list 'default-frame-alist `(alpha . (,sb/frame-transparency . ,sb/frame-transparency)))
@@ -62,7 +62,23 @@
                     ((numberp (cadr alpha)) (cadr alpha)))
               100)
          `(,sb/frame-transparency . ,sb/frame-transparency) '(100 . 100)))))
- (global-set-key (kbd "C-c t") 'toggle-transparency)
+(global-set-key (kbd "C-c t") 'toggle-transparency)
+
+(use-package orderless
+  :config
+  (setq completion-styles '(basic substring partial-completion flex)))
+
+(use-package evil
+  :config
+  (evil-global-set-key 'insert (kbd "C-v") 'clipboard-yank)
+  ;; (evil-define-key 'normal text-mode-map (kbd "j") 'evil-next-visual-line)
+  ;; (evil-define-key 'normal text-mode-map (kbd "k") 'evil-previous-visual-line)
+  (evil-define-key 'normal 'global (kbd "j") 'evil-next-visual-line)
+  (evil-define-key 'normal 'global (kbd "k") 'evil-previous-visual-line))
+
+(use-package eshell
+  :config
+  (setq eshell-aliases-file "~/.doom.d/eshell-aliases"))
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
