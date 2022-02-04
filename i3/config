@@ -85,7 +85,7 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+x exec betterlockscreen -l dimblur
 
 # floating volume panal
-bindsym $mod+g exec --no-startup-id "alacritty -t floating_window -e pulsemixer" 
+bindsym $mod+v exec --no-startup-id "kitty --title floating_window --override font_size=12 pulsemixer" 
 
 set $ws1 "1"
 set $ws2 "2"

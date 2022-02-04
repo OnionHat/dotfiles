@@ -48,16 +48,16 @@ hi! link debugPC CursorLine
 
 if (has('termguicolors') && &termguicolors) || has('gui_running')
   let g:terminal_ansi_colors = ['#080808', '#d02b61', '#60aa00', '#d08928', '#5c8ee8', '#b77fdb', '#00aa80', '#dddddd', '#707070', '#d02b61', '#60aa00', '#d08928', '#5c8ee8', '#b77fdb', '#00aa80', '#ffffff']
-  hi Normal guifg=#dddddd guibg=NONE gui=NONE cterm=NONE
+  hi Normal guifg=#dddddd guibg=#1b1d1e gui=NONE cterm=NONE
   hi Terminal guifg=#dddddd guibg=NONE gui=NONE cterm=NONE
-  hi Normal guifg=#dddddd guibg=#080808 gui=NONE cterm=NONE
+  hi Normal guifg=#dddddd guibg=#1b1d1e gui=NONE cterm=NONE
   hi Terminal guifg=#dddddd guibg=#080808 gui=NONE cterm=NONE
-  hi ColorColumn guifg=NONE guibg=#1c1c1c gui=NONE cterm=NONE
+  hi ColorColumn guifg=NONE guibg=#303030 gui=NONE cterm=NONE
   hi Conceal guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Cursor guifg=NONE guibg=NONE gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse
   hi CursorColumn guifg=NONE guibg=#303030 gui=NONE cterm=NONE
   hi CursorLine guifg=NONE guibg=#303030 gui=NONE cterm=NONE
-  hi CursorLineNr guifg=#20bbfc guibg=#080808 gui=NONE cterm=NONE
+  hi CursorLineNr guifg=#20bbfc guibg=#1b1d1e gui=NONE cterm=NONE
   hi DiffAdd guifg=#40bb40 guibg=#080808 gui=reverse cterm=reverse
   hi DiffChange guifg=#80aacc guibg=#080808 gui=reverse cterm=reverse
   hi DiffDelete guifg=#cc4040 guibg=#080808 gui=reverse cterm=reverse
@@ -68,7 +68,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   hi FoldColumn guifg=#707070 guibg=#080808 gui=NONE cterm=NONE
   hi Folded guifg=#707070 guibg=#080808 gui=italic cterm=italic
   hi IncSearch guifg=#fcbb20 guibg=#080808 gui=reverse cterm=reverse
-  hi LineNr guifg=#404040 guibg=#080808 gui=NONE cterm=NONE
+  hi LineNr guifg=#404040 guibg=#1b1d1e gui=NONE cterm=NONE
   hi MatchParen guifg=#fc20bb guibg=#080808 gui=bold cterm=bold
   hi ModeMsg guifg=#dddddd guibg=#080808 gui=bold cterm=bold
   hi MoreMsg guifg=#dddddd guibg=#080808 gui=NONE cterm=NONE
@@ -79,7 +79,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   hi PmenuThumb guifg=#dddddd guibg=#d496d7 gui=NONE cterm=NONE
   hi Question guifg=#dddddd guibg=#080808 gui=NONE cterm=NONE
   hi Search guifg=#20bbfc guibg=#080808 gui=reverse cterm=reverse
-  hi SignColumn guifg=#dddddd guibg=#080808 gui=NONE cterm=NONE
+  hi SignColumn guifg=#dddddd guibg=#1b1d1e gui=NONE cterm=NONE
   hi SpecialKey guifg=#dddddd guibg=#080808 gui=NONE cterm=NONE
   hi SpellBad guifg=#fc20bb guibg=#080808 gui=underline cterm=underline
   hi SpellCap guifg=#20bbfc guibg=#080808 gui=underline cterm=underline
@@ -142,6 +142,34 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   hi diffAdded guifg=#00aa80 guibg=NONE gui=NONE cterm=NONE
   hi diffRemoved guifg=#d02b61 guibg=NONE gui=NONE cterm=NONE
   hi diffLine guifg=#b77fdb guibg=NONE gui=NONE cterm=NONE
+
+
+" hi GitSignsAdd guifg=s:gruberGreen,      '', '', '')
+" hi GitSignsChange',      s:gruberLightBlue,  '', '', '')
+" hi GitSignsDelete',      s:gruberRed,      '', '', '')
+"                                                           
+"                                                           
+" hi DiagnosticUnderlineError', '', '', 'undercurl', '')
+" hi DiagnosticUnderlineWarn', '', '', 'undercurl', '')
+" hi DiagnosticUnderlineHint', '', '', 'undercurl', '')
+"                                                           
+"                                                           
+" hi SnapSelect',      s:gruberQuartz, s:gruberBG2, '', '')
+" hi SnapMultiSelect', s:gruberQuartz, '', '', '')
+" hi SnapNormal',      s:gruberFG, s:gruberBG, '', '')
+" "v different border color for different modes
+" hi SnapBorder',      s:gruberQuartz, '', '', '')            
+" hi SnapPrompt',      s:gruberNiagara, '', '', '')
+" hi SnapPosition',    s:gruberMain, '', '', '')
+
+
+
+
+  
+
+
+
+
   if !s:italics
     hi Folded gui=NONE cterm=NONE
     hi Comment gui=NONE cterm=NONE
