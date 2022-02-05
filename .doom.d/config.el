@@ -68,7 +68,7 @@
   :config
   (setq completion-styles '(basic substring partial-completion flex)))
 
-(use-package evil
+(use-package! evil
   :config
   (evil-global-set-key 'insert (kbd "C-v") 'clipboard-yank)
   ;; (evil-define-key 'normal text-mode-map (kbd "j") 'evil-next-visual-line)
@@ -79,7 +79,6 @@
 (use-package eshell
   :config
   (setq eshell-aliases-file "~/.doom.d/eshell-aliases"))
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

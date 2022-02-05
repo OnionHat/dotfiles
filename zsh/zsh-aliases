@@ -25,6 +25,15 @@ alias rm='rm -iv'
 alias mkdir='mkdir -pv'
 alias mkd='mkdir -pv'
 
+# SSH
+ssh() {
+	if [[ $TERM == "xterm-kitty" ]]; then
+		command kitty +kitten ssh $@
+	else
+		command ssh $@
+	fi
+}
+
 # Xorg
 alias s='startx'
 
