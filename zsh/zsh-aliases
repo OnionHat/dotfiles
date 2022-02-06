@@ -50,7 +50,7 @@ alias suck="rm -f config.h && sudo make install"
 # UiO
 alias uiofs="sshfs -o reconnect,uid=1000,gid=1000,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio"
 alias uioufs="fusermount -u $HOME/uio"
-alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; bash\""
+alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; zsh\""
 
 # Neovim
 alias nv="nvim"
