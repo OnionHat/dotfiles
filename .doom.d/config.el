@@ -80,6 +80,15 @@
   :config
   (setq eshell-aliases-file "~/.doom.d/eshell-aliases"))
 
+(setq display-line-numbers-type 'relative)
+
+(setq +latex-viewers '(zathura))
+
+;; (add-hook 'java-mode-hook (lambda ()
+;;                             (setq c-basic-offset 4
+;;                                   tab-width 4
+;;                                   indent-tabs-mode t)))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

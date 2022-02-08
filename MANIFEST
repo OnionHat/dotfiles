@@ -5,6 +5,8 @@ kitty|symlink|.config
 nvim|symlink|.config
 picom|symlink|.config
 zsh|symlink|.config
+systemd/uiosync.service|symlink|.config/systemd/user
+systemd/uiosync.timer|symlink|.config/systemd/user
 scripts|symlink|
 .doom.d|symlink|
 .tmux.conf|symlink|
