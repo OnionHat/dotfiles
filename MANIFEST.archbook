@@ -1,0 +1,13 @@
+alacritty|symlinkdir|.config
+i3|symlinkdir|.config
+i3status-laptop|renamesymlinkdir|.config/i3status
+kitty|symlinkdir|.config
+nvim|symlinkdir|.config
+picom|symlinkdir|.config
+zsh|symlinkdir|.config
+scripts|symlinkdir|
+.doom.d|symlinkdir|
+.tmux.conf|symlinkdir|
+.xinitrc|symlinkdir|
+.xprofile|symlinkdir|
+.zprofile|symlinkdir|

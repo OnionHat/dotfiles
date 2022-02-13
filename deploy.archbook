@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$( cd "$( dirname "$BASH_SOURCE[0]" )" && pwd )"
 
-symlinkFile() {
+symlinkDir() {
     filename="$SCRIPT_DIR/$1"
     destination="$HOME/$2/$1"
 
@@ -17,6 +17,21 @@ symlinkFile() {
         fi
     else
         echo "[WARNING] $filename already symlinked"
+    fi
+}
+
+symlinkFile() {
+    filepath="$SCRIPT_DIR/$1"
+    filename="$(basename -- $1)"
+    destination="$HOME/$2"
+
+    mkdir -p $(dirname "$destination")
+    
+    if [ ! -L "$destination" ]; then
+        ln -s "$filepath" "$destination/$filename"
+        echo "[OK] $filepath -> $destination/$filename"
+    else
+        echo "[WARNING] $filepath already symlinked"
     fi
 }
 
@@ -45,8 +60,12 @@ deployManifest() {
         destination=$(echo $row | cut -d \| -f 3)
 
         case $operation in
-            symlink)
+            symlinkdir)
                 symlinkFile $filename $destination
+                ;;
+
+            symlinkfile)
+                renameSymlinkFile $filename $destination
                 ;;
 
             renamesymlink)
