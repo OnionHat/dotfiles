@@ -2,7 +2,7 @@
 Description=Pulls files from the UiO server with rsync
 
 [Service]
-ExecStart=/usr/bin/rsync -az uio:~/privat/ ~/dev/uio
+ExecStart=/usr/bin/rsync -az uio:~/privat/ /home/sully/dev/uio
 
 [Install]
-WantedBy=default.targe
+WantedBy=default.target

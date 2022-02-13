@@ -2,7 +2,7 @@
 Description=Run uio pull sync every 5 min
 
 [Timer]
-OnUnitActiveSec=5min
+OnUnitActiveSec=10min
 
 [Install]
 WantedBy=timers.target
