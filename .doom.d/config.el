@@ -1,42 +1,41 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
+(setq user-full-name "Suleyman Boyar"
+      user-mail-address "suleymanboyar02@gmail.com")
+(use-package! mu4e
+  :config
+  (setq user-full-name "Suleyman Boyar"
+        user-mail-address "suleymanboyar02@gmail.com"
+        mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+        mu4e-update-interval 300
+        mu4e-compose-signature
+        (concat
+         "Mvh\n"
+         "Suleyman M. Boyar")
+        message-send-mail-function 'smtpmail-send-it
+        mu4e-sent-folder "/Sent"
+        mu4e-drafts-folder "/Draft"
+        mu4e-trash-folder "/Trash"
+        mu4e-refile-folder "/All Mail"
+        mu4e-maildir-shortcuts
+        '(("/suleymanboyar02/Inbox"	. ?i)
+          ("/suleymanboyar02/Sent"	. ?s)
+          ("/suleymanboyar02/All Mail"	. ?a)
+          ("/suleymanboyar02/Trash"	. ?t))))
 
 
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
-
-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
-;; are the three important ones:
-;;
-;; + `doom-font'
-;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;;
-;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
-;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-Iosvkem)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-
+(setq display-line-numbers-type 'relative)
+;;
 ;; Cutsom Font
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular)
+      doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 18 :weight 'regular))
 
 ;; Transpernat
 (defvar sb/frame-transparency 90)
@@ -71,8 +70,6 @@
 (use-package! evil
   :config
   (evil-global-set-key 'insert (kbd "C-v") 'clipboard-yank)
-  ;; (evil-define-key 'normal text-mode-map (kbd "j") 'evil-next-visual-line)
-  ;; (evil-define-key 'normal text-mode-map (kbd "k") 'evil-previous-visual-line)
   (evil-define-key 'normal 'global (kbd "j") 'evil-next-visual-line)
   (evil-define-key 'normal 'global (kbd "k") 'evil-previous-visual-line))
 
@@ -80,14 +77,53 @@
   :config
   (setq eshell-aliases-file "~/.doom.d/eshell-aliases"))
 
-(setq display-line-numbers-type 'relative)
 
 (setq +latex-viewers '(zathura))
+(setq vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=yes")
 
-;; (add-hook 'java-mode-hook (lambda ()
-;;                             (setq c-basic-offset 4
-;;                                   tab-width 4
-;;                                   indent-tabs-mode t)))
+;;; Calendar stuff
+(defun my-open-calendar ()
+  (interactive)
+  (cfw:open-calendar-buffer
+   :contents-sources
+   (list
+    (cfw:ical-create-source "UiO" "https://minestudier.uio.no/api/calendar/7770dls5/schedule?version=1644543510330&locale=nb" "SteelBlue") ; UiO Timeplan
+   )))
+
+
+(map! :leader :desc "Calendar" :n "o c" #'my-open-calendar)
+(map! :map cfw:calendar-mode-map :desc "Today" "t" #'cfw:navi-goto-today-command)
+(map! :map cfw:calendar-mode-map :desc "2 Week view" "T" #'cfw:change-view-two-weeks)
+(map! :desc "Toggle Transparency" :g "C-c t" #'toggle-transparency)
+
+;;; DAP
+(map! :map lsp-mode-map :localleader :desc "Dap Hydra" :n "d" #'dap-hydra)
+(use-package! dap-mode
+  :config
+  (dap-register-debug-template
+   "Java Run Configuration"
+   (list :name "Java Run Configuration"
+         :type "java"
+         :request "launch"
+         :args ""
+         :vmArgs "--enable-preview"
+         :cwd nil
+         :stopOnEntry :json-false
+         :host "localhost"
+         :request "launch"
+         :modulePaths []
+         :classPaths nil
+         :projectName nil
+         :mainClass nil)))
+
+;;; Java
+;; (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+;; (setq indent-line-function 'insert-tab)
+;; (custom-set-variables
+;;  '(tab-width 4))
+
+(setq-default c-basic-offset 4)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
