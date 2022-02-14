@@ -160,6 +160,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5 
 bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5 && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute && $refresh_i3status
 
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
+
 # Workspaces and windows
 bindsym $mod+comma focus output left
 bindsym $mod+period focus output right
