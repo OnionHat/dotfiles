@@ -4,8 +4,8 @@ if not ok_status then
 end
 
 telescope.load_extension("fzf")
-telescope.load_extension("file_browser")
-telescope.load_extension("media_files")
+--telescope.load_extension("file_browser")
+--telescope.load_extension("media_files")
 
 telescope.setup({
 	defaults = {
@@ -43,6 +43,6 @@ nnoremap <silent> <leader>fd :lua require("telescope.builtin").diagnostics({bufn
 nnoremap <silent> <leader>fs :Telescope lsp_document_symbols<CR>
 
 
-nnoremap <silent> <leader>fe :Telescope file_browser<CR>
-nnoremap <silent> <leader>fm :Telescope media_files<CR>
+"nnoremap <silent> <leader>fe :Telescope file_browser<CR>
+"nnoremap <silent> <leader>fm :Telescope media_files<CR>
 ]])

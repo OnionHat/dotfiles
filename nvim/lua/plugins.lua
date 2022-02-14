@@ -26,27 +26,20 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	-- Maybe a better file search
-	use({
-		"camspiers/snap",
-		rocks = { "fzy" },
-		config = get_setup("snap"),
-	})
-
 	-- TELESCOPE{{{
-	-- use({
-	-- 	"nvim-telescope/telescope.nvim",
-	-- 	requires = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-lua/popup.nvim",
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-lua/popup.nvim",
 	-- 		"nvim-telescope/telescope-media-files.nvim",
 	-- 		"tami5/sqlite.lua",
 	-- 		"nvim-telescope/telescope-cheat.nvim",
 	-- 		"nvim-telescope/telescope-file-browser.nvim",
-	-- 	},
-	-- 	-- config = get_setup("telescope"),
-	-- })
-	-- use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+		},
+		config = get_setup("telescope"),
+	})
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	--}}}
 
 	-- LSP{{{
