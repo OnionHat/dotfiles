@@ -6,7 +6,7 @@ alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git
 
 alias clr="clear"
 
-# color
+#color
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
@@ -25,6 +25,15 @@ alias rm='rm -iv'
 alias mkdir='mkdir -pv'
 alias mkd='mkdir -pv'
 
+# SSH
+ssh() {
+	if [[ $TERM == "xterm-kitty" ]]; then
+		command kitty +kitten ssh $@
+	else
+		command ssh $@
+	fi
+}
+
 # Xorg
 alias s='startx'
 
@@ -41,7 +50,7 @@ alias suck="rm -f config.h && sudo make install"
 # UiO
 alias uiofs="sshfs -o reconnect,uid=1000,gid=1000,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio"
 alias uioufs="fusermount -u $HOME/uio"
-alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; bash\""
+alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; zsh\""
 
 # Neovim
 alias nv="nvim"
@@ -53,6 +62,9 @@ nvim() {
 		command nvim $@
 	fi
 }
+
+# Doom emacs
+alias doom="~/.emacs.d/bin/doom"
 
 # Tmux
 alias t="tmux attach || tmux new-session"

@@ -27,15 +27,29 @@ symlinkFile() {
 
     mkdir -p $(dirname "$destination")
     
-    if [ ! -L "$destination/$filename" ]; then
-        if [ -e "$destination/$filename" ]; then
-            echo "[ERROR] $destination exists but it's not a symlink. Please fix that manually" && exit 1
-        else
-            ln -s "$filepath" "$destination/$filename"
-            echo "[OK] $filepath -> $destination/$filename"
-        fi
+    if [ ! -L "$destination" ]; then
+        ln -s "$filepath" "$destination/$filename"
+        echo "[OK] $filepath -> $destination/$filename"
     else
         echo "[WARNING] $filepath already symlinked"
+    fi
+}
+
+renameSymlinkFile(){
+    filename="$SCRIPT_DIR/$1"
+    destination="$HOME/$2"
+
+    mkdir -p $(dirname "$destination")
+    
+    if [ ! -L "$destination" ]; then
+        if [ -e "$destination" ]; then
+            echo "[ERROR] $destination exists but it's not a symlink. Please fix that manually" && exit 1
+        else
+            ln -s "$filename" "$destination"
+            echo "[OK] $filename -> $destination"
+        fi
+    else
+        echo "[WARNING] $filename already symlinked"
     fi
 }
 
@@ -47,10 +61,15 @@ deployManifest() {
 
         case $operation in
             symlinkdir)
-                symlinkDir $filename $destination
-                ;;
-            symlinkfile)
                 symlinkFile $filename $destination
+                ;;
+
+            symlinkfile)
+                renameSymlinkFile $filename $destination
+                ;;
+
+            renamesymlink)
+                renameSymlinkFile $filename $destination
                 ;;
 
             *)
@@ -59,3 +78,7 @@ deployManifest() {
         esac
     done
 }
+
+echo "--- Deploying laptop dotfiles ---"
+deployManifest MANIFEST.laptop
+

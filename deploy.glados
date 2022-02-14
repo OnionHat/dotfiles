@@ -1,0 +1,4 @@
+#!/bin/sh
+source ./deploy.sh
+echo "--- Linux configs ---"
+deployManifest MANIFEST.glados

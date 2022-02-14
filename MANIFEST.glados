@@ -1,0 +1,15 @@
+alacritty|symlinkdir|.config
+i3|symlinkdir|.config
+i3status|symlinkdir|.config
+kitty|symlinkdir|.config
+nvim|symlinkdir|.config
+picom|symlinkdir|.config
+zsh|symlinkdir|.config
+systemd/uiosync.service|symlinkfile|.config/systemd/user
+systemd/uiosync.timer|symlinkfile|.config/systemd/user
+scripts|symlinkdir|
+.doom.d|symlinkdir|
+.tmux.conf|symlinkdir|
+.xinitrc|symlinkdir|
+.xprofile|symlinkdir|
+.zprofile|symlinkdir|
