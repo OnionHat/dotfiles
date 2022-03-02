@@ -49,3 +49,5 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 (unpin! lsp-java)
+(package! mu4e-alert :disable t)
+(package! org-superstar)

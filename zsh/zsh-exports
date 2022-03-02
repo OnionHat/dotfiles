@@ -15,7 +15,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export JDTLS_HOME=$HOME/.local/share/jdtls
 export JDTLS_CONFIG=$HOME/.local/share/jdtls/config_linux
-export JAVA_HOME=$HOME/
+export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
 export XDG_CONFIG_HOME=$HOME/.config
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4f5f64"
