@@ -1,14 +1,7 @@
 local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 vim.cmd([[
@@ -68,9 +61,8 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lua",
-			"saadparwaiz1/cmp_luasnip",
 			"onsails/lspkind-nvim",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
 		},
 		config = get_setup("completion"),
@@ -107,99 +99,28 @@ return require("packer").startup(function(use)
 	--}}}
 
 	-- TPOPE{{{
-	use("tpope/vim-surround", "tpope/vim-dispatch")
+	use("tpope/vim-surround")
 	--}}}
 
 	-- COMMENTING{{{
 	use({ "numToStr/Comment.nvim", config = get_setup("comment") })
 	--}}}
 
-	-- FOLKE{{{
-	use({
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = get_setup("todo-comments"),
-	})
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = get_setup("trouble"),
-	})
-	--}}}
-
-	-- DAP{{{
-	use({
-		"mfussenegger/nvim-dap",
-		"rcarriga/nvim-dap-ui",
-		requires = "mfussenegger/nvim-dap-python",
-		config = get_setup("nvim-dap"),
-	})
-	--}}}
-
 	-- STATUSLINE{{{
 	use({ "windwp/windline.nvim", config = get_setup("windline") }) -- Statusline
-
-	use({
-		"SmiteshP/nvim-gps", -- Shows function parameter on statusbar
-		requires = "nvim-treesitter/nvim-treesitter",
-		config = get_setup("nvim-gps"),
-	})
 	--}}}
 
-	-- MAKE{{{
-	use("neomake/neomake", "skywind3000/asyncrun.vim")
-	--}}}
 
 	-- MISC{{{
 	use({
 		"lambdalisue/suda.vim", -- Sudo wirte and edit
 		"mbbill/undotree", -- Undotree
 		"christoomey/vim-tmux-navigator", -- Use same bindings for navigating vim splits and tmux panes
-		-- "elihunter173/dirbuf.nvim", -- Better file editing
-		"tversteeg/registers.nvim", -- Pasting from register
-		"Yggdroot/indentLine", -- Show indentguide
 	})
-
-	-- Intigrated terminal
-	use({
-		"akinsho/toggleterm.nvim",
-		config = get_setup("toggleterm"),
-		after = "vim-tmux-navigator",
-	})
-
-	-- Remote testing and files
-	use({ "chipsenkbeil/distant.nvim", config = get_setup("distant") })
-
 	use({ "windwp/nvim-autopairs", config = get_setup("autopairs") })
 	-- }}}
 
-	-- LANGUAGE SPECIFIC {{{
-	-- Markdown
-	use({ "iamcco/markdown-preview.nvim", config = "vim.call('mkdp#util#install')" })
-
-	-- Pyhon
-	use({
-		"bps/vim-textobj-python",
-		ft = { "python" },
-		requires = "kana/vim-textobj-user",
-		config = get_setup("textobj-python"),
-	})
-
-	-- Java
-	use("mfussenegger/nvim-jdtls")
-
-	-- Latex
-	use("lervag/vimtex")
-	--}}}
-
-	-- GIT{{{
-	use({ "lewis6991/gitsigns.nvim", config = get_setup("gitsigns") }) -- Git status for sign
-	--}}}
-
-	-- MAYBEEEEEE
-	-- use("AckslD/nvim-revJ.lua")  -- https://github.com/AckslD/nvim-revJ.lua Reverse J
-	-- use("eddiebergman/nvim-treesitter-pyfold")   -- https://github.com/eddiebergman/nvim-treesitter-pyfold Better folding I guess
-	if packer_bootstrap then
-		require("packer").sync()
-	end
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)

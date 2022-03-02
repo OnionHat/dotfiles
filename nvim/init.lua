@@ -1,9 +1,3 @@
-require("plenary.reload").reload_module("settings")
-require("plenary.reload").reload_module("colors")
-require("plenary.reload").reload_module("plugins")
-vim.cmd("runtime! lua/setup/*.lua")
-require("plenary.reload").reload_module("keymaps")
-
 require("settings")
 require("colors")
 require("plugins")
