@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts uiosync-down.sh on startup
+
+[Timer]
+OnUnitActiveSec=1min
+OnBootSec=5
+
+[Install]
+WantedBy=timers.target

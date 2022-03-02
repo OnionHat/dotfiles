@@ -5,8 +5,10 @@ kitty|symlinkdir|.config
 nvim|symlinkdir|.config
 picom|symlinkdir|.config
 zsh|symlinkdir|.config
-systemd/uiosync.service|symlinkfile|.config/systemd/user
-systemd/uiosync.timer|symlinkfile|.config/systemd/user
+systemd/uiosyncDown.service|symlinkfile|.config/systemd/user
+systemd/uiosyncDown.timer|symlinkfile|.config/systemd/user
+systemd/uiosyncUp.service|symlinkfile|.config/systemd/user
+systemd/uiosyncUp.timer|symlinkfile|.config/systemd/user
 scripts|symlinkdir|
 .doom.d|symlinkdir|
 .tmux.conf|symlinkdir|

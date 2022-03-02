@@ -1,0 +1,8 @@
+[Unit]
+Description=Uploads files to remote server when there is a change
+
+[Service]
+ExecStart=/home/sully/scripts/uiosync-up.sh
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Pulls files from the remote server
+
+[Service]
+ExecStart=/home/sully/scripts/uiosync-down.sh
+
+[Install]
+WantedBy=default.target

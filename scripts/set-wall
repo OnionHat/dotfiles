@@ -6,4 +6,5 @@ then
 fi
 feh --bg-fill $1
 betterlockscreen -u $1 --fx dimblur
+cp $1 ~/.config/wall.png
 echo "wallpaper $1 has been set successfully"

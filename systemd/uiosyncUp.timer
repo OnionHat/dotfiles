@@ -1,0 +1,8 @@
+[Unit]
+Description=Fetches files from remote every 5min
+
+[Timer]
+OnBootSec=5
+
+[Install]
+WantedBy=timers.target
