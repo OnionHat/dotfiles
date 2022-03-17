@@ -150,8 +150,11 @@
   (cfw:open-calendar-buffer
    :contents-sources
    (list
+    (cfw:ical-create-source "Personelig" "https://calendar.google.com/calendar/u/0?cid=c3VsZXltYW5ib3lhcjAyQGdtYWlsLmNvbQ" "goldenrod") ; UiO Timeplan
     (cfw:ical-create-source "UiO" "https://minestudier.uio.no/api/calendar/7770dls5/schedule?version=1644543510330&locale=nb" "SteelBlue") ; UiO Timeplan
    )))
+;; First day of the week
+(setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
 
 
 (map! :leader :desc "Calendar" :n "o c" #'my-open-calendar)
@@ -190,6 +193,21 @@
 
 (setq-default c-basic-offset 4)
 (setq-default js2-basic-offset 4)
+
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+;; FillColumnIndicator
+(use-package! fill-column-indicator
+  :init
+  (fci-mode)
+  :config
+  (setq fci-rule-column 80)
+  (setq fci-rule-width 2)
+  (setq fci-rule-color "#686858"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

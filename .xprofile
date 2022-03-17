@@ -12,27 +12,29 @@ xcape -e 'Caps_Lock=Escape'
 picom --experimental-backends &
 source ~/.fehbg &
 
+xfce4-power-manager &
 nm-applet &
 flameshot &
 blueman-applet &
 pasystray &
 
 redshift -l 59.93:10.96 -t 6500:4500 &
+ibus-daemon -drxR
 
 gnome-keyring-daemon -d -s
 
 # connect to my UIO server
-if [[ -x ~/scripts/uiosync.sh ]] then
-    wget -q --spider http://gnu.org
-    while :
-    do
-        if [ $? -eq 0 ]; then
-            rsync -az  uio:~/privat/ ~/dev/uio
-            source ~/scripts/uiosync.sh &
-            break
-        else
-            sleep 5
-            wget -q --spider http://gnu.org
-        fi
-    done
-fi
+# if [[ -x ~/scripts/uiosync.sh ]] then
+#     wget -q --spider http://gnu.org
+#     while :
+#     do
+#         if [ $? -eq 0 ]; then
+#             rsync -az  uio:~/privat/ ~/dev/uio
+#             source ~/scripts/uiosync.sh &
+#             break
+#         else
+#             sleep 5
+#             wget -q --spider http://gnu.org
+#         fi
+#     done
+# fi

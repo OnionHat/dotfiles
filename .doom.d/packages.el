@@ -51,3 +51,6 @@
 (unpin! lsp-java)
 (package! mu4e-alert :disable t)
 (package! org-superstar)
+(package! tree-sitter)
+(package! tree-sitter-langs)
+(package! fill-column-indicator)
