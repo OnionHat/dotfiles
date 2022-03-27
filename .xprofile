@@ -19,7 +19,6 @@ blueman-applet &
 pasystray &
 
 redshift -l 59.93:10.96 -t 6500:4500 &
-ibus-daemon -drxR
 
 gnome-keyring-daemon -d -s
 

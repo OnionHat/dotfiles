@@ -33,12 +33,17 @@
      (memq 'unread (mu4e-msg-field msg :flags)))))
 
 (setq scroll-margin 8)
-(setq doom-theme 'doom-sourcerer)
+;; (setq doom-theme 'doom-sourcerer)
 ;;
 ;; Cutsom Font
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular)
-      doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 18 :weight 'regular))
+;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'bold)
+;;       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular)
+;;       doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 18 :weight 'regular))
+;;
+(setq doom-theme 'doom-sourcerer
+      doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 14 :weight 'regular))
+      ;; doom-big-font (font-spec :family "Iosevka Aile" :size 18 :weight 'regular))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -46,16 +51,16 @@
 (setq-default fill-column 80)
 
 (use-package! org-superstar
-  :after org
-  :hook (org-mode . org-superstar-mode)
+  ;; :after org
+  ;; :hook (org-mode . org-superstar-mode)
   :custom
   (org-superstar-remove-leading-stars t)
   (org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 ;; Replace list hyphen with dot
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("^ *\\([-]\\) "
-;;                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 ;; Increase the size of various headings
 (set-face-attribute 'org-document-title nil :font "JetBrainsMono Nerd Font" :weight 'bold :height 1.3)
@@ -90,15 +95,14 @@
 
 
 (setq display-line-numbers-type 'relative)
-;;
 
 ;; Transpernat
-(defvar sb/frame-transparency 90)
+(defvar sb/frame-transparency 100)
 
 (set-frame-parameter (selected-frame) 'alpha `(,sb/frame-transparency . ,sb/frame-transparency))
 (add-to-list 'default-frame-alist `(alpha . (,sb/frame-transparency . ,sb/frame-transparency)))
-(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (defun set-transparency (num)
   (interactive "nLevel: ")
@@ -184,15 +188,15 @@
          :projectName nil
          :mainClass nil)))
 
-;;; Java
-;; (setq-default indent-tabs-mode nil)
+;; Hooks
 (setq-default tab-width 4)
-;; (setq indent-line-function 'insert-tab)
-;; (custom-set-variables
-;;  '(tab-width 4))
-
 (setq-default c-basic-offset 4)
 (setq-default js2-basic-offset 4)
+(setq-hook! '(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook) tab-width 4)  ; C/C++, java, python
+(setq-hook! '(c-mode-hook c++-mode-hook java-mode-hook) c-basic-offset 4)  ; C/C++, java
+
+;; pdf
+(add-hook 'pdf-view-mode-hook #'pdf-view-themed-minor-mode)
 
 (use-package! tree-sitter
   :config
@@ -202,8 +206,8 @@
 
 ;; FillColumnIndicator
 (use-package! fill-column-indicator
-  :init
-  (fci-mode)
+  :hook
+  (text-mode . fci-mode)
   :config
   (setq fci-rule-column 80)
   (setq fci-rule-width 2)

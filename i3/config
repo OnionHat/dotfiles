@@ -4,9 +4,17 @@ set $alt Mod1
 font pango:monospace 9
 # font pango:Iosevka 10
 
-# for_window [class="^.*"] border pixel 2
-#                           # class                 border  backgr. text    indicator child_border
-# for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+# set_from_resource $fg i3wm.color3 #f0f0f0
+# set_from_resource $bg i3wm.color2 #f0f0f0
+#
+# # class                 border  backgr. text indicator child_border
+# client.focused          $bg     $bg     $fg  $bg       $bg
+# client.focused_inactive $bg     $bg     $fg  $bg       $bg
+# client.unfocused        $bg     $bg     $fg  $bg       $bg
+# client.urgent           $bg     $bg     $fg  $bg       $bg
+# client.placeholder      $bg     $bg     $fg  $bg       $bg
+#
+# client.background       $bg
 
 default_floating_border pixel 10
 
