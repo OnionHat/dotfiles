@@ -1,0 +1,9 @@
+# Aliases for emacs commands
+alias ff find-file $1
+
+# Changing "ls" to "exa"
+alias ls exa -al --color=always --git --group --group-directories-first --icons $*  # my preferred listing
+alias la exa -a --color=always --git --group --group-directories-first --icons $*   # all files and dirs
+alias ll exa -l --color=always --git --group --group-directories-first --icons $*   # long format
+alias lt exa -aT --color=always --git --group --group-directories-first --icons $*  # tree listing
+alias l. exa -a1 $* | grep "^\."                              # list hidden files

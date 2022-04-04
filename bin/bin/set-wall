@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ ! -f $1 ]; then
+	echo "Path to wallpaper is wrong: $1"
+	exit
+fi
+
+feh --bg-fill $1
+betterlockscreen -u $1 --fx dimblur
+cp $1 ~/.config/wall.png
+xsetroot -cursor_name left_ptr
+echo "wallpaper $1 has been set successfully"
