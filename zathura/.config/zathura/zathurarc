@@ -1,13 +1,14 @@
-set recolor                 true
-set selection-clipboard     clipboard
-set font                    "JetBrainsMono Nerd Font 12"
+set recolor                     true
+set recolor-reverse-video       true
+set recolor-keephue             true
+set selection-clipboard         clipboard
 
 set default-bg                  "#171717"
 set default-fg                  "#5d656B"
 
 # lightcolor is background, recolor-darkcolor is foregorund
 set recolor-lightcolor          "#222222"
-set recolor-darkcolor           "#c2c2b0"
+# set recolor-darkcolor           "#c2c2b0"
 
 # bg colr when searching
 set highlight-color             "#5d656B"

@@ -30,11 +30,9 @@ bindsym $mod+Shift+f exec --no-startup-id  $HOME/.config/i3/scripts/i3-container
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
 # Emacs
-bindsym $alt+e exec --no-startup-id $myEmacs; mode "default"
-bindsym $alt+r exec --no-startup-id systemctl restart --user emacs && notify-send 'EMACS' 'Daemon restart: SUCCESSFULLY' \
+bindsym $mod+e exec --no-startup-id $myEmacs; mode "default"
+bindsym $mod+Shift+e exec --no-startup-id systemctl restart --user emacs && notify-send 'EMACS' 'Daemon restart: SUCCESSFULLY' \
                                         || notify-send 'EMACS' 'Daemon restart: UNSUCCESSFULLY' -u critical; mode "default"
-bindsym $alt+d exec --no-startup-id $myEmacs --eval '(dired nil)'; mode "default"
-bindsym $alt+s exec --no-startup-id $myEmacs --eval '(eshell)'; mode "default"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -173,7 +171,7 @@ smart_borders on
 
 
 # Window rules
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 for_window [class="steam_app_1182480"] floating enable
 for_window [title="Origin"] floating enable
 # https://github.com/ValveSoftware/steam-for-linux/issues/1040
