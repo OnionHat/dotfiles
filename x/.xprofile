@@ -1,11 +1,8 @@
 #!/bin/sh
 export ZDOTDIR=$HOME/.config/zsh
 
-
 $HOME/.screenlayout/defaults.sh
 xsetroot -cursor_name left_ptr
-xdotool mousemove 2880 540
-#setxkbmap -option 'caps:ctrl_modifier'
 setxkbmap no nodeadkeys -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
 
@@ -21,19 +18,3 @@ pasystray &
 redshift -l 59.93:10.96 -t 6500:4500 &
 
 gnome-keyring-daemon -d -s
-
-# connect to my UIO server
-# if [[ -x ~/scripts/uiosync.sh ]] then
-#     wget -q --spider http://gnu.org
-#     while :
-#     do
-#         if [ $? -eq 0 ]; then
-#             rsync -az  uio:~/privat/ ~/dev/uio
-#             source ~/scripts/uiosync.sh &
-#             break
-#         else
-#             sleep 5
-#             wget -q --spider http://gnu.org
-#         fi
-#     done
-# fi

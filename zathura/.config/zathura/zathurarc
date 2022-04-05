@@ -1,0 +1,40 @@
+set recolor                 true
+set selection-clipboard     clipboard
+set font                    "JetBrainsMono Nerd Font 12"
+
+set default-bg                  "#171717"
+set default-fg                  "#5d656B"
+
+# lightcolor is background, recolor-darkcolor is foregorund
+set recolor-lightcolor          "#222222"
+set recolor-darkcolor           "#c2c2b0"
+
+# bg colr when searching
+set highlight-color             "#5d656B"
+set highlight-active-color      "#87AFD7"
+
+# command bar
+set inputbar-bg                 "#171717"
+set inputbar-fg                 "#c2c2b0"
+
+# for pdf section
+set index-bg                    "#171717"
+set index-fg                    "#c2c2b0"
+set index-active-bg             "#222222"
+set index-active-fg             "#c2c2b0"
+
+# error colors
+set notification-error-bg       "#171717"
+set notification-error-fg       "#c2c2b0"
+set notification-warning-bg     "#171717"
+set notification-warning-fg     "#c2c2b0"
+set notification-bg             "#171717"
+set notification-fg             "#c2c2b0"
+
+# completion
+set completion-group-bg         "#171717"
+set completion-group-fg         "#c2c2b0"
+set completion-highlight-bg     "#5d656B"
+set completion-highlight-fg     "#c2c2b0"
+set completion-bg               "#171717"
+set completion-fg               "#c2c2b0"
