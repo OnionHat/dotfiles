@@ -11,12 +11,12 @@ while read file; do
 		echo -n "$file" | xclip -selection clipboard
 		;;
 	"C-w")
-		~/scripts/set-wall "$file" &&
+		~/bin/set-wall "$file" &&
 			notify-send -u low -i "$HOME/.config/wall.png" "Wallpaper changed" ||
 			notify-send -u low -i "$HOME/.config/wall.png" "Wallpaper could not be changed"
 		;;
 	"w")
-		~/scripts/set-wall "$file" &&
+		~/bin/set-wall "$file" &&
 			notify-send -u low -i "$HOME/.config/wall.png" "Wallpaper changed" ||
 			notify-send -u low -i "$HOME/.config/wall.png" "Wallpaper could not be changed"
 		;;

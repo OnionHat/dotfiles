@@ -22,6 +22,7 @@ Go to `Menu -> Help -> Troubleshooting Information -> Profile Directory`
 `about:config -> full-screen-api.ignore-widgets = true`
 
 ### Dont remeber last window size
+Seems to break pdf viewer and dark mode.
 `about:config -> privacy.resistFingerprinting = true`
 
 ## LibreOffice
@@ -40,5 +41,16 @@ Go to `Menu -> Help -> Troubleshooting Information -> Profile Directory`
 </fontconfig>
 ```
 
-## Betterlockscreen
+### Use Betterlockscreen with xfce
 `xfconf-query -c xfce4-session -p /general/LockCommand -s "betterlockscreen -l" -n -t string`
+
+### Wayland
+## Map caps lock to ctrl and esc
+First install caps2esc from pacman
+
+`pacman -S interception-caps2esc`
+Add this to `nv /etc/interception/udevmon.yaml`
+```
+asadsa
+asda
+```

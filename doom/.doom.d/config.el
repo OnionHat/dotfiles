@@ -76,45 +76,45 @@
 ;;; Org-mode
 (setq org-directory "~/org/")
 
-(use-package! org-superstar
-  :custom
-  (org-superstar-remove-leading-stars t)
-  (org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
-
-;; Replace list hyphen with dot
-(font-lock-add-keywords 'org-mode
-                        '(("^ *\\([-]\\) "
-                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
-;; Increase the size of various headings
-(set-face-attribute 'org-document-title nil :font "Iosevka Aile" :weight 'bold :height 1.3)
-(dolist (face '((org-level-1 . 1.2)
-                (org-level-2 . 1.1)
-                (org-level-3 . 1.05)
-                (org-level-4 . 1.0)
-                (org-level-5 . 1.1)
-                (org-level-6 . 1.1)
-                (org-level-7 . 1.1)
-                (org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "Iosevka Aile" :weight 'medium :height (cdr face)))
-
-;; Make sure org-indent face is available
-(require 'org-indent)
-
-;; Ensure that anything that should be fixed-pitch in Org files appears that way
-(set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-table nil  :inherit 'fixed-pitch)
-(set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
-(set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-(set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-
-;; Get rid of the background on column views
-(set-face-attribute 'org-column nil :background nil)
-(set-face-attribute 'org-column-title nil :background nil)
+;; (use-package! org-superstar
+;;   :custom
+;;   (org-superstar-remove-leading-stars t)
+;;   (org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
+;;
+;; ;; Replace list hyphen with dot
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("^ *\\([-]\\) "
+;;                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+;;
+;; ;; Increase the size of various headings
+;; (set-face-attribute 'org-document-title nil :font "Iosevka Aile" :weight 'bold :height 1.3)
+;; (dolist (face '((org-level-1 . 1.2)
+;;                 (org-level-2 . 1.1)
+;;                 (org-level-3 . 1.05)
+;;                 (org-level-4 . 1.0)
+;;                 (org-level-5 . 1.1)
+;;                 (org-level-6 . 1.1)
+;;                 (org-level-7 . 1.1)
+;;                 (org-level-8 . 1.1)))
+;;   (set-face-attribute (car face) nil :font "Iosevka Aile" :weight 'medium :height (cdr face)))
+;;
+;; ;; Make sure org-indent face is available
+;; (require 'org-indent)
+;;
+;; ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+;; (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-table nil  :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+;; (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+;; (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+;; (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+;; (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+;;
+;; ;; Get rid of the background on column views
+;; (set-face-attribute 'org-column nil :background nil)
+;; (set-face-attribute 'org-column-title nil :background nil)
 
 ;;; Search
 (use-package orderless
@@ -128,10 +128,6 @@
   (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0))
 
-(use-package! company-box
-  :after
-  (company-box-icons-alist 'company-box-icons-all-the-icons))
-
 ;;; Evil-bindings
 (use-package! evil
   :config
@@ -139,65 +135,13 @@
   (evil-define-key 'normal 'global (kbd "j") 'evil-next-visual-line)
   (evil-define-key 'normal 'global (kbd "k") 'evil-previous-visual-line))
 
-;;; Eshell
-(defun dw/eshell-configure ()
-  ;; Make sure magit is loaded
-  (require 'xterm-color)
-  (push 'eshell-tramp eshell-modules-list)
-  (push 'xterm-color-filter eshell-preoutput-filter-functions)
-  (delq 'eshell-handle-ansi-color eshell-output-filter-functions)
-
-  ;; Save command history when commands are entered
-  (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
-
-  (add-hook 'eshell-before-prompt-hook
-            (lambda ()
-              (setq xterm-color-preserve-properties t)))
-
-  ;; Truncate buffer for performance
-  (add-to-list 'eshell-output-filter-functions 'eshell-truncate-buffer)
-
-  ;; We want to use xterm-256color when running interactive commands
-  ;; in eshell but not during other times when we might be launching
-  ;; a shell command to gather its output.
-  (add-hook 'eshell-pre-command-hook
-            (lambda () (setenv "TERM" "xterm-256color")))
-  (add-hook 'eshell-post-command-hook
-            (lambda () (setenv "TERM" "dumb")))
-
-  ;; Use completion-at-point to provide completions in eshell
-  (define-key eshell-mode-map (kbd "<tab>") 'completion-at-point)
-
-  ;; Initialize the shell history
-  (eshell-hist-initialize)
-
-  (evil-define-key '(normal insert visual) eshell-mode-map (kbd "C-r") 'consult-history)
-  (evil-define-key '(normal insert visual) eshell-mode-map (kbd "<home>") 'eshell-bol)
-  (evil-normalize-keymaps)
-
-  (setenv "PAGER" "cat")
-
-  (setq eshell-history-size         10000
-        eshell-buffer-maximum-lines 10000
-        eshell-hist-ignoredups t
-        eshell-highlight-prompt t
-        eshell-scroll-to-bottom-on-input t
-        eshell-prefer-lisp-functions nil))
-
-
-(use-package! eshell
-  :config
-  (add-hook 'eshell-first-time-mode-hook #'dw/eshell-configure)
-  (setq eshell-aliases-file "~/.doom.d/eshell-aliases"))
-
-;;; Vterm
+;; ;;; Vterm
 (use-package! vterm
   :config
   (setq vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=yes"))
 
 ;;; Latex
 (setq +latex-viewers '(zathura))
-(setq vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=yes")
 
 ;;; Calendar
 (defun my-open-calendar ()
@@ -271,6 +215,23 @@
   (setq highlight-indent-guides-auto-even-face-perc 20)
   (setq highlight-indent-guides-auto-character-face-perc 30))
 
+;; (doom-moddeline--set-font-widths doom-modeline-rhs-icons-alist)
+;; (setq all-the-icons-scale-factor 1.2)
+;; (add-hook! 'doom-modeline-mode-hook
+;;   (let ((char-table char-width-table))
+;;     (while (setq char-table (char-table-parent char-table)))
+;;     (dolist (pair doom-modeline-rhs-icons-alist)
+;;       (let ((width 2)  ; <-- tweak this
+;;             (chars (cdr pair))
+;;             (table (make-char-table nil)))
+;;         (dolist (char chars)
+;;           (set-char-table-range table char width))
+;;         (optimize-char-table table)
+;;         (set-char-table-parent table char-table)
+;;         (setq char-width-table table)))))
+;; (custom-set-faces!
+;;   '(mode-line :family "JetBrainsMono Nerd Font" :height 0.9)
+;;   '(mode-line-inactive :family "JetBrainsMono Nerd Font" :height 0.9))
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

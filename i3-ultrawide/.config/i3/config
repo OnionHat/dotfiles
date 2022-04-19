@@ -1,16 +1,10 @@
 set $mod Mod4
 set $alt Mod1
-set $scripts ~/.config/i3/scripts
+set $i3_scripts ~/.config/i3/scripts
+set $rofi_scripts ~/.config/rofi/scripts
 set $myEmacs emacsclient -nc -a 'emacs'
 
 font pango:monospace 9
-
-# Autostart programs
-exec_always ~/.local/bin/i3-layouts
-exec_always xsetroot -cursor_name left_ptr
-
-# Swap current window with master
-bindsym $mod+Return exec $scripts/i3-swap-master
 
 # COSTUME KEYBINDINGS
 # Mediakeys
@@ -22,17 +16,18 @@ bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute && $refresh_
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
 
-# Dmenu
-# Find container
-bindsym $mod+Shift+f exec --no-startup-id  $HOME/.config/i3/scripts/i3-container-commander.py
-
 # Screenshot
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
-# Emacs
-bindsym $mod+e exec --no-startup-id $myEmacs; mode "default"
-bindsym $mod+Shift+e exec --no-startup-id systemctl restart --user emacs && notify-send 'EMACS' 'Daemon restart: SUCCESSFULLY' \
-                                        || notify-send 'EMACS' 'Daemon restart: UNSUCCESSFULLY' -u critical; mode "default"
+# focus the child container
+bindsym $mod+x exec betterlockscreen -l dimblur
+
+# floating volume panal
+bindsym $mod+c exec --no-startup-id "kitty --title volume_controll --override font_size=12 pulsemixer";  move absolute position center
+
+
+# toggle gaps on and off
+bindsym $mod+Shift+t exec $scripts/toggle_gaps toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -43,28 +38,39 @@ bindsym $mod+Shift+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+c kill
 
-# start dmenu (a program launcher)
-bindsym $mod+p exec --no-startup-id dmenu_run
+# start rofi (a program launcher)
+bindsym $mod+p exec --no-startup-id rofi -show drun
+bindsym $mod+o mode "rofi"
+mode "rofi" {
+        bindsym c exec --no-startup-id rofi -show calc -modi calc -no-match-mathc -no-sort; mode "default"
+        bindsym k exec --no-startup-id "$rofi_scripts/kaomoji.sh"; mode "default"
+        bindsym p exec --no-startup-id "$rofi_scripts/rofi_power.sh"; mode "default"
+        bindsym b exec --no-startup-id "$rofi_scripts/rofi_bluetooth.sh"; mode "default"
+        bindsym m exec --no-startup-id "$rofi_scripts/monitor_layout.sh"; mode "default"
+        bindsym w exec --no-startup-id "$HOME/bin/wall-d -R -f -b"; mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+o mode "default"
+}
 
-# change focus
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-bindsym $mod+h focus left
-
-# move focused window
-bindsym $mod+Shift+j exec ~/.local/bin/i3l move down
-bindsym $mod+Shift+k exec ~/.local/bin/i3l move up
-bindsym $mod+Shift+l exec ~/.local/bin/i3l move right
-bindsym $mod+Shift+h exec ~/.local/bin/i3l move left
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # Layouts - i3-layouts
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Split window vertically/horizontally
+bindsym $mod+z split h
+bindsym $mod+v split v
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+d focus child
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -84,11 +90,15 @@ bindsym $mod+Shift+period move container to output right
 bindsym $mod+Control+comma move workspace to output right && foucs output right
 bindsym $mod+Control+period move workspace to output right && foucs output right
 
-# focus the child container
-bindsym $mod+x exec betterlockscreen -l dimblur
-
-# floating volume panal
-bindsym $mod+v exec --no-startup-id "kitty --title volume_controll --override font_size=12 pulsemixer"
+# change focus
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+h focus left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
 
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -96,10 +106,10 @@ bindsym $mod+Ctrl+Shift+q exec "i3-msg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px
+        bindsym j resize grow height 10 px
+        bindsym k resize shrink height 10 px
+        bindsym l resize grow width 10 px
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -143,24 +153,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# I3layouts
-set $i3l 3columns to workspace $ws1
-# set $i3l vstack to workspace $ws2
-set $i3l 3columns to workspace $ws3
-set $i3l 3columns to workspace $ws4
-set $i3l 3columns to workspace $ws5
-set $i3l 3columns to workspace $ws6
-set $i3l 3columns to workspace $ws7
-set $i3l 3columns to workspace $ws8
-set $i3l 3columns to workspace $ws9
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
 }
 
-default_floating_border pixel 10
+default_floating_border pixel 2
+default_border pixel 2
 
 # Gaps
 gaps inner 15
@@ -169,9 +169,8 @@ gaps vertical 5
 smart_gaps inverse_outer
 smart_borders on
 
-
 # Window rules
-for_window [class="^.*"] border pixel 2
+# for_window [class="^.*"] border pixel 2
 for_window [class="steam_app_1182480"] floating enable
 for_window [title="Origin"] floating enable
 # https://github.com/ValveSoftware/steam-for-linux/issues/1040
@@ -185,5 +184,15 @@ for_window [class="Steam" title="Steam - Self Updater"] floating enable
 for_window [class="Steam" title="Screenshot Uploader"] floating enable
 for_window [class="Steam" title="Steam Guard - Computer Authorization Required"] floating enable
 for_window [title="Steam Keyboard"] floating enable
-for_window [class="SpeedCrunch"] floating enable resize set 640 480
+for_window [class="SpeedCrunch"] floating enable resize set 640 480 move absolute position center
+for_window [class="SpeedCrunch"] move absolute position center
 for_window [title="volume_controll"] floating enable resize set 640 480
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #39216d   #eec61f
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff

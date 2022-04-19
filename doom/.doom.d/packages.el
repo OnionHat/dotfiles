@@ -48,10 +48,11 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-(unpin! lsp-java)
-(package! mu4e-alert :disable t)
+;; (unpin! lsp-java)
+;; (package! mu4e-alert :disable t)
 ;; (package! org-superstar)
+
+;;; Code:
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! fill-column-indicator)
-(package! xterm-color)
