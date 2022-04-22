@@ -27,7 +27,7 @@ bindsym $mod+c exec --no-startup-id "kitty --title volume_controll --override fo
 
 
 # toggle gaps on and off
-bindsym $mod+Shift+t exec $scripts/toggle_gaps toggle
+bindsym $mod+Shift+t exec $i3_scripts/toggle_gaps toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -110,6 +110,10 @@ mode "resize" {
         bindsym j resize grow height 10 px
         bindsym k resize shrink height 10 px
         bindsym l resize grow width 10 px
+        bindsym Shift+h resize shrink width 100 px
+        bindsym Shift+j resize grow height 100 px
+        bindsym Shift+k resize shrink height 100 px
+        bindsym Shift+l resize grow width 100 px
 
         bindsym Return mode "default"
         bindsym Escape mode "default"

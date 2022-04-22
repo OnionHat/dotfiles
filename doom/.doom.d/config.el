@@ -215,6 +215,12 @@
   (setq highlight-indent-guides-auto-even-face-perc 20)
   (setq highlight-indent-guides-auto-character-face-perc 30))
 
+(map! :desc "Swithc buffer" :n "SPC b b" #'+vertico/switch-workspace-buffer)
+(map! :gni "C-<return>" #'nil)
+
+(setq company-dabbrev-downcase 0)
+(setq company-idle-delay 0)
+
 ;; (doom-moddeline--set-font-widths doom-modeline-rhs-icons-alist)
 ;; (setq all-the-icons-scale-factor 1.2)
 ;; (add-hook! 'doom-modeline-mode-hook
