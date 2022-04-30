@@ -1,20 +1,6 @@
 #!/bin/sh
 export ZDOTDIR=$HOME/.config/zsh
 
-$HOME/.screenlayout/defaults.sh
 xsetroot -cursor_name left_ptr
 setxkbmap no nodeadkeys -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
-
-picom --experimental-backends &
-source ~/.fehbg &
-
-xfce4-power-manager &
-nm-applet &
-flameshot &
-blueman-applet &
-pasystray &
-
-redshift -l 59.93:10.96 -t 6500:4500 &
-
-gnome-keyring-daemon -d -s

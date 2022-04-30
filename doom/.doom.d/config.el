@@ -3,39 +3,6 @@
 (setq user-full-name "Suleyman Boyar"
       user-mail-address "suleymanboyar02@gmail.com")
 
-(use-package! mu4e
-  :config
-  (setq user-full-name "Suleyman Boyar"
-        user-mail-address "suleymanboyar02@gmail.com"
-        mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
-        mu4e-update-interval 300
-        mu4e-compose-signature
-        (concat
-         "Mvh\n"
-         "Suleyman M. Boyar")
-        message-send-mail-function 'smtpmail-send-it
-        mu4e-sent-folder "/Sent"
-        mu4e-drafts-folder "/Draft"
-        mu4e-trash-folder "/Trash"
-        mu4e-refile-folder "/All Mail"
-        mu4e-maildir-shortcuts
-        '(("/suleymanboyar02/Inbox"	. ?i)
-          ("/suleymanboyar02/Sent"	. ?s)
-          ("/suleymanboyar02/All Mail"	. ?a)
-          ("/suleymanboyar02/Trash"	. ?t))))
-
-(defun mu4e-headers-mark-all-unread-read ()
-  "Put a ! \(read) mark on all visible unread messages"
-  (interactive)
-  (mu4e-headers-mark-for-each-if
-   (cons 'read nil)
-   (lambda (msg param)
-     (memq 'unread (mu4e-msg-field msg :flags)))))
-
-;;; Sane configuration
-(setq )
-(setq )
-
 (setq doom-theme 'doom-sourcerer
       display-line-numbers-type 'relative
       scroll-margin 8

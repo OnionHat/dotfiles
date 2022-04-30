@@ -13,6 +13,7 @@ general {
 
 order += "wireless _first_"
 order += "battery all"
+order += "disk /"
 order += "disk /home"
 order += "volume master"
 order += "memory"

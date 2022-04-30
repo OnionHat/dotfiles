@@ -5,7 +5,9 @@ set $rofi_scripts ~/.config/rofi/scripts
 set $myEmacs emacsclient -nc -a 'emacs'
 set $terminal alacritty
 
-font pango:monospace 9
+font pango:monospace 10
+
+exec --no-startup-id "export ZDOTDIR=$HOME/.config/zsh"
 
 # COSTUME KEYBINDINGS
 # Mediakeys
@@ -101,7 +103,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 bindsym $mod+Shift+h move left
 
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Ctrl+Shift+q exec "i3-msg exit"
 
@@ -164,14 +166,23 @@ bar {
         status_command i3status
 }
 
+input * {
+    xkb_layout "no(nodeadkeys),us"
+    xkb_options "grp:win_space_toggle"
+}
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
+output eDP-1 mode 1920x1200@60Hz
+
 default_floating_border pixel 2
 default_border pixel 2
 
 # Gaps
 gaps inner 15
-gaps horizontal 960
-gaps vertical 5
-smart_gaps inverse_outer
 smart_borders on
 
 # Window rules

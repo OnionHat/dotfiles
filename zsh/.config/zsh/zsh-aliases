@@ -12,11 +12,14 @@ alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 
 # Ls
-alias ls='exa --color=always --group-directories-first --icons'     # my preferred listing
-alias la='exa -la --color=always --group-directories-first --icons' # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.='exa -a | egrep "^\." --icons'
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -la"
+#alias ls='exa --color=always --group-directories-first --icons'     # my preferred listing
+#alias la='exa -la --color=always --group-directories-first --icons' # all files and dirs
+#alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+#alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+#alias l.='exa -a | egrep "^\." --icons'
 
 ## Safety features
 alias cp='cp -iv'

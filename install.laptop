@@ -1,0 +1,6 @@
+#!/bin/sh
+STOW_DIR="alacritty,bin,doom,i3-laptop,i3status-laptop,kitty,mu4e,nvim,picom,sxiv,sway,tmux,x,zathura,zsh"
+for folder in $(echo $STOW_DIR | sed "s/,/ /g"); do
+    stow -v -D $folder 2>&1 | grep -v "BUG in find_stowed_path"
+    stow -v $folder
+done

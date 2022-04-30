@@ -82,20 +82,6 @@ nnoremap <leader>bp :bprev<CR>
 nnoremap <leader>bn :bnext<CR>
 ]]
 
--- SAVE
-vim.cmd('nnoremap <silent> <C-s> :w<CR>')
-vim.cmd('inoremap <silent> <C-s> <Esc>:w<Cr>a')
-
--- SELECT ALL
-vim.cmd('nnoremap <silent> <C-a> ggVG')
-
--- TMUX
-vim.cmd[[
-noremap <C-A-j> :resize +5<CR>
-noremap <C-A-k> :resize -5<CR>
-noremap <C-A-h> :vertical:resize -5<CR>
-noremap <C-A-l> :vertical:resize +5<CR>
-]]
 
 -- SPLITS
 vim.cmd[[

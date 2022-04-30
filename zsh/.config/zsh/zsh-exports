@@ -18,7 +18,7 @@ export JDTLS_CONFIG=$HOME/.local/share/jdtls/config_linux
 export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
 export XDG_CONFIG_HOME=$HOME/.config
 export GTK_THEME=Adwaita:dark
-export QT_STYLE_OVERRIDE=adwaita:dark
+export QT_STYLE_OVERRIDE=breeze:dark
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4f5f64"
 
