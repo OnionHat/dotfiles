@@ -12,10 +12,10 @@ alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 
 # Ls
-alias ls='exa --color=always --group-directories-first --icons'     # my preferred listing
-alias la='exa -la --color=always --group-directories-first --icons' # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias ls='exa --color=always --group-directories-first --icons'           # my preferred listing
+alias la='exa --git -la --color=always --group-directories-first --icons' # all files and dirs
+alias ll='exa --git -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons'       # tree listing
 alias l.='exa -a | egrep "^\." --icons'
 
 ## Safety features
@@ -48,8 +48,8 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias suck="rm -f config.h && sudo make install"
 
 # UiO
-alias uiofs="sshfs -o reconnect,uid=1000,gid=1000,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio"
-alias uioufs="fusermount -u $HOME/uio"
+alias uiofs="sshfs -o reconnect,uid=1000,gid=1000,ServerAliveInterval=15,ServerAliveCountMax=3 suleymab@login.ifi.uio.no:privat $HOME/uio/mnt"
+alias uioufs="fusermount -u $HOME/uio/mnt"
 alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; zsh\""
 
 # Neovim
@@ -107,4 +107,3 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
 # For when gpg keys break
 alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
-
