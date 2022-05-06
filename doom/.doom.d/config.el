@@ -197,6 +197,7 @@
 
 (setq company-dabbrev-downcase 0)
 (setq company-idle-delay 0)
+(setq lsp-lens-enable nil)
 
 ;; (doom-moddeline--set-font-widths doom-modeline-rhs-icons-alist)
 ;; (setq all-the-icons-scale-factor 1.2)

@@ -7,14 +7,25 @@ set $terminal alacritty
 
 font pango:monospace 9
 
+exec_always --no-startup-id $HOME/.screenlayout/default.sh
+exec --no-startup-id picom --experimental-backends &
+exec_always --no-startup-id source ~/.fehbg &
+exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id nm-applet &
+exec --no-startup-id flameshot &
+exec --no-startup-id blueman-applet &
 exec --no-startup-id volumeicon
+#exec --no-startup-id pasystray &
+exec --no-startup-id redshift -l 59.93:10.96 -t 6500:4500 &
+exec --no-startup-id gnome-keyring-daemon -d -s
 
 # COSTUME KEYBINDINGS
 # Mediakeys
-# set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --unmute --change-volume +5 --max-volume 100 && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --unmute --change-volume -5 && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute && $refresh_i3status
+set $refresh_i3status killall -SIGUSR1 i3status
+set $volume_notify dunstify -u low -h string:x-dunst-stack-tag:my_volume "Volume: " -h int:value:"`pulsemixer --get-volume | awk '{printf $1}'`"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --unmute --change-volume +5 --max-volume 100 && $refresh_i3status && $volume_notify
+bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --unmute --change-volume -5 && $refresh_i3status && $volume_notify
+bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute && $refresh_i3status
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
