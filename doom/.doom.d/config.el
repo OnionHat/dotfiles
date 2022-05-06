@@ -3,16 +3,26 @@
 (setq user-full-name "Suleyman Boyar"
       user-mail-address "suleymanboyar02@gmail.com")
 
-(setq doom-theme 'doom-sourcerer
+
+(defvar sb/dark-theme 'doom-sourcerer)
+(setq doom-theme sb/dark-theme
       display-line-numbers-type 'relative
       scroll-margin 8
-      doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular)
+      doom-font (font-spec :family "JetBrains Mono" :size 14 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 14 :weight 'regular))
 
 (setq-default fill-column 80
               tab-width 4
               c-basic-offset 4
               js2-basic-offset 4)
+
+(defun toggle-light-dark-mode ()
+  "Toggle between light and dark color scheme"
+  (interactive)
+  (if (eq (car custom-enabled-themes) sb/dark-theme)
+      (setq doom-theme 'doom-one-light)
+    (message "set to dark mode")
+    (setq doom-theme sb/dark-theme)))
 
 ;;; Transperancy
 (defvar sb/frame-transparency 85)

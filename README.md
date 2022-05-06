@@ -41,16 +41,31 @@ Seems to break pdf viewer and dark mode.
 </fontconfig>
 ```
 
-### Use Betterlockscreen with xfce
-`xfconf-query -c xfce4-session -p /general/LockCommand -s "betterlockscreen -l" -n -t string`
+### XFCE4 power manager
+## Let logind handle lid close
+`xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch -s true`
 
-### Wayland
-## Map caps lock to ctrl and esc
-First install caps2esc from pacman
-
+### Remap caps 2 esc/ctrl
 `pacman -S interception-caps2esc`
-Add this to `nv /etc/interception/udevmon.yaml`
+`/etc/interception/udevmon.yaml`
+```yaml
+- JOB: intercept -g $DEVNODE | caps2esc -m 1 | uinput -d $DEVNODE
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
 ```
-asadsa
-asda
+
+## Emacs
+Install doom emacs:
+```sh
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
 ```
+
+## Onedrive
+Install onedrive client from AUR and choose ldc (option 2)
+`paru -S onedrive-abraunegg`
+Connect onedrive account
+`onedrive`
+Start systemd service
+`systemctl enable --now onedrive`

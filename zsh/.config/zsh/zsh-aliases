@@ -52,14 +52,6 @@ alias uiossh="ssh -t suleymab@login.ifi.uio.no \"cd ~/privat; zsh\""
 
 # Neovim
 alias nv="nvim"
-nvim() {
-	term=$(ps -p $(ps -p $$ -o ppid=) -o args=)
-	if [[ $term == "nvim" ]]; then
-		command nvr $@
-	else
-		command nvim $@
-	fi
-}
 
 # Doom emacs
 alias doom="~/.emacs.d/bin/doom"
