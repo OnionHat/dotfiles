@@ -188,6 +188,16 @@ gaps vertical 5
 smart_gaps inverse_outer
 smart_borders on
 
+bindsym $mod+Shift+g mode "mode_gaps"
+mode "mode_gaps" {
+	# dual (pbp)
+	bindsym d gaps horizontal all toggle 960; gaps vertical all toggle 5; mode "default" 
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+o mode "default"
+}
+
 # Window rules
 # for_window [class="^.*"] border pixel 2
 for_window [class="steam_app_1182480"] floating enable
@@ -206,6 +216,7 @@ for_window [title="Steam Keyboard"] floating enable
 for_window [class="SpeedCrunch"] floating enable resize set 640 480 move absolute position center
 for_window [class="SpeedCrunch"] move absolute position center
 for_window [title="volume_controll"] floating enable resize set 640 480
+for_window [title=".* - Java"] floating enable 
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #39216d   #eec61f

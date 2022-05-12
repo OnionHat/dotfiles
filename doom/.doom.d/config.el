@@ -198,6 +198,14 @@
 (setq company-dabbrev-downcase 0)
 (setq company-idle-delay 0)
 (setq lsp-lens-enable nil)
+(setq all-the-icons-scale-factor 1.1)
+(after! doom-modeline
+  (doom-modeline-def-modeline 'main
+    '(bar matches buffer-info remote-host buffer-position parrot selection-info)
+    '(misc-info minor-modes checker input-method buffer-encoding major-mode process vcs "  "))) ; <-- added padding here
+(custom-set-faces!
+  '(mode-line :family "JetBrains Mono" :height 0.9)
+  '(mode-line-inactive :family "JetBrains Mono" :height 0.9))
 
 ;; (doom-moddeline--set-font-widths doom-modeline-rhs-icons-alist)
 ;; (setq all-the-icons-scale-factor 1.2)
