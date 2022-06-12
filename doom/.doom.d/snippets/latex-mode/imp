@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Implication
+# key: ra
+# condition: t
+# --
+$1 \rightarrow $2

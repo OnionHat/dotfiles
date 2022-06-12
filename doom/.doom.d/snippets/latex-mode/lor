@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Logical Or
+# key: lor
+# condition: t
+# --
+$1 \lor $2
