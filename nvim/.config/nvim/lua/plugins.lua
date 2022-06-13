@@ -92,9 +92,6 @@ return require("packer").startup(function(use)
 
 		requires = "rktjmp/lush.nvim",
 	})
-
-	use({ "rrethy/vim-hexokinase", run = "make hexokinase" }) -- Shows the color
-
 	-- use("p00f/nvim-ts-rainbow") -- Colors the curly brackets and like
 	--}}}
 

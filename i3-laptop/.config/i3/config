@@ -15,6 +15,7 @@ exec --no-startup-id flameshot &
 exec --no-startup-id blueman-applet &
 exec --no-startup-id pasystray &
 exec --no-startup-id redshift -l 59.93:10.96 -t 6500:4500 &
+exec --no-startup-id gnome-keyring-daemon -d -s
 
 # COSTUME KEYBINDINGS
 # Mediakeys
@@ -198,6 +199,7 @@ for_window [title="Steam Keyboard"] floating enable
 for_window [class="SpeedCrunch"] floating enable resize set 640 480 move absolute position center
 for_window [class="SpeedCrunch"] move absolute position center
 for_window [title="volume_controll"] floating enable resize set 640 480
+for_window [title=".* - Java"] floating enable
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #39216d   #eec61f

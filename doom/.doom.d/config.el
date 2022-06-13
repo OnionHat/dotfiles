@@ -5,11 +5,15 @@
 
 
 (defvar sb/dark-theme 'doom-sourcerer)
+(defvar sb/light-theme 'doom-acario-light)
+(defvar sb/fontsize 14)
+(if (string= (system-name) "lenovo") (setq sb/fontsize 16))
+
 (setq doom-theme sb/dark-theme
       display-line-numbers-type 'relative
       scroll-margin 8
-      doom-font (font-spec :family "JetBrains Mono" :size 14 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 14 :weight 'regular))
+      doom-font (font-spec :family "JetBrains Mono" :size sb/fontsize :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size sb/fontsize :weight 'regular))
 
 (setq-default fill-column 80
               tab-width 4
@@ -20,9 +24,8 @@
   "Toggle between light and dark color scheme"
   (interactive)
   (if (eq (car custom-enabled-themes) sb/dark-theme)
-      (setq doom-theme 'doom-one-light)
-    (message "set to dark mode")
-    (setq doom-theme sb/dark-theme)))
+      (consult-theme sb/light-theme)
+    (consult-theme sb/dark-theme)))
 
 ;;; Transperancy
 (defvar sb/frame-transparency 85)
@@ -53,46 +56,6 @@
 ;;; Org-mode
 (setq org-directory "~/org/")
 
-;; (use-package! org-superstar
-;;   :custom
-;;   (org-superstar-remove-leading-stars t)
-;;   (org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
-;;
-;; ;; Replace list hyphen with dot
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("^ *\\([-]\\) "
-;;                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-;;
-;; ;; Increase the size of various headings
-;; (set-face-attribute 'org-document-title nil :font "Iosevka Aile" :weight 'bold :height 1.3)
-;; (dolist (face '((org-level-1 . 1.2)
-;;                 (org-level-2 . 1.1)
-;;                 (org-level-3 . 1.05)
-;;                 (org-level-4 . 1.0)
-;;                 (org-level-5 . 1.1)
-;;                 (org-level-6 . 1.1)
-;;                 (org-level-7 . 1.1)
-;;                 (org-level-8 . 1.1)))
-;;   (set-face-attribute (car face) nil :font "Iosevka Aile" :weight 'medium :height (cdr face)))
-;;
-;; ;; Make sure org-indent face is available
-;; (require 'org-indent)
-;;
-;; ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-;; (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-;; (set-face-attribute 'org-table nil  :inherit 'fixed-pitch)
-;; (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
-;; (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-;; (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-;; (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-;; (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-;; (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-;; (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-;;
-;; ;; Get rid of the background on column views
-;; (set-face-attribute 'org-column nil :background nil)
-;; (set-face-attribute 'org-column-title nil :background nil)
-
 ;;; Search
 (use-package orderless
   :config
@@ -100,8 +63,6 @@
 
 (use-package! company
   :config
-;;(setq company-backends '((company-capf company-dabbrev-code company-files))))
-  ;; (setq company-format-margin-function #'company-vscode-dark-icons-margin)
   (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0))
 
@@ -128,7 +89,7 @@
    (list
     (cfw:ical-create-source "Personelig" "https://calendar.google.com/calendar/u/0?cid=c3VsZXltYW5ib3lhcjAyQGdtYWlsLmNvbQ" "goldenrod") ; UiO Timeplan
     (cfw:ical-create-source "UiO" "https://minestudier.uio.no/api/calendar/7770dls5/schedule?version=1644543510330&locale=nb" "SteelBlue") ; UiO Timeplan
-   )))
+    )))
 ;; First day of the week
 (setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
 
@@ -197,6 +158,20 @@
 
 (setq company-dabbrev-downcase 0)
 (setq company-idle-delay 0)
+(setq eldoc-echo-area-use-multiline-p nil)
+;; (python-mode
+;;  . ((eglot-workspace-configuration
+;;      . ((:pylsp . (:plugins (:mypy-ls (:enable t) (:strict t))))))))
+(after! flycheck-mode
+  (setq flycheck-relevant-error-other-file-show nil))
+(setq eglot-workspace-configuration
+      '((pylsp
+         (plugins
+          (mypy-ls
+           (enabled . t))
+          (mypy-ls
+           (strict . t))
+          ))))
 
 ;; (doom-moddeline--set-font-widths doom-modeline-rhs-icons-alist)
 ;; (setq all-the-icons-scale-factor 1.2)
