@@ -4,18 +4,19 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 export PATH="$HOME/.local/bin":$PATH
 export MANWIDTH=999
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$HOME/bin:$HOME:$PATH"
 export ENHANCD_FILTER="/usr/bin/fzf:fzf:non-existing-filter"
 export ENHANCD_COMMAND=ecd
 export EDITOR="vim"
 export VISUAL="vim"
 export _Z_NO_RESOLVE_SYMLINKS=1
 export RANGER_LOAD_DEFAULT_RC=FALSE
-export JDTLS_HOME=$HOME/.local/share/jdtls
-export JDTLS_CONFIG=$HOME/.local/share/jdtls/config_linux
+export PATH="$HOME/opt/jdtls/bin:$PATH"
+export JDTLS_HOME=$HOME/opt/jdtls
+export JDTLS_CONFIG=$HOME/opt/jdtls/config_linux
 export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
 export XDG_CONFIG_HOME=$HOME/.config
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export SYSTEM_THEME="dark"
+export GTAGSLIBPATH=$HOME/.gtags/
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4f5f64"

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+TARGET_DIR=""
+DESTINATION_DIR=""
+WORKING_DIR=$(pwd)
+REMOTE=""
+
+TARGET_DIR=$(realpath --relative-to=$HOME "$WORKING_DIR/$1")
+DESTINATION_DIR=$(dirname "$TARGET_DIR")
+
+if [[ -z $2 ]]; then
+	if [[ $(uname -n) == "glados" ]]
+	then
+		REMOTE="sully@lenovo"
+	else
+		REMOTE="sully@glados"
+	fi
+else
+	REMOTE=$2
+fi
+
+rsync -avz --delete ~/$TARGET_DIR $REMOTE:~/$DESTINATION_DIR

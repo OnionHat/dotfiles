@@ -2,7 +2,8 @@
 export ZDOTDIR=$HOME/.config/zsh
 
 xsetroot -cursor_name left_ptr
-setxkbmap no nodeadkeys -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
+setxkbmap no nodeadkeys -option
+setxkbmap -option compose:menu
+#xcape -e 'Caps_Lock=Escape'
 
 $HOME/.screenlayout/default.sh

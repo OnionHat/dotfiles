@@ -10,4 +10,5 @@
 #while type dwm >/dev/null ; do dwm && continue || break ; done
 #exec xmonad
 # exec dwm
-exec i3
+#exec gnome-session
+exec startxfce4

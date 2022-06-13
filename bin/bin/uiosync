@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+folders="$HOME/OneDrive/in1010 $HOME/OneDrive/in1150 $HOME/OneDrive/in1030"
+for folder in $folders; do
+	wget -q --spider http://gnu.org
+	if [ $? -eq 0 ]; then
+        subject_folder=$(basename $folder)
+		/bin/rsync --dry-run -avzi --delete $folder uio:~/privat/$subject_folder
+    else
+        echo "Could connect to internet"
+	fi
+done
+

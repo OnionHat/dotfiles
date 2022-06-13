@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Logical And
+# key: land
+# condition: t
+# --
+$1 \land $2
