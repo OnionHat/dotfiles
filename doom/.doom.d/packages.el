@@ -63,4 +63,5 @@
 (package! modus-themes)
 (package! ini-mode)
 (package! config-general-mode)
+(package! disable-mouse)
 ;; (package! flycheck-posframe :pin "383b882")
