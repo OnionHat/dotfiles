@@ -147,7 +147,7 @@
         flycheck-posframe-info-prefix "➤ "
         flycheck-posframe-error-prefix "➤ "))
 
-(map! :gvn "C-e" #'move-end-of-line)
+(map! :gvn "C-e" #'doom/forward-to-last-non-comment-or-eol)
 
 (map! :map c-mode-map
       :i "TAB" 'indent-for-tab-command
@@ -174,6 +174,15 @@
   (map! :map winner-mode-map
       :g "C-c <left>" 'winner-undo
       :g "C-c <right>" 'winner-redo))
+
+;;; Modes
+(add-to-list 'load-path "~/.doom.d/plugins/")
+;; yukc
+;(require 'yuck-mode)
+(autoload 'yuck-mode "yuck-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.yuck\\'" . yuck-mode))
+
+
 
 ;; - `Load!' for loading external *.el files relative to this one
 ;; - `use-package!' for configuring packages

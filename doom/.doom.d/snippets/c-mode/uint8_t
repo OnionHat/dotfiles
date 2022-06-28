@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: uint8_t
+# key: ui8
+# --
+uint8_t $0

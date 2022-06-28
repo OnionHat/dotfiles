@@ -13,20 +13,21 @@ exec_always --no-startup-id source ~/.fehbg &
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id nm-applet &
 exec --no-startup-id flameshot &
-exec --no-startup-id blueman-applet &
+#exec --no-startup-id blueman-applet &
 exec --no-startup-id volumeicon
 #exec --no-startup-id pasystray &
 exec --no-startup-id redshift -l 59.93:10.96 -t 6500:4500 &
 exec --no-startup-id gnome-keyring-daemon -d -s
 #exec --no-startup-id /usr/lib/gsd-xsettings
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec ibus-daemon -drxR
 #exec ibus engine xkb:no:nodeadkeys:nor
 
 # COSTUME KEYBINDINGS
 # Mediakeys
 set $refresh_i3status killall -SIGUSR1 i3status
-set $volume_notify dunstify -u low -h string:x-dunst-stack-tag:my_volume "Volume: " -h int:value:"`pulsemixer --get-volume | awk '{printf $1}'`"
+set $volume_notify dunstify -a "some_volume_notifiers" -u low -h string:x-dunst-stack-tag:my_volume "Volume: " -h int:value:"`pulsemixer --get-volume | awk '{printf $1}'`"
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --unmute --change-volume +5 --max-volume 100 && $refresh_i3status && $volume_notify
 bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --unmute --change-volume -5 && $refresh_i3status && $volume_notify
 bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute && $refresh_i3status
@@ -58,15 +59,16 @@ bindsym $mod+Shift+c kill
 
 # start rofi (a program launcher)
 bindsym $mod+p exec --no-startup-id rofi -show drun
-bindsym $mod+o mode "rofi"
-mode "rofi" {
+set $rofi "[c]alc - [b]luetooth - [k]aomoji - [m]onitor - [p]ower - [w]all"
+bindsym $mod+Shift+p mode $rofi
+
+mode $rofi {
         bindsym c exec --no-startup-id rofi -show calc -modi calc -no-match-mathc -no-sort; mode "default"
         bindsym k exec --no-startup-id "$rofi_scripts/kaomoji.sh"; mode "default"
         bindsym p exec --no-startup-id "$rofi_scripts/rofi_power.sh"; mode "default"
         bindsym b exec --no-startup-id "$rofi_scripts/rofi_bluetooth.sh"; mode "default"
         bindsym m exec --no-startup-id "$rofi_scripts/monitor_layout.sh"; mode "default"
         bindsym w exec --no-startup-id "$HOME/bin/wall-d -R -f -b"; mode "default"
-        bindsym l exec --no-startup-id "$i3_scripts/layout_manager.sh"; mode "default"
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+o mode "default"
@@ -178,15 +180,15 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        position top
-        colors {
-                background #212122
-                statusline #ffffff
-        }
-        #height 20
-}
+#bar {
+#        status_command i3status
+#        position top
+#        colors {
+#                background #212122
+#                statusline #ffffff
+#        }
+#        #height 20
+#}
 
 
 # Gaps
@@ -229,10 +231,14 @@ for_window [title="Steam Keyboard"] floating enable
 for_window [class="SpeedCrunch"] floating enable resize set 640 480 move absolute position center
 for_window [class="SpeedCrunch"] move absolute position center
 for_window [title="volume_controll"] floating enable resize set 640 480
-for_window [title=".* - Java"] floating enable 
-for_window [title="Open With"] floating enable 
+for_window [title=".* - Java"] floating enable
+for_window [title="Open With"] floating enable
 for_window [title="Preferences"] floating enable
 for_window [class="Xephyr"] floating enable
+for_window [class="Blueberry.py"] floating enable
+for_window [class="Yad" title="yad-calendar"] floating enable
+for_window [title="Network Connections"] floating enable
+
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #39216d   #eec61f
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a

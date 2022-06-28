@@ -61,4 +61,6 @@
 (unpin! evil)
 (package! flycheck-posframe :pin "9113684")
 (package! modus-themes)
+(package! ini-mode)
+(package! config-general-mode)
 ;; (package! flycheck-posframe :pin "383b882")

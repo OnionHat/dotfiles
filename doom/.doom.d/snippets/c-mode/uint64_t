@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: uint64_t
+# key: ui64
+# --
+uint64_t $0

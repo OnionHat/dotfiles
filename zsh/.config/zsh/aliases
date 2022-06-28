@@ -97,3 +97,9 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
 # For when gpg keys break
 alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
+
+# git
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gf="git fetch origin"
