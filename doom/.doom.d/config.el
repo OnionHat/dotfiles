@@ -115,6 +115,15 @@
 
 (set-eglot-client! 'cc-mode '("ccls" "--init={\"index\": {\"threads\": 3}}"))
 
+;; ((javascript-mode
+;;   . ((eglot-workspace-configureation
+;;       . ((:javascript . (:format (:tabSize 4))))))))
+(add-hook 'rjsx-mode-hook
+          (lambda ()
+            (setq eglot-workspace-configuration
+                  '((:javascript . (:format (:tabSize 4)))))
+            (eglot-ensure)))
+
 (map! :map eglot-mode-map :n "TAB" 'completion-at-point)
 
 (setq eldoc-echo-area-use-multiline-p nil
@@ -126,9 +135,10 @@
   (setq vterm-module-cmake-args "-DUSE_SYSTEM_LIBVTERM=yes"))
 
 ;;; Hooks
-(setq-hook! '(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook) tab-width 4)  ; C/C++, java, python
+(setq-hook! '(c-mode-hook c++-mode-hook java-mode-hook python-mode-hook html-mode-hook) tab-width 4)  ; C/C++, java, python
 (setq-hook! '(c-mode-hook c++-mode-hook java-mode-hook) c-basic-offset 4)  ; C/C++, java
-
+(setq-hook! '(html-mode-hook) sgml-basic-offset 4)
+(setq-hook! '(rjsx-mode-hook) js2-basic-offset 4)
 ;; Latex
 (setq +latex-viewers '(zathura))
 (map! :map pdf-view-mode-map :n "drag-mouse-1" nil)
