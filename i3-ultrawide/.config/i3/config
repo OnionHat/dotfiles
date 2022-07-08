@@ -44,9 +44,9 @@ bindsym $mod+x exec betterlockscreen -l dimblur
 # floating volume panal
 bindsym $mod+c exec --no-startup-id "kitty --title volume_controll --override font_size=12 pulsemixer";  move absolute position center
 
-
 # toggle gaps on and off
-bindsym $mod+Shift+t exec $i3_scripts/toggle_gaps toggle
+bindsym $mod+Shift+t sticky toggle 
+#$i3_scripts/toggle_gaps toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

@@ -114,7 +114,9 @@
 ;;   (set-eglot-client! 'cc-mode '("ccls" "--init={\"index\": {\"threads\": 3}}")))
 
 (set-eglot-client! 'cc-mode '("ccls" "--init={\"index\": {\"threads\": 3}}"))
-
+;;
+;;(add-to-list 'eglot-server-programs '(c-mode . ("ccls" "--init={\"index\": {\"threads\": 3}}")))
+(add-hook 'c-mode-hook 'eglot-ensure)
 ;; ((javascript-mode
 ;;   . ((eglot-workspace-configureation
 ;;       . ((:javascript . (:format (:tabSize 4))))))))
